@@ -26,7 +26,7 @@
             <div class="container-text">
                 <div class="capa"></div>
                 
-                <h1 class="litle-description text-center">Sistema de Automatización Estudiantil ---SAE---</h1>
+                <h1 class="litle-description text-center"><?php echo COMPANY ?> ---SAE---</h1>
                 <p class="text-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
                     Praesentium eaque repellat beatae eligendi, placeat, qui veritatis voluptates 
                     architecto repellendus amet inventore? Nihil aspernatur repellat enim voluptatibus 
