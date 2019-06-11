@@ -7,7 +7,7 @@
 	
 	<?php include "views/modules/links.php"?> 
 </head>
-<body>
+<body background="<?php echo SERVER;?>views/assets/img/logo-utec-nuevo.png">
 
 	<?php
 		

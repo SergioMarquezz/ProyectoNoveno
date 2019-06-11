@@ -164,7 +164,10 @@
                 </div>
             </div>
             <div class="card-footer text-muted text-center">
-                Fecha de hoy <br> 4/06/2019
+                <?php 
+                    require_once "views/modules/fecha.php"; 
+                    echo $date;
+                ?>
             </div>
         </form>
     </div>

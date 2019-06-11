@@ -1,4 +1,46 @@
-<div class="container mt-5">
+<div class="container">
+    <div class="page-header">
+        <h4 class="text-titles mt-4"><i class="zmdi zmdi-bookmark"></i> Cobros Colegiaturas</h4>
+    </div>
+</div>
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li>
+            <div class="custom-control custom-radio">
+                <input type="radio" disabled class="custom-control-input" id="radio-aspirantes" name="tipo-colegiatura">
+                <label class="custom-control-label text-capitalize tipo" for="radio-aspirantes">
+                    <a href="<?php echo SERVER;?>registroaspirantes" id="aspirantes" class="text-dark">Registro de aspirantes</a>
+                </label>
+            </div>
+        </li>
+        <li>
+            <div class="custom-control custom-radio ml-1">
+                <input type="radio" disabled class="custom-control-input" id="radio-inscripcion" name="tipo-colegiatura">
+                <label class="custom-control-label tipo text-dark" for="radio-inscripcion">
+                    <a href="#" id="inscripcion" class="text-dark">Inscrpción</a>
+                </label>
+            </div>
+        <li>
+            <div class="custom-control custom-radio ml-1">
+                <input type="radio" disabled class="custom-control-input" id="radio-colegiatura" name="tipo-colegiatura">
+                <label class="custom-control-label tipo text-dark" for="radio-colegiatura">
+                    <a href="<?php echo SERVER?>colegiatura" id="colegiatura" class="text-dark">Colegiatura</a>
+                </label>
+            </div>
+        </li>
+        <li>
+            <div class="custom-control custom-radio ml-1">
+                <input type="radio" checked disabled class="custom-control-input" id="recibo-pago" name="tipo-colegiatura">
+                <label class="custom-control-label text-capitalize tipo" for="recibo-pago">
+                    <a href="<?php echo SERVER;?>pagocolegiatura" id="aspirantes" class="text-dark">Recibo De Pago</a>
+                </label>
+            </div>
+        </li>
+    </ul>
+</div>
+   
+<div class="container">
     <div class="card">
         <div class="card-header">
             <h5 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO RECIBO DE PAGO</h5>

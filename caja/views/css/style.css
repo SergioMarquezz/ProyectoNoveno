@@ -38,6 +38,10 @@
     font-size: 18px !important;
 }
 
+#btn-login{
+    background: linear-gradient(90deg, #0b1a53, #123a1d); 
+}
+
 
 
 /*parte derecha*/
@@ -130,7 +134,7 @@ nav {
 
 .redes-sociales{
 
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .genero, .niveles{

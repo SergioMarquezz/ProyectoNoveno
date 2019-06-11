@@ -4,7 +4,8 @@
 
         protected function obtenerViewsModels($views){
 
-            $lista_blanca = ["recibopago","principal", "conceptospago", "registroaspirantes", "colegiatura", "admin", "alumnos", "titulos", "listadmin", "adminsearch"] ;
+            $lista_blanca = ["recibopago","principal", "conceptospago", "registroaspirantes", "colegiatura", "admin", "alumnos", 
+                             "titulos", "listadmin", "adminsearch","misdatos"] ;
 
             if(in_array($views, $lista_blanca)){
 

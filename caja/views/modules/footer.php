@@ -1,25 +1,25 @@
 <footer class="page-footer font-small teal pt-4 mt-5">
   <div class="row justify-content-center container">
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-        <h5>Departamento De Sistemas y Soporte Técnico</h5>
+        <h6 class=" font-weight-bold">Departamento De Sistemas y Soporte Técnico</h6>
       </div>
   </div>
   <div class="container-fluid text-center text-md-left">
     <div class="row">
       <div class="col-md-6 mt-md-0 mt-3">
-        <h5 class="text-uppercase font-weight-bold">Universidad Tecnológica de Tulancingo</h5>
+        <h6 class="text-uppercase font-weight-bold">Universidad Tecnológica de Tulancingo</h6>
         <p class="pagina-utec">Pagina Oficial: <a href="https://www.utectulancingo.edu.mx/"  target="_blank" class="pagina-utec"> https://www.utectulancingo.edu.mx</a></p>
         <p class="pagina-utec"><a href="http://200.79.176.151/sigees/"  target="_blank" class="pagina-utec">Sistema de Gestión Escolar SIGES </a></p>
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
       <div class="col-md-6 mb-md-0 mb-3">
-        <h5 class="text-uppercase font-weight-bold"><?php echo COMPANY;?> --SAE--</h5>
+        <h6 class="text-uppercase font-weight-bold"><?php echo COMPANY;?> --SAE--</h6>
         <h6>Realizado por: Sergio Alberto Marquez Moreno</h6>
         <p class="pagina-utec">Contacto de asistencia: sergiomarquez@utectulancingo.edu.mx</p>
       </div>
     </div>
   </div>
-  <div class="footer-copyright text-center py-3 px-5">© 2019 Copyright
+  <div class="footer-copyright text-center py-3 px-5">© <?php require_once "views/modules/fecha.php"; echo $year;?>  Copyright
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-6">

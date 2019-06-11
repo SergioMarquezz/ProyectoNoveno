@@ -18,7 +18,7 @@
                             </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-block">Entrar</button>
+                    <button id="btn-login" type="submit" class="btn btn-block">Entrar</button>
                 </form>
         </div>
 
