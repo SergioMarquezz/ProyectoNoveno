@@ -91,6 +91,20 @@
 				</li>
 			</ul>
 		</li>
+		<hr class="border-bottom">
+		<li class="dropdown show">
+			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				<i class="zmdi zmdi-account-add zmdi-hc-fw text-white"></i> Reportes
+			</a>
+			<ul class="dropdown-menu">
+				<li>
+					<a href="<?php echo SERVER?>admin" class="text-white"><i class="zmdi zmdi-account zmdi-hc-fw text-white"></i> Administradores</a>
+				</li>
+				<li>
+					<a href="<?php echo SERVER?>alumnos" class="text-white"><i class="zmdi zmdi-male-female zmdi-hc-fw text-white"></i> Alumnos</a>
+				</li>
+			</ul>
+		</li>
 	</ul>
     
   </ul>

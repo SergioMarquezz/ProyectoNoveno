@@ -1,7 +1,7 @@
 <div class="container mt-5">
     <div class="card">
-        <div class="card-header">
-            <h5 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO RECIBO DE PAGO</h5>
+        <div class="card-header text-white" style="background: #0b1a53;">
+            <i class="zmdi zmdi-plus"></i> &nbsp; NUEVO RECIBO DE PAGO
         </div>
         <div class="card-body">
             <form action="" method="post">

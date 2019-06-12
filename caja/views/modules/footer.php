@@ -1,7 +1,7 @@
 <footer class="page-footer font-small teal pt-4 mt-5">
   <div class="row justify-content-center container">
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-        <h6 class=" font-weight-bold">Departamento De Sistemas y Soporte Técnico</h6>
+        <h6 class="text-uppercase font-weight-bold text-center">Departamento De Sistemas y Soporte Técnico</h6>
       </div>
   </div>
   <div class="container-fluid text-center text-md-left">

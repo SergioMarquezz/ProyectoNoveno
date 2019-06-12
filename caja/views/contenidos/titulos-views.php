@@ -6,8 +6,8 @@
 
 <div class="container">
     <div class="card">
-        <div class="card-header">
-            <h5 class="panel-title"><i class="zmdi zmdi-plus"></i> &nbsp; NUEVO RECIBO DE PAGO</h5>
+        <div class="card-header text-white" style="background: #0b1a53;">
+            <i class="zmdi zmdi-plus"></i> &nbsp; NUEVO RECIBO DE PAGO
         </div>
         <div class="card-body">
             <form action="" >
@@ -31,7 +31,7 @@
                         </div>
                     </div>
                     <div class="col-xl-3 col-lg-3 col-md-3 col-sm-12 mt-4">
-                        <button class="btn btn-success" id="selecion-concepto" data-toggle="modal" data-target="#modal1">Listado de personas</button>
+                        <button class="btn btn-success" id="selecion-concepto" data-toggle="modal" data-target="#modal1">Lista de personas</button>
                     </div>
                 </div>
                 <div class="row">
