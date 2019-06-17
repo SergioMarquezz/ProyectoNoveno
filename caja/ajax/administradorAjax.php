@@ -44,7 +44,19 @@
 
             echo MainModel::alerts($message);
 
-        }elseif($_POST['name-user'] == "" || $_POST['email'] == "" || $_POST['password'] == "" || $_POST['confirm-password'] == ""){
+        }elseif($_POST['genero'] == false){
+
+            $message = [
+                "Alert"=>"simple",
+                "Title"=>"Error de genero",
+                "Text"=>"Por favor seleccione su genero (Masculino o Femenino)",
+                "Type"=>"error"
+            ];
+
+            echo MainModel::alerts($message);
+        }
+        
+        elseif($_POST['name-user'] == "" || $_POST['email'] == "" || $_POST['password'] == "" || $_POST['confirm-password'] == ""){
 
             $message = [
                 "Alert"=>"simple",
@@ -56,11 +68,22 @@
             echo MainModel::alerts($message);
 
         }
+        elseif($_POST['niveles'] == false){
+
+            $message = [
+                "Alert"=>"simple",
+                "Title"=>"Nivel de privilegios sin asignar",
+                "Text"=>"Por favor asigne permisos al administrador del sistema",
+                "Type"=>"error"
+            ];
+
+            echo MainModel::alerts($message);
+
+        }
         else{
             //Se llama al metodo del controlador para agregar al administrador
             echo $ins_admin->agregarAdministradorControlador();
 
-            
         }
 
     }else{

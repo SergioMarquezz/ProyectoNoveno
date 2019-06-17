@@ -6,7 +6,8 @@ $(document).ready(function(){
 		e.preventDefault();
 	});
 	enviarForms();
-	salir();
+    salir();
+    validarSoloNumbers();
 });
 (jQuery);
 
@@ -99,6 +100,18 @@ function enviarForms(){
             });
             return false;
         });
+    });
+}
+
+
+function validarSoloNumbers(){
+
+    $("#celular").keypress(function (e) { 
+        
+        if(event.charCode >= 48 && event.charCode <= 57){
+            return true;
+           }
+           return false;      
     });
 }
 

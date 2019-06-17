@@ -30,7 +30,7 @@
             $tipo_cuenta = $data['tipo_cuenta'];
 
             $sql_connection = MainModel::connection();
-            $declaration = "EXEC insertar '$codigo','$privilegio','$name','$paterno','$materno','$calle','$col','$number','$celular','$sexo','$user','$pass','$email','$activo','$tipo_cuenta'";
+            $declaration = "EXEC caja.sitemas.insertar '$codigo','$privilegio','$name','$paterno','$materno','$calle','$col','$number','$celular','$sexo','$user','$pass','$email','$activo','$tipo_cuenta'";
             $response = odbc_exec($sql_connection, $declaration) or die (odbc_errormsg());
 
             return $response;

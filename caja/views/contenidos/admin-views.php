@@ -71,8 +71,8 @@
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control" name="numero">
-                            <label for="form1">Numero</label>
+                            <input type="text" maxlength="3" id="celular" class="form-control" name="numero">
+                            <label for="celular">Numero</label>
                         </div> 
                     </div>
                 </div>
@@ -116,13 +116,13 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control" name="password">
+                            <input type="password" id="form1" class="form-control" name="password">
                             <label for="form1">Contraseña</label>
                         </div> 
                     </div>
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control" name="confirm-password">
+                            <input type="password" id="form1" class="form-control" name="confirm-password">
                             <label for="form1">Repite tu contraseña</label>
                         </div> 
                     </div>
