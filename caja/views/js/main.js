@@ -42,6 +42,8 @@ function enviarForms(){
         var metodo=form.attr('method');
         var respuesta=form.children('.RespuestaAjax');
 
+        var name = $("#nombre-admin").val();
+
         var msjError="<script>swal('Ocurrió un error inesperado','Por favor recargue la página','error');</script>";
         var formdata = new FormData(this);
  

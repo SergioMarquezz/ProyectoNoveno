@@ -38,20 +38,20 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control" name="name-admin">
-                            <label for="form1">Nombre(s)</label>
+                            <input type="text" id="nombre-admin" class="form-control" name="name-admin">
+                            <label for="nombre-admin">Nombre(s)</label>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control" name="paterno-admin">
-                            <label for="form1">Apellido Paterno</label>
+                            <input type="text" id="apellidoP-admin" class="form-control" name="paterno-admin">
+                            <label for="apellidoP-admin">Apellido Paterno</label>
                         </div>
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control" name="materno-admin">
-                            <label for="form1">Apellido Materno</label>
+                            <input type="text" id="apellidoM-admin" class="form-control" name="materno-admin">
+                            <label for="apellidoM-admin">Apellido Materno</label>
                         </div>
                     </div>
                 </div>
@@ -59,19 +59,19 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control">
+                            <input type="text" id="form1" class="form-control" name="calle">
                             <label for="form1">Calle</label>
                         </div> 
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control">
+                            <input type="text" id="form1" class="form-control" name="colonia">
                             <label for="form1">Colonia</label>
                         </div> 
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control">
+                            <input type="text" id="form1" class="form-control" name="numero">
                             <label for="form1">Numero</label>
                         </div> 
                     </div>
@@ -80,7 +80,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="md-form">
-                            <input type="tel" id="form1" class="form-control">
+                            <input type="tel" id="form1" class="form-control" name="celular">
                             <label for="form1">Telefono Personal</label>
                         </div> 
                     </div>                                
@@ -89,11 +89,11 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="defaultExampleRadios">
+                            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="genero" value="Femenino" checked="">
                             <label class="custom-control-label genero" for="defaultUnchecked">  <i class="zmdi zmdi-female"></i> &nbsp;Femenino</label>
                         </div>
                         <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="defaultExampleRadios">
+                            <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="genero" value="Masculino">
                             <label class="custom-control-label genero" for="defaultUnchecked1">   <i class="zmdi zmdi-male-alt"></i> &nbsp;Masculino</label>
                         </div>
                     </div>
@@ -102,13 +102,13 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control">
+                            <input type="text" id="form1" class="form-control" name="name-user">
                             <label for="form1">Nombre de usuario</label>
                         </div> 
                     </div>
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="email" id="form1" class="form-control">
+                            <input type="email" id="form1" class="form-control" name="email">
                             <label for="form1">Correo Electronico De La Universidad</label>
                         </div> 
                     </div>
@@ -116,13 +116,13 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control">
+                            <input type="text" id="form1" class="form-control" name="password">
                             <label for="form1">Contraseña</label>
                         </div> 
                     </div>
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control">
+                            <input type="text" id="form1" class="form-control" name="confirm-password">
                             <label for="form1">Repite tu contraseña</label>
                         </div> 
                     </div>
@@ -160,7 +160,7 @@
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="defaultUncheckedd" name="defaultExampleRadios">
+                                        <input type="radio" class="custom-control-input" id="defaultUncheckedd" name="niveles" value="1">
                                         <label class="custom-control-label niveles" for="defaultUncheckedd"><i class="zmdi zmdi-star"></i> &nbsp;Nivel 1</label>
                                     </div>
                                 </div>
@@ -168,7 +168,7 @@
                             <div class="row">
                                 <div class="col-xl-12 mt-3">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="defaultUnchecke" name="defaultExampleRadios">
+                                        <input type="radio" class="custom-control-input" id="defaultUnchecke" name="niveles" value="2">
                                         <label class="custom-control-label niveles" for="defaultUnchecke"><i class="zmdi zmdi-star"></i> &nbsp;Nivel 2</label>
                                     </div>
                                 </div>
@@ -176,7 +176,7 @@
                             <div class="row">
                                 <div class="col-xl-12 mt-3">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="defaultUncheckeddd" name="defaultExampleRadios">
+                                        <input type="radio" class="custom-control-input" id="defaultUncheckeddd" name="niveles" value="3">
                                         <label class="custom-control-label niveles" for="defaultUncheckeddd"><i class="zmdi zmdi-star"></i> &nbsp;Nivel 3</label>
                                     </div>
                                 </div>

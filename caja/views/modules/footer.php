@@ -13,7 +13,7 @@
       </div>
       <hr class="clearfix w-100 d-md-none pb-3">
       <div class="col-md-6 mb-md-0 mb-3">
-        <h6 class="text-uppercase font-weight-bold"><?php echo COMPANY;?> --SAE--</h6>
+        <h6 class="text-uppercase font-weight-bold"><?php echo COMPANY;?></h6>
         <h6>Realizado por: Sergio Alberto Marquez Moreno</h6>
         <p class="pagina-utec">Contacto de asistencia: sergiomarquez@utectulancingo.edu.mx</p>
       </div>

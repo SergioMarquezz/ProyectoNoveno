@@ -3,14 +3,13 @@
     if($peticion){
         require_once "../core/configApp.php";
     }else{
-        require_once "configApp.php";
+        require_once "./configApp.php";
     }
 
     class MainModel{
 
         protected function connection(){
 
-           // $connection = odbc_connect(SGBD, USER, PASS);
             $connection = odbc_connect(SGBD, USER, PASS);
             return $connection;
 
@@ -18,9 +17,7 @@
 
         protected function executeQuery($query){
 
-            $connect = self::connection();
-            $execute = odbc_exec($connect,$query);
-
+            $execute = odbc_exec(self::connection(),$query);
             return $execute;
         }
 
@@ -79,7 +76,7 @@
             return $string;
         }
 
-        protected function alerts($data){
+        public function alerts($data){
 
             if($data['Alert'] == "simple"){
 
