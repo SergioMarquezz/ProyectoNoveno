@@ -102,7 +102,7 @@
                             $message = [
                                 "Alert"=>"clear",
                                 "Title"=>"Registro Satisfactorio",
-                                "Text"=>"El administrador se ah registrado en el sistema",
+                                "Text"=>"El administrador se registro con exito en el sistema",
                                 "Type"=>"success"
                             ];
                         }else{

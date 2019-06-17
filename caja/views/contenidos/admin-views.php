@@ -89,7 +89,7 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="genero" value="Femenino" checked="">
+                            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="genero" value="Femenino">
                             <label class="custom-control-label genero" for="defaultUnchecked">  <i class="zmdi zmdi-female"></i> &nbsp;Femenino</label>
                         </div>
                         <div class="custom-control custom-radio">
