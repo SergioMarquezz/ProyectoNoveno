@@ -98,7 +98,7 @@
 
 /*Estilos Navbar*/
 
-nav {
+#navbar {
     background-color: #0b1a53 !important;
 }
 
@@ -145,4 +145,8 @@ nav {
     background-color: red;
     color: #ffffff;
    
+}
+
+#paginacion{
+    background-color: #ffffff !important;
 }

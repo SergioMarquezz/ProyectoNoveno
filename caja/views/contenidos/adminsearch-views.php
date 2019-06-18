@@ -2,7 +2,6 @@
     <div class="page-header">
         <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> <small> Usuarios Administradores</small></h1>
     </div>
- 
 </div>
 
 <div class="d-flex justify-content-around container-fluid">

@@ -29,7 +29,7 @@
 <div class="container">
     <div class="card">
         <div class="card-header text-white" style="background: #0b1a53;">
-        <i class="zmdi zmdi-plus text-white"></i> &nbsp; NUEVO ADMINISTRADOR
+            <i class="zmdi zmdi-plus text-white"></i> &nbsp; NUEVO ADMINISTRADOR
         </div>
         <div class="card-body">
             <form action="<?php echo SERVER?>ajax/administradorAjax.php" data-form="save" method="POST" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
@@ -59,20 +59,20 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control" name="calle">
-                            <label for="form1">Calle</label>
+                            <input type="text" id="streen" class="form-control" name="calle">
+                            <label for="streen">Calle</label>
                         </div> 
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control" name="colonia">
-                            <label for="form1">Colonia</label>
+                            <input type="text" id="col" class="form-control" name="colonia">
+                            <label for="col">Colonia</label>
                         </div> 
                     </div>
                     <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                         <div class="md-form">
-                            <input type="text" maxlength="3" id="celular" class="form-control" name="numero">
-                            <label for="celular">Numero</label>
+                            <input type="text" maxlength="3" id="address" class="form-control" name="numero">
+                            <label for="address">Numero</label>
                         </div> 
                     </div>
                 </div>
@@ -80,8 +80,8 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="md-form">
-                            <input type="tel" id="form1" class="form-control" name="celular">
-                            <label for="form1">Telefono Personal</label>
+                            <input type="tel" maxlength="10" id="telefono" class="form-control" name="celular">
+                            <label for="telefono">Telefono Personal</label>
                         </div> 
                     </div>                                
                 </div>
@@ -102,28 +102,28 @@
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="text" id="form1" class="form-control" name="name-user">
-                            <label for="form1">Nombre de usuario</label>
+                            <input type="text" id="nombre-user" class="form-control" name="name-user">
+                            <label for="nombre-user">Nombre de usuario</label>
                         </div> 
                     </div>
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="email" id="form1" class="form-control" name="email">
-                            <label for="form1">Correo Electronico De La Universidad</label>
+                            <input type="email" id="correo" class="form-control" name="email">
+                            <label for="correo">Correo Electronico De La Universidad</label>
                         </div> 
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="password" id="form1" class="form-control" name="password">
-                            <label for="form1">Contraseña</label>
+                            <input type="password" id="pass" class="form-control" name="password">
+                            <label for="pass">Contraseña</label>
                         </div> 
                     </div>
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="password" id="form1" class="form-control" name="confirm-password">
-                            <label for="form1">Repite tu contraseña</label>
+                            <input type="password" id="pass-confirm" class="form-control" name="confirm-password">
+                            <label for="pass-confirm">Repite tu contraseña</label>
                         </div> 
                     </div>
                 </div>
