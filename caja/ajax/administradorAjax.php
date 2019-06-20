@@ -1,5 +1,5 @@
 <?php
-    //TODO:Falta validacion de radiosButtons
+   
     $peticion = true;
     require_once "../core/mainModel.php";
 

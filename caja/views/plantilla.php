@@ -8,10 +8,11 @@
 	<?php include "views/modules/links.php"?> 
 </head>
 <body background="<?php echo SERVER;?>views/assets/img/logo-utec-nuevo.png">
+<?php  require_once "views/modules/script.php";?>
 
 	<?php
 		
-		//$peticion = false;
+		$peticion = false;
 	
 
 		require_once "controllers/viewsControllers.php";
@@ -29,7 +30,7 @@
 			}
 		
 		else:
-			session_start();
+			session_start(['name' => 'ADMIN']);
 	?>
 
 	<!-- SideBar -->
@@ -47,8 +48,9 @@
 	</section>
 
 	<?php  endif?>
+	
 	<!--====== Scripts -->
-	<?php  require_once "views/modules/script.php";?>
+	
 	
 </body>
 

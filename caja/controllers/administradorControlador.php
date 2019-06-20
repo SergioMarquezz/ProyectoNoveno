@@ -8,7 +8,7 @@
         public function agregarAdministradorControlador(){   
             
             //Declaracion de variables limpiando las cadenas
-            $privilegio = MainModel::clearString(   );
+            $privilegio = MainModel::clearString($_POST['niveles']);
             $name_admin = MainModel::clearString($_POST['name-admin']);
             $paterno_admin =  MainModel::clearString($_POST['paterno-admin']);
             $materno_admin =  MainModel::clearString($_POST['materno-admin']);

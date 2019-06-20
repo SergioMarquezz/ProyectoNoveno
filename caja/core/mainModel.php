@@ -3,12 +3,12 @@
     if($peticion){
         require_once "../core/configApp.php";
     }else{
-        require_once "./configApp.php";
+       "./configApp.php";
     }
 
     class MainModel{
 
-        protected function connection(){
+        public function connection(){
 
             $connection = odbc_connect(SGBD, USER, PASS);
             return $connection;

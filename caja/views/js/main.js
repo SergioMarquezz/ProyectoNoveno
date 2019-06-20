@@ -4,7 +4,13 @@ $(document).ready(function(){
 
 	$("#selecion-concepto").click(function (e) { 
 		e.preventDefault();
-	});
+    });
+    
+    /*$("#btn-login").click(function (e) { 
+        e.preventDefault();
+        
+    });*/
+
 	enviarForms();
     salir();
 });
