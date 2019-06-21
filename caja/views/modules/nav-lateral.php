@@ -1,5 +1,13 @@
 
-<?php include "navbar.php"?>
+<?php 
+include "navbar.php";
+
+if(!session_id()){
+	session_start();
+}
+
+
+?>
 
   <ul id="slide-out" class="sidenav"> <!--sidenav-fixed-->
     <li><div class="user-view">
@@ -8,7 +16,7 @@
         <img src="<?php echo SERVER;?>views/assets/img/fondo-azul.jpg">
       </div>
       <a href="#user"><img class="circle" src="<?php echo SERVER;?>views/assets/img/logoHalcon.jpg"></a>
-      <a href="#name"><span class="white-text name">Sergio Alberto Marquez Moreno</span></a>
+      <a href="#name"><span class="white-text name"><?php echo $_SESSION['name_admin']?></span></a>
       <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
       <a href="<?php echo SERVER ?>misdatos" title="Mis datos" class="text-white ml-5">
 				<i class="zmdi zmdi-account-circle"></i>

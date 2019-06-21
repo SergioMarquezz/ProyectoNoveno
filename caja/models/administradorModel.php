@@ -38,6 +38,10 @@
            
         }
 
+        protected function datosSession(){
+
+        }
+
     }
 
 ?>

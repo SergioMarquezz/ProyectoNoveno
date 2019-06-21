@@ -2,12 +2,55 @@ $(document).ready(function () {
     
     validarSoloNumbersLetters();
     //cargarTabla();
+    iniciarSession();
 });
 
 
 function cargarTabla(){
 
     $("#dt-admin").DataTable();
+}
+
+function iniciarSession(){
+
+    $("#btn-login").click(function (e) { 
+        e.preventDefault();
+        
+        var user = $("#usuario").val();
+        var pass = $("#contrasenia").val();
+
+        $.ajax({
+            type: "POST",
+            url: "ajax/loginAjax.php",
+            data: {
+                "usuario-login": user,
+                "usuario-pass": pass
+            },
+            success: function (response) {
+                
+                if(response == "Administrador"){
+                    swal({
+                        title: "Acceso correcto",
+                        text: "<strong>Tus credenciales que ingresaste son correctas, puedes entrar al sistema</strong>",
+                        type: 'success',
+                        confirmButtonColor: '#03A9F4',
+                        confirmButtonText: ' Aceptar'
+                  }).then(function () {
+                      window.location.href="principal";
+                  });
+                }else{
+
+                    swal({
+                        title: "Problemas al iniciar sesión",
+                        text: "El nombre de usuario y contraseña no son correctos o tu cuenta puede estas desabilitada",
+                        type: 'error',
+                        confirmButtonColor: '#03A9F4',
+                        confirmButtonText: ' Aceptar!'
+                  })
+                }
+            }
+        });
+    });
 }
 
 

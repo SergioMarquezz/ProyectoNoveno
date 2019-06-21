@@ -3,7 +3,7 @@
         <div class="container-form">
             <img src="<?php echo SERVER;?>views/assets/img/utec.jpg" alt="" class="logo">
             <h1 class="title">Iniciar Sesión</h1>
-                <form action="<?php echo SERVER?>ajax/loginAjax.php" method="POST" autocomplete="off" class="Ajax">
+                <form action="" method="POST" autocomplete="off" class="Ajax">
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                             <div class="md-form">
