@@ -36,6 +36,11 @@ if(!session_id()){
 			</a>
 		</li>
 		<li>
+			<a href="<?php echo SERVER ?>bancos" class="text-white">
+				<i class="zmdi zmdi-view-dashboard zmdi-hc-fw text-white"></i> Bancos
+			</a>
+		</li>
+		<li>
 			<a href="<?php echo SERVER ?>recibopago" class="text-white">
 				<i class="zmdi zmdi-view-dashboard zmdi-hc-fw text-white"></i> Recibo de pago
 			</a>

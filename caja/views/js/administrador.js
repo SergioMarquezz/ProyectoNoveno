@@ -67,7 +67,7 @@ function validarSoloNumbersLetters(){
     });
     
     //Solo letras
-    $("#nombre-admin, #apellidoP-admin, #apellidoM-admin, #streen, #col, #nombre-user").keypress(function (e) { 
+    $("#nombre-admin, #apellidoP-admin, #apellidoM-admin, #streen, #col, #nombre-user, #usuario").keypress(function (e) { 
         
         if(event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32){
             return true;

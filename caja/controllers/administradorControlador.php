@@ -122,6 +122,14 @@
 
             return MainModel::alerts($message);
         }
+
+        public function datosSessionController($tipo, $codigo){
+
+            $codigo = MainModel::decryption($codigo);
+            $tipo = MainModel::clearString($tipo);
+
+            return AdministradorModelo::datosSessionModel($tipo,$codigo);
+        }
     }
 
 

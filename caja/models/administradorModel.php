@@ -38,8 +38,17 @@
            
         }
 
-        protected function datosSession(){
+        protected function datosSessionModel($tipo, $codigo){
 
+            if($tipo == "Unico"){
+
+                $connect = MainModel::connection();
+                $query = MainModel::executeQuery("SELECT * FROM caja.sitemas.administradores WHERE cuenta_codigo = '$codigo'");
+
+                return $query;
+            }else{
+
+            }
         }
 
     }
