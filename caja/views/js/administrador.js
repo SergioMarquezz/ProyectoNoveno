@@ -3,6 +3,7 @@ $(document).ready(function () {
     validarSoloNumbersLetters();
     //cargarTabla();
     iniciarSession();
+    
 });
 
 
@@ -75,3 +76,5 @@ function validarSoloNumbersLetters(){
            return false;
     });
 }
+
+

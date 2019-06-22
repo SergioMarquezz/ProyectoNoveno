@@ -5,3 +5,4 @@
 <script src="<?php echo SERVER; ?>views/js/sweetalert2.min.js"></script> <!--Plugin para las alertas-->
 <script src="<?php echo SERVER; ?>views/js/main.js"></script> <!--Script del programador-->
 <script src="<?php echo SERVER; ?>views/js/administrador.js"></script>
+

@@ -1,3 +1,8 @@
+<script src="<?php echo SERVER; ?>views/js/highcharts.js"></script>
+<script src="<?php echo SERVER; ?>views/js/data.js"></script>
+<script src="<?php echo SERVER; ?>views/js/drilldown.js"></script>
+
+
 <div class="container">
     <div class="page-header">
        <h1 class="text-titles"><small>Información General</small></h1>
@@ -56,6 +61,8 @@
         </div>
     </div>        
 </article>
+
+<div id="container" style="width:100%; height:400px;"></div>
 
 <?php require_once "views/modules/footer.php";?>
 
