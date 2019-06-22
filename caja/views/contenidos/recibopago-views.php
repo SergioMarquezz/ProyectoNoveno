@@ -1,3 +1,6 @@
+<?php
+    require_once "ajax/verificarSession.php";
+?>
 <div class="container title-container">
     <div class="card">
         <div class="card-header text-white" style="background: #0b1a53;">

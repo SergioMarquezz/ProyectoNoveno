@@ -26,7 +26,14 @@ function salir(){
 		  	confirmButtonText: '<i class="zmdi zmdi-run"></i> Si, Salir!',
 		  	cancelButtonText: '<i class="zmdi zmdi-close-circle"></i> No, Cancelar!'
 		}).then(function () {
-			window.location.href="index.php";
+
+            $.ajax({
+                url: "ajax/cerrarSessionAjax.php",
+                success: function (response) {
+                    
+                }
+            });
+			//window.location.href="index.php";
 		});
 	});
 }

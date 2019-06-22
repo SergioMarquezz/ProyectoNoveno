@@ -1,7 +1,9 @@
+<?php
+    require_once "ajax/verificarSession.php";
+?>
 <script src="<?php echo SERVER; ?>views/js/highcharts.js"></script>
 <script src="<?php echo SERVER; ?>views/js/data.js"></script>
 <script src="<?php echo SERVER; ?>views/js/drilldown.js"></script>
-
 
 <div class="container title-container">
     <div class="page-header">

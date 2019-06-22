@@ -31,4 +31,11 @@
 
             
         }
+
+        public function forzarCierreSessionControlador(){
+
+            session_destroy();
+
+            return header("Locaction: ".SERVER."login");
+        }
     }

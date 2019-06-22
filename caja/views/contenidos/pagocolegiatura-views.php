@@ -1,3 +1,6 @@
+<?php
+    require_once "ajax/verificarSession.php";
+?>
 <div class="container">
     <div class="page-header">
         <h4 class="text-titles mt-4"><i class="zmdi zmdi-bookmark"></i> Cobros Colegiaturas</h4>

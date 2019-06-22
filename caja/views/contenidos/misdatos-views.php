@@ -1,3 +1,6 @@
+<?php
+    require_once "ajax/verificarSession.php";
+?>
 <div class="container">
     <div class="page-header">
         <h1 class="text-titles"><i class="zmdi zmdi-account-circle zmdi-hc-fw"></i> <small> MIS DATOS</small></h1>

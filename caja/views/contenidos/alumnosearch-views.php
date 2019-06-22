@@ -1,3 +1,6 @@
+<?php
+    require_once "ajax/verificarSession.php";
+?>
 <div class="container title-container">
     <div class="page-header">
         <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> <small> Usuarios Alumnos</small></h1>

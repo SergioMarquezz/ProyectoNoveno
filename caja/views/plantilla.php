@@ -30,6 +30,12 @@
 		
 		else:
 			session_start();
+			
+
+			if(!isset($_SESSION['name_admin']) || !isset( $_SESSION['name_user'])){
+
+			//	require_once "../ajax/cerrarSessionAjax.php";
+			}
 	?>
 
 	<!-- SideBar -->

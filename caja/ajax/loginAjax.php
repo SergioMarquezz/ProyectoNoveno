@@ -2,7 +2,7 @@
   
 
     $peticion = true;
-
+    
     if($peticion){
 
         require_once "../core/mainModel.php";
@@ -32,6 +32,7 @@
         $tipo_user = odbc_result($response,"tipo_cuenta");
         $privilegio_user = odbc_result($response,"privilegio");
         $cuenta_codigo = odbc_result($response,"cuenta_codigo");
+        $name_user = odbc_result($response,"nombre_user");
 
         session_start();
 
@@ -39,6 +40,7 @@
         $_SESSION['tipo_admin'] = $tipo_user;
         $_SESSION['privilegio_admin'] = $privilegio_user;
         $_SESSION['cuenta_codigo_admin'] = $cuenta_codigo;
+        $_SESSION['name_user'] = $name_user;
 
         if($tipo_user == 'Administrador'){
 
