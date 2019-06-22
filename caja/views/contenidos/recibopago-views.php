@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container title-container">
     <div class="card">
         <div class="card-header text-white" style="background: #0b1a53;">
             <i class="zmdi zmdi-plus"></i> &nbsp; NUEVO RECIBO DE PAGO

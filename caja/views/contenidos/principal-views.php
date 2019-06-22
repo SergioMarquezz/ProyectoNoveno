@@ -3,7 +3,7 @@
 <script src="<?php echo SERVER; ?>views/js/drilldown.js"></script>
 
 
-<div class="container">
+<div class="container title-container">
     <div class="page-header">
        <h1 class="text-titles"><small>Información General</small></h1>
     </div>

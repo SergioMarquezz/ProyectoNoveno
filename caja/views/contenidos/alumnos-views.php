@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container title-container">
     <div class="page-header">
         <h1 class="text-titles"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> <small> Usuarios Alumnos</small></h1>
     </div>

@@ -8,6 +8,7 @@ $(document).ready(function(){
     
 	enviarForms();
     salir();
+
 });
 (jQuery);
 
@@ -163,6 +164,15 @@ Highcharts.chart('container', {
     }]
 });
 
+
+
+/*$(window).scroll(function () { 
+
+    if($(window).scrollTop()<10){
+        $("#navbar").addClass('fixed-top');
+    }
+    
+});*/
 
 
 

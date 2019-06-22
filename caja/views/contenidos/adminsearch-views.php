@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container title-container">
     <div class="page-header">
         <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> <small> Usuarios Administradores</small></h1>
     </div>
