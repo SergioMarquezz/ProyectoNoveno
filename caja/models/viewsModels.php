@@ -6,7 +6,7 @@
 
             //Rutas para acceder al sistema
             $lista_blanca = ["recibopago","principal", "conceptospago", "registroaspirantes", "colegiatura", "admin", "alumnos", 
-                             "titulos", "listadmin", "adminsearch","misdatos", "bancos"] ;
+                             "titulos", "listadmin", "adminsearch","misdatos", "bancos", "inscripcion", "alumnosearch"] ;
 
             //Se verifica que la ruta que se le pase a la url se encuentre en el array                  
             if(in_array($views, $lista_blanca)){

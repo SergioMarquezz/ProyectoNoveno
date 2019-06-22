@@ -70,10 +70,10 @@ if(!session_id()){
 			</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="<?php echo SERVER ?>registroaspirantes" class="dropdown-item text-white" href="#"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Registro de aspisrantes</a>
+					<a href="<?php echo SERVER ?>registroaspirantes" class="dropdown-item text-white"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Registro de aspisrantes</a>
 				</li>
 				<li>
-					<a href="#" class="dropdown-item text-white" href="#"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Inscripción</a>
+					<a href="<?php echo SERVER ?>inscripcion" class="dropdown-item text-white"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Inscripción</a>
 				</li>
 				<li>
 					<a href="<?php echo SERVER ?>colegiatura" class="dropdown-item text-white" href="#"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Reinscripción</a>
