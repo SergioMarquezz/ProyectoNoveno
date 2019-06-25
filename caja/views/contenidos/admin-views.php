@@ -1,22 +1,6 @@
 <?php
-   // require_once "ajax/verificarSession.php";
-   include "../core/configGeneral.php";
+    require_once "ajax/verificarSession.php";
 ?>
-
-<!DOCTYPE html>
-<html lang="eS">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo ACRONYM;?> | ADMIN</title>
-    <?php include "includes/links.php"?> 
-</head>
-<header>
-    <?php include "includes/nav-lateral.php"?> 
-
-</header>
-<body>
 <div class="container title-container">
     <div class="page-header">
         <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> <small> Usuarios Administradores</small></h1>
@@ -216,15 +200,11 @@
         </div>
         <div class="card-footer text-muted text-center mt-5">
             <?php 
-                require_once "includes/fecha.php"; 
+                require_once "views/modules/fecha.php"; 
                 echo $date;
             ?>
         </div>
     </div>
 </div>
 
-    
-</body>
-<?php require_once "includes/footer.php"?>
-<?php  require_once "includes/script.php";?>
-</html>
+<?php require_once "views/modules/footer.php"?>

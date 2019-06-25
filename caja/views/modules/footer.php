@@ -1,7 +1,3 @@
-<?php 
-  require_once "../core/configGeneral.php";
-
-?>
 <footer class="page-footer font-small teal pt-4 mt-5">
   <div class="row justify-content-center container">
       <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
@@ -23,7 +19,7 @@
       </div>
     </div>
   </div>
-  <div class="footer-copyright text-center py-3 px-5">© <?php require_once "fecha.php"; echo $year;?>  Copyright
+  <div class="footer-copyright text-center py-3 px-5">© <?php require_once "views/modules/fecha.php"; echo $year;?>  Copyright
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-xl-6">

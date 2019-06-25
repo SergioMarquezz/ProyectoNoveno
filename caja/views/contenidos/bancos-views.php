@@ -1,22 +1,6 @@
 <?php
-  //  require_once "ajax/verificarSession.php";
-  include "../core/configGeneral.php";
-  
+    require_once "ajax/verificarSession.php";
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo ACRONYM;?> | BANCOS</title>
-    <?php include "includes/links.php"?> 
-</head>
-<header>
-    <?php include "includes/nav-lateral.php"?> 
-</header>
-<body background="<?php echo SERVER;?>/views/img/logo-utec-nuevo.png">
 
 <div class="container title-container">
     <div class="page-header">
@@ -80,7 +64,7 @@
         </div>
         <div class="card-footer text-muted text-center mt-5">
             <?php 
-                require_once "includes/fecha.php"; 
+                require_once "views/modules/fecha.php"; 
                 echo $date;
             ?>
         </div>
@@ -91,9 +75,9 @@
   <h4 class="text-white text-center mt-3">Bancos registrados</h4>
         <div class="modal-content modal-dialog cascading-modal modal-avatar">
             <div class="modal-header">
-                <img src="img/logoHalcon.jpg" alt="avatar" class="rounded-circle img-responsive">
+                <img src="<?php echo SERVER;?>views/assets/img/logoHalcon.jpg" alt="avatar" class="rounded-circle img-responsive">
             </div>
-            <select class="browser-default custom-select" id="bancos">
+            <select class="browser-default custom-select">
                 <option selected disabled>Elije una opción</option>
                 <option value="1">One</option>
             </select>
@@ -126,9 +110,4 @@
            </div>
        </div> 
   </div>
-  <?php require_once "includes/footer.php";?>
-  <?php  require_once "includes/script.php";?>
-    
-</body>
-</html>
-
+  <?php require_once "views/modules/footer.php";?>

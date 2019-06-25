@@ -2,9 +2,10 @@
 <?php 
 include "navbar.php";
 
-/*if(!session_id()){
+
+if(!session_id()){
 	session_start();
-	include "models/mainModel.php";
+
 
 }
 
@@ -12,20 +13,19 @@ if( $_SESSION['tipo_admin'] == "Administrador"){
 		
 	$tipo_user = "admin";
 }
-
 else{
 
 	$tipo_user = "alumno";
-}*/
+}
 ?>
 
   <ul id="slide-out" class="sidenav"> <!--sidenav-fixed-->
     <li><div class="user-view">
-    <h6 class="mb-4 text-center text-white mt-5"><?php echo COMPANY; ?></h6>
+    <h6 class="mb-4 text-center text-white"><?php echo COMPANY; ?></h6>
       <div class="background">
         <img src="<?php echo SERVER;?>views/assets/img/fondo-azul.jpg">
       </div>
-      <a href=""><img class="circle" src="img/logoHalcon.jpg"></a>
+      <a href=""><img class="circle" src="<?php echo SERVER;?>views/assets/img/logoHalcon.jpg"></a>
 
       <a href=""><span class="white-text name"><?php echo $_SESSION['name_admin']?></span></a>
 
@@ -35,8 +35,8 @@ else{
 
 		<i class="zmdi zmdi-account-circle zmdi-hc-lg"></i>
 	  </a>
-      <a href="misdatos-views.php" title="Mi cuenta" class="text-white ml-5">
-					<i class="fa fa-user"></i>
+      <a href="/<?php echo $tipo_user?>" title="Mi cuenta" class="text-white ml-5">
+					<i class="zmdi zmdi-settings zmdi-hc-lg"></i>
 			</a>
       <a href="<?php echo $_SESSION['cuenta_codigo_admin'];?>" title="Salir del sistema" class="btn-exit-system text-white ml-5">
 				<i class="zmdi zmdi-power zmdi-hc-lg"></i>
@@ -50,7 +50,7 @@ else{
 			</a>
 		</li>
 		<li>
-			<a href="bancos-views.php" class="text-white">
+			<a href="<?php echo SERVER ?>bancos" class="text-white">
 				<i class="zmdi zmdi-balance zmdi-hc-lg text-white"></i> Bancos
 			</a>
 		</li>

@@ -13,24 +13,31 @@
     const PASS_SAIIUT = "UtecAreaSistemas";*/
 
     //Linea de codigo para conectar con SQL Server 2017
-    //const SGBD = "Driver={SQL Server Native Client 10.0};Server=".SERVER.";Database=".DATABASE.";";
+   // const SGBD = "Driver={SQL Server Native Client 10.0};Server=".SERVER.";Database=".DATABASE.";";
+
+
+  /* $connection = odbc_connect(SGBD, USER, PASS);
+
+   $sql_bancos = "SELECT * FROM saiiut.saiiut.bancos";
+   $bancos = odbc_exec($connection,$sql_bancos);
+
+   while($row = odbc_fetch_array($bancos)){
+
+
+        print_r(utf8_encode( $row["nombre_banco"]));
+   }*/
+
+   
 
     
     //Constante para almacenar la informacion de la base de datos
     const SGBD = "Driver={SQL Server}; Server=".SERVER.";Database=".DATABASE.";Integrated Security=SSPI;Persist Security Info=False;";
 
-   $connection = odbc_connect(SGBD, USER, PASS);
-
-  
-
-   
-
-   
    
 
     //Para ir cambiando la incriptacion despues de insertar un registro no se debe cambiar
     const METHOD = "AES-256-CBC";
-    const SECRET_KEY = '$SERGIO@2019';
-    const SECRET_IV = '192604';
+	const SECRET_KEY = '$SERGIO@2019';
+	const SECRET_IV = '192604';
  
 ?>
