@@ -23,6 +23,7 @@
 <script src="../plugins/data.js"></script>
 <script src="../plugins/drilldown.js"></script>
 
+
 <div class="container title-container">
     <div class="page-header">
        <h1 class="text-titles"><small>Información General</small></h1>

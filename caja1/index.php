@@ -19,6 +19,7 @@
 </head>
 <body id="body" background="<?php echo SERVER;?>/views/img/logo-utec-nuevo.png">
 
+
 <div class="container-all">
     <div class="container-form">
         <img src="<?php echo SERVER;?>views/img/utec.jpg" alt="" class="logo">
