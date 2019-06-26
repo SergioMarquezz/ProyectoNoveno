@@ -1,8 +1,8 @@
 <?php
 
     //Constantes para conexion local
-   const USER = "sergio";
-   const PASS = "ingsergiomarquez";
+   const USER = "sa";
+   const PASS = "UtecAreaSistemas";
    const SERVER = "localhost";
    const DATABASE = "caja";
 

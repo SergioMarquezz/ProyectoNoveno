@@ -16,7 +16,7 @@
     <?php include "includes/nav-lateral.php"?> 
 
 </header>
-<body>
+<body background="<?php echo SERVER;?>/views/img/logo-utec-nuevo.png">
 <div class="container title-container">
     <div class="page-header">
         <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> <small> Usuarios Administradores</small></h1>
@@ -29,17 +29,17 @@
 <div class="d-flex justify-content-around container-fluid">
     <div class="breadcrumb">
         <div class="p-2"> 
-            <a href="<?php echo SERVER?>admin" class="btn btn-info">
+            <a href="admin-views.php" class="btn btn-info">
                 <i class="zmdi zmdi-plus"></i> &nbsp; NUEVO ADMINISTRADOR
             </a>
         </div>
             <div class="p-2">
-            <a href="<?php echo SERVER?>listadmin" class="btn btn-success">
+            <a href="listadmin-views.php" class="btn btn-success">
                 <i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; LISTA DE ADMINISTRADORES
             </a>
         </div>
         <div class="p-2">
-            <a href="<?php echo SERVER?>adminsearch" class="btn btn-primary">
+            <a href="adminsearch-views.php" class="btn btn-primary">
                 <i class="zmdi zmdi-search"></i> &nbsp; BUSCAR ADMINISTRADOR
             </a>
         </div>

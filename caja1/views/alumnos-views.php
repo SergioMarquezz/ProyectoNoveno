@@ -8,14 +8,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo ACRONYM;?> | ALUMNOS</title>
+    <title><?php echo ACRONYM;?> | LISTA ALUMNOS</title>
     <?php include "includes/links.php"?> 
 </head>
 <header>
     <?php include "includes/nav-lateral.php"?> 
 
 </header>
-<body>
+<body background="<?php echo SERVER;?>/views/img/logo-utec-nuevo.png">
 
 <div class="container title-container">
     <div class="page-header">
@@ -29,12 +29,12 @@
 <div class="d-flex justify-content-around container-fluid">
     <div class="breadcrumb">
             <div class="p-2">
-            <a href="<?php echo SERVER?>alumnos" class="btn btn-success">
+            <a href="alumnos-views.php" class="btn btn-success">
                 <i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; LISTA DE ALUMNOS
             </a>
         </div>
         <div class="p-2">
-            <a href="<?php echo SERVER?>alumnosearch" class="btn btn-primary">
+            <a href="alumnosearch-views.php" class="btn btn-primary">
                 <i class="zmdi zmdi-search"></i> &nbsp; BUSCAR ALUMNO
             </a>
         </div>

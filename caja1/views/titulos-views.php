@@ -14,11 +14,11 @@
 <header>
     <?php include "includes/nav-lateral.php"?> 
 </header>
-<body>
+<body background="<?php echo SERVER;?>/views/img/logo-utec-nuevo.png">
 
 <div class="container title-container">
     <div class="page-header">
-        <h4 class="text-titles mt-4"><i class="zmdi zmdi-bookmark"></i> PAGO DE TITULO</h4>
+        <h4 class="text-titles mt-4"><i class="fa fa-graduation-cap"></i> PAGO DE TITULO</h4>
     </div>
 </div>
 

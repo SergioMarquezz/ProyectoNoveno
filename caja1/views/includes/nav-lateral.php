@@ -55,58 +55,58 @@ else{
 		</li>
 		<li>
 			<a href="recibopago-views.php" class="text-white">
-				<i class="fa fa-dollar text-white" style="font-size:20px"></i>Recibo de pago
+				<i class="fa fa-file text-white" style="font-size:20px"></i>Recibo de pago
 			</a>
 		</li>
 		<li>
 			<a href="conceptospago-views.php" class="text-white">
-				<i class="zmdi zmdi-book-image zmdi-hc-fw text-white"></i>Conceptos de pago
+				<i class="zmdi zmdi-comment zmdi-hc-lg text-white" style="font-size:20px"></i>Conceptos de pago
 			</a>
 		</li>
 		<li class="dropdown show">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<i class="zmdi zmdi-case zmdi-hc-fw text-white"></i> Pagos de titulo
+				<i class="fa fa-graduation-cap text-white" style="font-size:18px"></i> Pagos de titulo
 			</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="dropdown-item text-white" href="titulos-views.php"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> TSU</a>
+					<a class="dropdown-item text-white" href="titulos-views.php">TSU</a>
 				</li>
 				<li>
-					<a class="dropdown-item text-white" href="titulos-views.php"><i class="zmdi zmdi-labels zmdi-hc-fw text-white"></i> Ingeniería/Licenciatura</a>
+					<a class="dropdown-item text-white" href="titulos-views.php">Ingeniería/Licenciatura</a>
 				</li>
 			</ul>
 		</li>
 		<li>
 		<li class="dropdown show">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<i class="zmdi zmdi-case zmdi-hc-fw text-white"></i> Pagos de colegiatura
+				<i class="fa fa-dollar text-white" style="font-size:20px"></i> Pagos de colegiatura
 			</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="registroaspirantes-views.php" class="dropdown-item text-white"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Registro de aspisrantes</a>
+					<a href="registroaspirantes-views.php" class="dropdown-item text-white">Registro de aspisrantes</a>
 				</li>
 				<li>
-					<a href="inscripcion-views.php" class="dropdown-item text-white"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Inscripción</a>
+					<a href="inscripcion-views.php" class="dropdown-item text-white"> Inscripción</a>
 				</li>
 				<li>
-					<a href="colegiatura-views.php" class="dropdown-item text-white" href="#"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Reinscripción</a>
+					<a href="colegiatura-views.php" class="dropdown-item text-white" href="#">Reinscripción</a>
 				</li>
 			</ul>
 		</li>
 		<li>
 			<a href="#" class="text-white">
-				<i class="zmdi zmdi-book-image zmdi-hc-fw text-white"></i>Examen de nivelación
+				<i class="fa fa-book text-white" style="font-size:20px"></i>Examen de nivelación
 			</a>
 		</li>
 		<li>
 			<a href="#" class="text-white">
-				<i class="zmdi zmdi-book-image zmdi-hc-fw text-white"></i>Sucursales
+				<i class="fa fa-building text-white" style="font-size:20px"></i>Sucursales
 			</a>
 		</li>
 		<hr class="border-bottom">
 		<li class="dropdown show">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<i class="zmdi zmdi-account-add zmdi-hc-fw text-white"></i> Usuarios
+				<i class="zmdi zmdi-account-add zmdi-hc-fw text-white"  style="font-size:20px"></i> Usuarios
 			</a>
 			<ul class="dropdown-menu">
 				<li>
@@ -120,7 +120,7 @@ else{
 		<hr class="border-bottom">
 		<li class="dropdown show">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-				<i class="zmdi zmdi-account-add zmdi-hc-fw text-white"></i> Reportes
+				<i class="fa fa-pencil text-white"  style="font-size:20px"></i> Reportes
 			</a>
 			<ul class="dropdown-menu">
 				<li>
