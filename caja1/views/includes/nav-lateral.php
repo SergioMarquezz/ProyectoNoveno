@@ -1,14 +1,13 @@
 
 <?php 
 include "navbar.php";
-
-/*if(!session_id()){
+if(!session_id()){
 	session_start();
-	include "models/mainModel.php";
+	//include "models/mainModel.php";
 
 }
 
-if( $_SESSION['tipo_admin'] == "Administrador"){
+/*if( $_SESSION['tipo_admin'] == "Administrador"){
 		
 	$tipo_user = "admin";
 }
@@ -23,21 +22,21 @@ else{
     <li><div class="user-view">
     <h6 class="mb-4 text-center text-white mt-5"><?php echo COMPANY; ?></h6>
       <div class="background">
-        <img src="<?php echo SERVER;?>views/assets/img/fondo-azul.jpg">
+        <img src="<?php echo SERVER;?>views/img/fondo-azul.jpg">
       </div>
-      <a href=""><img class="circle" src="img/logoHalcon.jpg"></a>
+      <img class="circle" src="img/logoHalcon.jpg"><img>
 
-      <a href=""><span class="white-text name"><?php echo $_SESSION['name_admin']?></span></a>
+      <span class="white-text name"><?php echo $_SESSION['name_admin']?></span>
 
-      <a href=""><span class="white-text email">jdandturk@gmail.com</span></a>
+      <span class="white-text email">jdandturk@gmail.com</span>
 
-      <a href="<?php echo SERVER;?>misdatos/<?php echo $tipo_user;?>" title="Mis datos" class="text-white ml-5">
+      <a href="misdatos-views.php" title="Mis datos" class="text-white ml-5">
 
 		<i class="zmdi zmdi-account-circle zmdi-hc-lg"></i>
 	  </a>
-      <a href="misdatos-views.php" title="Mi cuenta" class="text-white ml-5">
-					<i class="fa fa-user"></i>
-			</a>
+      <a href="#" title="Mi cuenta" class="text-white ml-5">
+	  	<i class="zmdi zmdi-settings zmdi-hc-lg"></i>
+	  </a>
       <a href="<?php echo $_SESSION['cuenta_codigo_admin'];?>" title="Salir del sistema" class="btn-exit-system text-white ml-5">
 				<i class="zmdi zmdi-power zmdi-hc-lg"></i>
 			</a>
@@ -45,7 +44,7 @@ else{
     			<!-- SideBar Menu -->
 	<ul class="">
 		<li>
-			<a href="<?php echo SERVER ?>principal" class="text-white">
+			<a href="principal-views.php" class="text-white">
 				<i class="zmdi zmdi-view-dashboard zmdi-hc-lg text-white"></i> Inicio
 			</a>
 		</li>
@@ -55,12 +54,12 @@ else{
 			</a>
 		</li>
 		<li>
-			<a href="<?php echo SERVER ?>recibopago" class="text-white">
-				<i class="fa fa-clipboard text-white" style="font-size:15px"></i>Recibo de pago
+			<a href="recibopago-views.php" class="text-white">
+				<i class="fa fa-dollar text-white" style="font-size:20px"></i>Recibo de pago
 			</a>
 		</li>
 		<li>
-			<a href="<?php echo SERVER ?>conceptospago" class="text-white">
+			<a href="conceptospago-views.php" class="text-white">
 				<i class="zmdi zmdi-book-image zmdi-hc-fw text-white"></i>Conceptos de pago
 			</a>
 		</li>
@@ -70,10 +69,10 @@ else{
 			</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a class="dropdown-item text-white" href="<?php echo SERVER ?>titulos"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> TSU</a>
+					<a class="dropdown-item text-white" href="titulos-views.php"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> TSU</a>
 				</li>
 				<li>
-					<a class="dropdown-item text-white" href="<?php echo SERVER ?>titulos"><i class="zmdi zmdi-labels zmdi-hc-fw text-white"></i> Ingeniería/Licenciatura</a>
+					<a class="dropdown-item text-white" href="titulos-views.php"><i class="zmdi zmdi-labels zmdi-hc-fw text-white"></i> Ingeniería/Licenciatura</a>
 				</li>
 			</ul>
 		</li>
@@ -84,13 +83,13 @@ else{
 			</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="<?php echo SERVER ?>registroaspirantes" class="dropdown-item text-white"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Registro de aspisrantes</a>
+					<a href="registroaspirantes-views.php" class="dropdown-item text-white"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Registro de aspisrantes</a>
 				</li>
 				<li>
-					<a href="<?php echo SERVER ?>inscripcion" class="dropdown-item text-white"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Inscripción</a>
+					<a href="inscripcion-views.php" class="dropdown-item text-white"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Inscripción</a>
 				</li>
 				<li>
-					<a href="<?php echo SERVER ?>colegiatura" class="dropdown-item text-white" href="#"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Reinscripción</a>
+					<a href="colegiatura-views.php" class="dropdown-item text-white" href="#"><i class="zmdi zmdi-balance zmdi-hc-fw text-white"></i> Reinscripción</a>
 				</li>
 			</ul>
 		</li>
@@ -111,10 +110,10 @@ else{
 			</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="<?php echo SERVER?>admin" class="text-white"><i class="zmdi zmdi-account zmdi-hc-fw text-white"></i> Administradores</a>
+					<a href="admin-views.php" class="text-white"><i class="zmdi zmdi-account zmdi-hc-fw text-white"></i> Administradores</a>
 				</li>
 				<li>
-					<a href="<?php echo SERVER?>alumnos" class="text-white"><i class="zmdi zmdi-male-female zmdi-hc-fw text-white"></i> Alumnos</a>
+					<a href="alumnos-views.php" class="text-white"><i class="zmdi zmdi-male-female zmdi-hc-fw text-white"></i> Alumnos</a>
 				</li>
 			</ul>
 		</li>

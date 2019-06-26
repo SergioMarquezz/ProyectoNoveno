@@ -1,6 +1,7 @@
 <?php
    // require_once "ajax/verificarSession.php";
    include "../core/configGeneral.php";
+
     
 ?>
 <!DOCTYPE html>

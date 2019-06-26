@@ -1,6 +1,22 @@
 <?php
-    require_once "ajax/verificarSession.php";
+    //require_once "ajax/verificarSession.php";
+    include "../core/configGeneral.php";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?php echo ACRONYM;?> | ALUMNOS</title>
+    <?php include "includes/links.php"?> 
+</head>
+<header>
+    <?php include "includes/nav-lateral.php"?> 
+
+</header>
+<body>
+
 <div class="container title-container">
     <div class="page-header">
         <h1 class="text-titles"><i class="zmdi zmdi-male-alt zmdi-hc-fw"></i> <small> Usuarios Alumnos</small></h1>
@@ -122,9 +138,14 @@
         </div>
         <div class="card-footer  text-muted text-center mt-5">
             <?php 
-                require_once "views/modules/fecha.php"; 
+                require_once "includes/fecha.php"; 
                 echo $date;
             ?>
         </div>
     </div>
 </div>
+    
+</body>
+<?php require_once "includes/footer.php"?>
+<?php  require_once "includes/script.php";?>
+</html>

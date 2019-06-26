@@ -1,6 +1,20 @@
 <?php
-    require_once "ajax/verificarSession.php";
+    //require_once "ajax/verificarSession.php";
+    include "../core/configGeneral.php";
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title><?php echo ACRONYM;?> | RECIBOPAGO</title>
+    <?php include "includes/links.php"?> 
+</head>
+<header>
+    <?php include "includes/nav-lateral.php"?> 
+</header>
+<body>
 <div class="container title-container">
     <div class="card">
         <div class="card-header text-white" style="background: #0b1a53;">
@@ -64,10 +78,14 @@
         </div>
         <div class="card-footer text-muted text-center">
             <?php 
-                require_once "views/modules/fecha.php"; 
+                require_once "includes/fecha.php"; 
                 echo $date;
             ?>
         </div>
     </div>
 </div>
-<?php require_once "views/modules/footer.php";?>
+
+</body>
+<?php require_once "includes/footer.php";?>
+<?php  require_once "includes/script.php";?>
+</html>
