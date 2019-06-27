@@ -5,7 +5,7 @@ $(document).ready(function () {
         
         success: function (response) {
             var json = JSON.parse(response); 
-
+            
             if(json.session == false){
 
                 window.location.href = "../index.php";

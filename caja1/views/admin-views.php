@@ -51,7 +51,7 @@
             <i class="zmdi zmdi-plus text-white"></i> &nbsp; NUEVO ADMINISTRADOR
         </div>
         <div class="card-body">
-            <form action="<?php echo SERVER?>ajax/administradorAjax.php" data-form="save" method="POST" class="FormularioAjax" autocomplete="off" enctype="multipart/form-data">
+            <form action="../models/administradorModel.php" data-form="save" method="POST" class="FormularioAdmin" autocomplete="off" enctype="multipart/form-data">
                 <h5 class="mb-5"><i class="zmdi zmdi-account-box"></i> &nbsp; Información personal</h5 class="mb-5">
                 <h6>* Nombre Completo</h6>
                 <div class="row">

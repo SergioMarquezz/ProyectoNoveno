@@ -6,7 +6,7 @@ $(document).ready(function(){
 		e.preventDefault();
     });
     
-	enviarForms();
+	//enviarForms();
     salir();
 
 });
@@ -18,7 +18,7 @@ function salir(){
 	$('.btn-exit-system').on('click', function(e){
         e.preventDefault();
         
-        var coddigo_cuenta = $(".btn-exit-system ").attr('href');
+        var codigo_cuenta = $(".btn-exit-system ").attr('href');
 
 		swal({
 		  	text: "<strong>¿Estas seguro de querer salir del sistema?</strong>",
@@ -31,11 +31,11 @@ function salir(){
 		}).then(function () {
             
             $.ajax({
-                url: "ajax/cerrarSessionAjax.php?codigo="+coddigo_cuenta,
+                url: "../models/cerrarSessionModel.php?codigo="+codigo_cuenta,
                 success: function (response) {
-                    console.log(coddigo_cuenta);
+    
                    if(response == "cerrar"){
-                        window.location.href="login";
+                        window.location.href="../index.php";
                    }
                 }
             })
@@ -106,10 +106,10 @@ function enviarForms(){
                     return xhr;
                 },
                 success: function (data) {
-                    respuesta.html(data);
+                   console.log(data);
                 },
                 error: function() {
-                    respuesta.html(msjError);
+                   // respuesta.html(msjError);
                 }
             });
             return false;

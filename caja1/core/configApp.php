@@ -2,7 +2,7 @@
 
     //Constantes para conexion local
    const USER = "sa";
-   const PASS = "UtecAreaSistemas";
+   const PASS = "ingsergiomarquez";
    const SERVER = "localhost";
    const DATABASE = "caja";
 
