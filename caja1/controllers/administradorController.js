@@ -28,6 +28,8 @@ function iniciarSession(){
                 "usuario-pass": pass
             },
             success: function (response) {
+              
+                console.log(response);
                 if(response == "Administrador"){
                     swal({
                         title: "Acceso correcto",
@@ -137,43 +139,102 @@ function enviarForms(){
                 },
                 success: function (data) {
                     var json = JSON.parse(data); 
-            
-                    if(json.result == "contraseñas incorrectas"){
-                        swal({
-                            title: "Error de contraseñas",   
-                            text: "Las contraseñas deben coincidir, por favor escribelas nuevamente",   
-                            type: "error",     
-                            confirmButtonText: "Aceptar",
-                        })
-                    }else if(json.result == "email encontrado"){
-                        swal({
-                            title: "Error de correo",   
-                            text: "El correo que ingreso ya esta registrado en el sistema.",   
-                            type: "error",     
-                            confirmButtonText: "Aceptar",
-                        })
-                    }else if(json.result == "user registrado"){
-                        swal({
-                            title: "Error en el nombre de usuario",   
-                            text: "El usuario que ingreso ya esta registrado en el sistema.",   
-                            type: "error",     
-                            confirmButtonText: "Aceptar",
-                        })
-                    }else if(json.result == "registro guardado"){
-                        swal({
-                            title: "Registro Satisfactorio",   
-                            text: "El usuario se registro como administrador en el sistema",   
-                            type: "success",     
-                            confirmButtonText: "Aceptar",
-                        })
-                    }else{
-                        swal({
-                            title: "Error de registro",   
-                            text: "El usuario no se registro en el sistema",   
-                            type: "success",     
-                            confirmButtonText: "Aceptar",
-                        })
+                    console.log(json);
+
+                    switch(json.result){
+
+                        case "datos vacios":
+                                swal({
+                                    title: "Nombre Incompleto",   
+                                    text: "Algunos campos del nombre estan vacios, por favor llenelos",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+                        case  "address vacia":
+                                swal({
+                                    title: "Dirección Incompleta",   
+                                    text: "Algunos campos de la dirección estan vacios, por favor llenalos",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+                        case  "cel vacio":
+                                swal({
+                                    title: "Contacto vacio",   
+                                    text: "Por favor proporcione un numero de celular",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+                        case "genero vacio":
+                                swal({
+                                    title: "Error de genero",   
+                                    text: "Por favor seleccione su genero (Masculino o Femenino)",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+                        case "privelegio vacio":
+                                swal({
+                                    title: "Nivel de privilegios sin asignar",   
+                                    text: "Por favor asigne permisos al administrador del sistema",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+                        case "cuenta vacia":
+                                swal({
+                                    title: "Datos de la cuenta vacios",   
+                                    text: "Algunos campos del registro de tu cuenta estan vacios, por favor llenalos",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+                        case "contraseñas incorrectas":
+                                swal({
+                                    title: "Error de contraseñas",   
+                                    text: "Las contraseñas deben coincidir, por favor escribelas nuevamente",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+                        case "email encontrado":
+                                swal({
+                                    title: "Error de correo",   
+                                    text: "El correo que ingreso ya esta registrado en el sistema.",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+                        case "user registrado":
+                                swal({
+                                    title: "Error en el nombre de usuario",   
+                                    text: "El usuario que ingreso ya esta registrado en el sistema.",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+                        case "registro guardado":
+                                swal({
+                                    title: "Registro Satisfactorio",   
+                                    text: "El usuario se registro como administrador en el sistema",   
+                                    type: "success",     
+                                    confirmButtonText: "Aceptar",
+                                }).then(function (){
+                                    $('.FormularioAdmin')[0].reset();
+                                });
+                            break;
+                        default:
+                                swal({
+                                    title: "Error de registro",   
+                                    text: "El usuario no se registro en el sistema",   
+                                    type: "error",     
+                                    confirmButtonText: "Aceptar",
+                                })
+
                     }
+
                 },
                 error: function() {
                    // respuesta.html(msjError);

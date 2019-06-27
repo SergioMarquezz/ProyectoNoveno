@@ -1,8 +1,5 @@
 <?php
-   // require_once "ajax/verificarSession.php";
-    //require_once "controllers/administradorControlador.php";
-    //session_start();
-
+ 
     include "../core/configGeneral.php";
 ?>
 
@@ -66,9 +63,9 @@
                     <h6>Nombre Completo</h6>
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <div class="md-form">
-                                <input type="text" id="form1" class="form-control">
-                                <label for="form1">Nombre(s)</label>
+                            <div class="form-group">
+                                <label for="name">Nombre(s)</label>
+                                <input type="text" id="name" class="form-control text-dark" disabled>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">

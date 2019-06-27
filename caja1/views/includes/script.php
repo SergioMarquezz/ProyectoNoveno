@@ -7,3 +7,5 @@
 <script src="<?php echo SERVER; ?>controllers/administradorController.js"></script>
 <script src="<?php echo SERVER; ?>controllers/bancosController.js"></script>
 <script src="<?php echo SERVER; ?>controllers/verificarSessionController.js"></script>
+<script src="<?php echo SERVER; ?>controllers/misdatosController.js"></script>
+

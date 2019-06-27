@@ -108,8 +108,8 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="custom-control custom-radio">
-                            <input type="radio" class="custom-control-input" id="defaultUnchecked" name="genero" value="Femenino">
-                            <label class="custom-control-label genero" for="defaultUnchecked">  <i class="zmdi zmdi-female"></i> &nbsp;Femenino</label>
+                            <input type="radio" class="custom-control-input" id="sexo-feme" name="genero" value="Femenino" checked>
+                            <label class="custom-control-label genero" for="sexo-feme">  <i class="zmdi zmdi-female"></i> &nbsp;Femenino</label>
                         </div>
                         <div class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input" id="defaultUnchecked1" name="genero" value="Masculino">
@@ -179,7 +179,7 @@
                             <div class="row">
                                 <div class="col-xl-12">
                                     <div class="custom-control custom-radio">
-                                        <input type="radio" class="custom-control-input" id="defaultUncheckedd" name="niveles" value="1">
+                                        <input type="radio" class="custom-control-input" id="defaultUncheckedd" name="niveles" value="1" checked>
                                         <label class="custom-control-label niveles" for="defaultUncheckedd"><i class="zmdi zmdi-star"></i> &nbsp;Nivel 1</label>
                                     </div>
                                 </div>
