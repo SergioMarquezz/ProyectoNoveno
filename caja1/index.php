@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="views/css/bootstrap.css"> <!--Estilos bootstrap-->
     <link rel="stylesheet" href="views/css/mdb.css"> <!--Estilos material desing-->
     <link rel="stylesheet" href="views/css/sweetalert2.css"> <!--Estilos para alertas-->
-    <link rel="stylesheet" href="views/css/style.css"> <!--Estilos programador-->
+    <link rel="stylesheet" href="views/css/styles.css"> <!--Estilos programador-->
     <link rel="icon" href="views/img/logoHalcon.jpg"> <!--Icono de la pestaña-->
     
 </head>

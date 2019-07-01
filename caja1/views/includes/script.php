@@ -1,4 +1,4 @@
-<script src="<?php echo SERVER; ?>plugins/jquery-3.3.1.min.js"></script> <!--Plugin Jquery-->
+<script src="<?php echo SERVER; ?>plugins/jquery-3.1.1.min.js"></script> <!--Plugin Jquery-->
 <script src="<?php echo SERVER; ?>plugins/popper.min.js"></script>  <!--Plugin Jquery para los dropdowns-->
 <script src="<?php echo SERVER; ?>plugins/bootstrap.min.js"></script> <!--Plugin bootstrap-->
 <script src="<?php echo SERVER; ?>plugins/materialize.min.js"></script> <!--Plugin materialize-->
@@ -8,4 +8,8 @@
 <script src="<?php echo SERVER; ?>controllers/bancosController.js"></script>
 <script src="<?php echo SERVER; ?>controllers/verificarSessionController.js"></script>
 <script src="<?php echo SERVER; ?>controllers/misdatosController.js"></script>
+<script src="<?php echo SERVER; ?>controllers/solicitudesController.js"></script>
+<script src="<?php echo SERVER; ?>controllers/loginController.js"></script>
+<script src="<?php echo SERVER; ?>controllers/conceptopagoController.js"></script>
+<script src="<?php echo SERVER; ?>plugins/select2.js"></script>
 

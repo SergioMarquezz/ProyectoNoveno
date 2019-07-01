@@ -55,8 +55,8 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="md-form">
-                                <input type="number" id="form1" class="form-control">
-                                <label for="form1"></label>
+                                <input type="number" id="matricula" class="form-control text-dark">
+                                <label for="matricula"></label>
                             </div>
                         </div>
                     </div>
@@ -69,51 +69,51 @@
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <div class="md-form">
-                                <input type="text" id="form1" class="form-control">
-                                <label for="form1">Apellido Paterno</label>
+                            <div class="form-group">
+                                <label for="paterno-user">Apellido Paterno</label>
+                                <input type="text" id="paterno-user" class="form-control text-dark" disabled>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <div class="md-form">
-                                <input type="text" id="form1" class="form-control">
-                                <label for="form1">Apellido Materno</label>
+                            <div class="form-group">
+                                <label for="materno">Apellido Materno</label>
+                                <input type="text" id="materno" class="form-control text-dark" disabled>
                             </div>
                         </div>
                     </div>
                     <h6>Contacto</h6>
                     <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                            <div class="md-form">
-                                <input type="tel" id="form1" class="form-control">
-                                <label for="form1">Telefono Personal</label>
+                            <div class="form-group">
+                                <label for="telefono">Telefono Personal</label>
+                                <input type="tel" id="telefono" class="form-control text-dark" disabled>
                             </div> 
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
-                            <div class="md-form">
-                                <input type="tel" id="form1" class="form-control">
-                                <label for="form1">Correo Electronico</label>
+                            <div class="form-group">
+                                <label for="correo">Correo Electronico</label>
+                                <input type="tel" id="correo" class="form-control text-dark" disabled>
                             </div> 
                         </div>                                 
                     </div>
                     <h6>Dirección</h6>
                     <div class="row">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <div class="md-form">
-                                <input type="text" id="form1" class="form-control">
-                                <label for="form1">Calle</label>
+                            <div class="form-group">
+                                <label for="calle">Calle</label>
+                                <input type="text" id="calle" class="form-control text-dark" disabled>
                             </div> 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <div class="md-form">
-                                <input type="text" id="form1" class="form-control">
-                                <label for="form1">Colonia</label>
+                            <div class="form-group">
+                                <label for="colonia">Colonia</label>
+                                <input type="text" id="colonia" class="form-control text-dark" disabled>
                             </div> 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-                            <div class="md-form">
-                                <input type="text" id="form1" class="form-control">
-                                <label for="form1">Numero</label>
+                            <div class="form-group">
+                                <label for="numero">Numero</label>
+                                <input type="text" id="numero" class="form-control text-dark" disabled>
                             </div> 
                         </div>
                     </div>

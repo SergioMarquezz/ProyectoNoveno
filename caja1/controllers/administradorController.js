@@ -2,7 +2,7 @@ $(document).ready(function () {
     
     validarSoloNumbersLetters();
     //cargarTabla();
-    iniciarSession();
+  //  iniciarSession();
     enviarForms();
 });
 
@@ -25,7 +25,8 @@ function iniciarSession(){
             url: "models/loginModel.php",
             data: {
                 "usuario-login": user,
-                "usuario-pass": pass
+                "usuario-pass": pass,
+                "opcion": "Admin"
             },
             success: function (response) {
               
@@ -69,7 +70,7 @@ function validarSoloNumbersLetters(){
     });
     
     //Solo letras
-    $("#nombre-admin, #apellidoP-admin, #apellidoM-admin, #streen, #col, #nombre-user, #usuario").keypress(function (e) { 
+    $("#nombre-admin, #apellidoP-admin, #apellidoM-admin, #streen, #col, #nombre-user").keypress(function (e) { 
         
         if(event.charCode >= 65 && event.charCode <= 90 || event.charCode >= 97 && event.charCode <= 122 || event.charCode == 32){
             return true;
@@ -98,12 +99,6 @@ function enviarForms(){
         var textoAlerta;
         if(tipo==="save"){
             textoAlerta="Los datos que enviaras quedaran almacenados en el sistema";
-        }else if(tipo==="delete"){
-            textoAlerta="Los datos serán eliminados completamente del sistema";
-        }else if(tipo==="update"){
-        	textoAlerta="Los datos del sistema serán actualizados";
-        }else{
-            textoAlerta="Quieres realizar la operación solicitada";
         }
 
 
@@ -244,6 +239,8 @@ function enviarForms(){
         });
     });
 }
+
+
 
 
 

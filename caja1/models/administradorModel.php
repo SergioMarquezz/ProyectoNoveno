@@ -104,7 +104,7 @@
     
                             $clave_pass = encryption($pass);
     
-                            $sql_save_admin = executeQuery("EXEC caja.sitemas.insertar '$codigo_cuenta','$privilegio','$name','$paterno','$materno','$calle','$col','$number','$celular','$sexo','$user','$clave_pass','$email','$activo','$tipo_cuenta'");
+                            $sql_save_admin = executeQuery("EXEC caja.sitemas.insertarAdmin '$codigo_cuenta','$privilegio','$name','$paterno','$materno','$calle','$col','$number','$celular','$sexo','$user','$clave_pass','$email','$activo','$tipo_cuenta'");
     
                             if($sql_save_admin == false){
     

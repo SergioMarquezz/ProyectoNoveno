@@ -99,8 +99,8 @@
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="md-form">
-                            <input type="tel" maxlength="10" id="telefono" class="form-control" name="celular">
-                            <label for="telefono">Telefono Personal</label>
+                            <input type="tel" maxlength="10" id="tele" class="form-control" name="celular">
+                            <label for="tele">Telefono Personal</label>
                         </div> 
                     </div>                                
                 </div>
@@ -127,8 +127,8 @@
                     </div>
                     <div class="col-xl-6">
                         <div class="md-form">
-                            <input type="email" id="correo" class="form-control" name="email">
-                            <label for="correo">Correo Electronico De La Universidad</label>
+                            <input type="email" id="email" class="form-control" name="email">
+                            <label for="email">Correo Electronico De La Universidad</label>
                         </div> 
                     </div>
                 </div>

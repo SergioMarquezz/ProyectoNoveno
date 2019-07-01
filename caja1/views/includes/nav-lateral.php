@@ -37,7 +37,7 @@ else{
       <a href="#" title="Mi cuenta" class="text-white ml-5">
 	  	<i class="zmdi zmdi-settings zmdi-hc-lg"></i>
 	  </a>
-      <a href="<?php echo $_SESSION['cuenta_codigo_admin'];?>" title="Salir del sistema" class="btn-exit-system text-white ml-5">
+      <a href="<?php echo $_SESSION['name_admin'];?>" title="Salir del sistema" class="btn-exit-system text-white ml-5">
 				<i class="zmdi zmdi-power zmdi-hc-lg"></i>
 			</a>
     </div></li>
@@ -103,6 +103,11 @@ else{
 				<i class="fa fa-building text-white" style="font-size:20px"></i>Sucursales
 			</a>
 		</li>
+		<li>
+			<a href="solicitudes-views.php" class="text-white">
+				<i class="fa fa-file-pdf-o text-white" style="font-size:20px"></i>Generar Solictiud
+			</a>
+		</li>
 		<hr class="border-bottom">
 		<li class="dropdown show">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -119,7 +124,7 @@ else{
 		</li>
 		<hr class="border-bottom">
 		<li class="dropdown show">
-			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+			<a class="dropdown-toggle text-white" href="#" role="button" id="report" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<i class="fa fa-pencil text-white"  style="font-size:20px"></i> Reportes
 			</a>
 			<ul class="dropdown-menu">
