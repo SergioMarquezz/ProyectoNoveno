@@ -2,12 +2,13 @@
 
     require_once "mainModel.php";
 
-    $clave = $_POST['clave-concepto'];
-    $opcion = $_POST['opcion'];
+   $clave = clearString($_POST['clave-concepto']);
+   $opcion = clearString($_POST['opcion']);
     
     conceptos();
 
     function conceptos(){
+
 
         global $clave, $opcion;
 
@@ -44,20 +45,79 @@
             }
 
         }
-        else if($opcion == 'guardar'){
+        else if($opcion == 'update'){
 
-            $activo = $_POST['activar'];
-            $precio = $_POST['monto'];
-            $descrip = $_POST['texto'];
-    
-            $sql_activo = executeQuery("EXEC caja.sitemas.updateConceptos '$clave', '$descrip', '$precio', $activo");
-        
-            if($sql_activo){
-        
-                $response['respuesta'] = "actualizado";
+            $activo = clearString($_POST['activar']);
+            $precio = clearString($_POST['monto']);
+            $descrip = clearString($_POST['texto']);
+
+            if($clave == ""){
+                $response['respuesta'] = "sin seleccionar";
 
                 print json_encode($response);
             }
+            else {
+
+                 
+             $sql_activo = executeQuery("EXEC caja.sitemas.updateConceptos '$clave', '$descrip', '$precio', $activo");
+            
+                if($sql_activo){
+            
+                    $response['respuesta'] = "actualizado";
+
+                    print json_encode($response);
+                }
+            }
+        }
+
+        else if($opcion == "clave"){
+
+            $sql = executeQuery("SELECT MAX(cve_concepto) + 1 AS clave FROM saiiut.saiiut.conceptos_pago");
+
+            $result = odbc_result($sql,'clave');
+    
+            $array = Array('sum'=> Array(
+    
+                "cve_concepto" => $result
+            ));
+    
+            print json_encode($array);
+
+            
+        }
+        else if($opcion == 'save'){
+
+            $activo = clearString($_POST['activar']);
+            $precio = clearString($_POST['monto']);
+            $descrip = clearString($_POST['texto']);
+
+
+            if($precio == ""){
+
+                $response['respuesta'] = "precio vacio";
+
+                print json_encode($response);
+            }
+
+            else if($descrip == ""){
+
+                $response['respuesta'] = "sin descripcion";
+
+                print json_encode($response);
+            }
+            else{
+
+                $save_concepto = executeQuery("INSERT INTO saiiut.saiiut.conceptos_pago(cve_concepto,cve_universidad,descripcion,costo_unitario,activo)
+                values('$clave',17,'$descrip','$precio','$activo')");
+    
+                if($save_concepto){
+    
+                    $response['respuesta'] = "guardado";
+    
+                    print json_encode($response);
+                }
+            }
+            
         }
 
     }

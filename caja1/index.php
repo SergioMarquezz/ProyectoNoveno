@@ -47,10 +47,9 @@
     <div class="container-text">
         <div class="capa"></div>
         <h1 class="litle-description text-center"><?php echo COMPANY ?> ---SAE---</h1>
-        <p class="text-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-            Praesentium eaque repellat beatae eligendi, placeat, qui veritatis voluptates 
-            architecto repellendus amet inventore? Nihil aspernatur repellat enim voluptatibus 
-            magnam totam debitis exercitationem.</p>
+        <h1 class="text-white mt-5">Bienvenid@</h1>
+        <div class="text-white" style="font-size:20px;">Este sistema permite el acceso a los diferentes procesos que se gestionan en caja de la Universidad Tecnológica de Tulancingo, 
+                                                        si requieres realizar algun pago o una solcitud de documentos, ingresa tu usuario y contraseña para poder entrar.</div> 
     </div>
 </div>
     

@@ -22,7 +22,7 @@
     </div>
     <div class="container">
         <div class="card">
-            <div class="card-header text-white" style="background: #0b1a53;">
+            <div class="card-header text-white" style="background: #024a86;">
                 <i class="zmdi zmdi-plus"></i> &nbsp; NUEVA SOLICITUD DE PAGO
             </div>
             <div class="card-body">
@@ -62,7 +62,7 @@
                     <div class="container row justify-content-center mt-5">
                         <div class="col-md-12 mb-12" id="buttons">
                             <!--<a href="../pdf/html2PDF/pdf_prueba.php" class="btn btn-block btn-primary" target="_blank"><i class="fa fa-inbox pr-2"></i>Guardar</a>-->
-                            <button id="guardarSolicitud" type="button" class="btn btn-block btn-primary"><i class="fa fa-inbox pr-2"></i>Guardar Solicitud</button>
+                            <button id="guardarSolicitud" type="button" class="btn btn-block"><i class="fa fa-inbox pr-2"></i>Guardar Solicitud</button>
                         </div>
                         <div class="col-md-12 mb-12 mt-3">
                             <button type="button" class="btn btn-block btn-danger"><i class="fa fa-times pr-2"></i>Cancelar Solicitud</button>

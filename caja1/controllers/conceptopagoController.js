@@ -2,6 +2,9 @@ var activo = $("#activo");
 var cve_concepto = $("#concepto-pago");
 var clave;
 var activar;
+var clave_concepto = $("#clave");
+var costo = $("#monto");
+var concepto = $("#descripcion");
 
 $(document).ready(function () {
 
@@ -13,6 +16,8 @@ $(document).ready(function () {
     activarDesactivarConcepto();
     actualizar();
     unicoConcepto();
+    nuevoConceptoAndCancelar();
+    saveConcepto();
     
  
 });
@@ -24,9 +29,7 @@ function unicoConcepto(){
    
     
         var cve_concepto = $(this).val();
-        var clave_concepto = $("#clave");
-        var costo = $("#monto");
-        var concepto = $("#descripcion");
+        
        
        clave_concepto.val(cve_concepto);
   
@@ -53,44 +56,223 @@ function unicoConcepto(){
       
   }
 
-function actualizar(){
 
-    $("#actualizar").click(function (e) { 
+function nuevoConceptoAndCancelar(){
+
+    $("#nuevo-concepto").click(function (e) { 
         e.preventDefault();
-        clave = cve_concepto.val();
-        activar = activo.val();
 
-        var descripcion = $("#descripcion").val();
-        var precio = $("#monto").val();
+        var clave = $("#clave");
+        
+        $("#actualizar").attr('disabled', true);
+        $("#guardar").attr('disabled', false);
+        $("#concepto-pago").attr('disabled', true);
+        $(this).attr('disabled', true);
+    
+        costo.val("");
+        concepto.val("");
 
-        console.log(clave);
-        console.log(activar);
         $.ajax({
             type: "POST",
             url: "../models/conceptopagoModel.php",
             data: {
-                "activar": activar,
-                "clave-concepto": clave,
-                "opcion": "guardar",
-                "monto": precio,
-                "texto": descripcion
+                "clave-concepto": "",
+                "opcion": "clave"
             },
-            success: function (response) {
-                
-                var json = JSON.parse(response); 
-                
-                if(json.respuesta == "actualizado"){
-                    swal({
-                        title: "Modificación Satisfactoria",   
-                        text: "El registro fue modificado correctamente",   
-                        type: "success",     
-                        confirmButtonText: "Aceptar",
-                    }).then(function (){
-                        //$('.FormularioAdmin')[0].reset();
-                    });
-                }
+            dataType: "json",
+            success: function (data) {
+            
+                clave.val(data.sum.cve_concepto);
             }
         });
+    });
+
+    $("#cancel").click(function (e) { 
+        e.preventDefault();
+
+        $("#actualizar").attr('disabled', false);
+        $("#guardar").attr('disabled', true);
+        $("#concepto-pago").attr('disabled', false);
+        $("#nuevo-concepto").attr('disabled', false);
+        clave_concepto.val("");
+        costo.val("");
+        concepto.val("");
+    });
+}
+
+function saveConcepto(){
+
+    $("#guardar").click(function (e) { 
+        e.preventDefault();
+
+        var llave = clave_concepto.val();
+        var precio = costo.val();
+        var des = concepto.val();
+        var activar = activo.val();
+
+        var form = $(".FormularioConceptos");
+        var tipo=form.attr('data-form');
+
+        var textoAlerta;
+
+        clave = cve_concepto.val();
+        activar = activo.val();
+
+        var attr = form[0].attributes;
+
+        var tipo = attr[1].nodeValue = "save";
+
+        if(tipo==="save"){
+            textoAlerta="El nuevo concepto sera guardado de manera correcta, estas seguro de continuar";
+        }
+
+        swal({
+            title: "¿Estás seguro?",   
+            text: textoAlerta,   
+            type: "question",   
+            showCancelButton: true,     
+            confirmButtonText: "Si",
+            cancelButtonText: "No",
+            allowOutsideClick: false
+        }).then(function (){
+
+            $.ajax({
+                type: "POST",
+                url: "../models/conceptopagoModel.php",
+                data: {
+                    "clave-concepto": llave,
+                    "opcion": "save",
+                    "monto" : precio,
+                    "texto": des,
+                    "activar": activar
+                },
+                dataType: "json",
+                success: function (response){
+
+                    console.log(response);
+                    
+                    switch(response.respuesta){
+
+                        case "precio vacio":
+                                swal({
+                                    title: "Costo sin asignar",   
+                                    text: "Asigna el costo unitario para el concepto que deseas agregar",   
+                                    type: "error",    
+                                    confirmButtonText: "Aceptar",
+                                    allowOutsideClick: false
+                                });
+                            break;
+                        
+                        case "sin descripcion":
+                                swal({
+                                    title: "La descripción esta vacia",   
+                                    text: "Asigna el nuevo concepto para poder agregarlo",   
+                                    type: "error",    
+                                    confirmButtonText: "Aceptar",
+                                    allowOutsideClick: false
+                                });
+                            break
+
+                            default:
+                                swal({
+                                    title: "Registro Satisfactorio",   
+                                    text: "El nuevo concepto fue agregado",   
+                                    type: "success",    
+                                    confirmButtonText: "Aceptar",
+                                    allowOutsideClick: false
+                                }).then(function (){
+
+                                    location.reload();
+                                })
+
+                    }
+                }
+            });
+        });
+
+    });
+}
+
+function actualizar(){
+
+    $("#actualizar").click(function (e) { 
+        e.preventDefault();
+
+        //var conceptos = $("#concepto-pago option:selected").html();
+        var form = $(".FormularioConceptos");
+        var tipo=form.attr('data-form');
+
+        var textoAlerta;
+
+        clave = cve_concepto.val();
+        activar = activo.val();
+
+        var precio = costo.val();
+        var descripcion = concepto.val();
+
+        var attr = form[0].attributes;
+
+        var tipo = attr[1].nodeValue = "update";
+
+        if(tipo==="update"){
+            textoAlerta="El concepto sera modificado de manera correcta, estas seguro de continuar";
+        }
+
+        swal({
+            title: "¿Estás seguro?",   
+            text: textoAlerta,   
+            type: "question",   
+            showCancelButton: true,     
+            confirmButtonText: "Si",
+            cancelButtonText: "No",
+            allowOutsideClick: false
+        }).then(function (){
+
+            $.ajax({
+                type: "POST",
+                url: "../models/conceptopagoModel.php",
+                data: {
+                    "activar": activar,
+                    "clave-concepto": clave,
+                    "opcion": "update",
+                    "monto": precio,
+                    "texto": descripcion
+                },
+                success: function (response) {
+                    console.log(response);
+                    var json = JSON.parse(response);
+                    
+                    
+                    switch(json.respuesta){
+    
+                        case "sin seleccionar":
+                                swal({
+                                    title: "Ningún concepto seleccionado",   
+                                    text: "Selecciona el concepto que deseas modificar",   
+                                    type: "warning",     
+                                    confirmButtonText: "Aceptar",
+                                })
+                            break;
+    
+                            default:
+                                swal({
+                                    title: "Modificación Satisfactoria",   
+                                    text: "El registro fue modificado correctamente",   
+                                    type: "success",     
+                                    confirmButtonText: "Aceptar",
+                                }).then(function (){
+                                    //$('.FormularioAdmin')[0].reset();
+                                });
+    
+    
+                    }
+                    
+                }
+            });
+
+        });
+
+        
     });
 }
 
@@ -118,6 +300,7 @@ function selectConceptos(){
 
 function activarDesactivarConcepto(){
 
+
     if($(activo).is(':checked')){
 
         activo.val(1);
@@ -125,13 +308,28 @@ function activarDesactivarConcepto(){
 
     $("#activo").change(function (e) { 
         e.preventDefault();
-        
+
         if($(activo).is(':checked')){
         
            activo.val(1)
+
+           swal({
+            type: 'info',
+            title: 'Concepto Activado',
+            showConfirmButton: false,
+            timer: 2500
+          })
+        
         }
         else{
             activo.val(0)
+
+            swal({
+                type: 'info',
+                title: 'Concepto Desactivado',
+                showConfirmButton: false,
+                timer: 2500
+              })
         }
 
         

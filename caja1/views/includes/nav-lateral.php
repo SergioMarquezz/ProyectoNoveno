@@ -21,8 +21,8 @@ else{
   <ul id="slide-out" class="sidenav"> <!--sidenav-fixed-->
     <li><div class="user-view">
     <h6 class="mb-4 text-center text-white mt-5"><?php echo COMPANY; ?></h6>
-      <div class="background">
-        <img src="<?php echo SERVER;?>views/img/fondo-azul.jpg">
+      <div class="background" style="background:  #4D9D29 ">
+        
       </div>
       <img class="circle" src="img/logoHalcon.jpg"><img>
 

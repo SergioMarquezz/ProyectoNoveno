@@ -2,8 +2,8 @@
 
     require_once "mainModel.php";
 
-   $cve_concepto = $_POST['clave'];
-   $opcion = $_POST['option'];
+   $cve_concepto = clearString($_POST['clave']);
+   $opcion = clearString($_POST['option']);
 
     solicitud();
 
@@ -47,12 +47,12 @@
         }
         else if($opcion == "save"){
 
-            $date = $_POST['fecha-solicitud'];
-            $tipo_persona = $_POST['cve_tipo_persona'];
-            $cve_persona = $_POST['cve_persona'];
-            $monto = $_POST['precio'];
-            $periodo = $_POST['cve_periodo'];
-            $concepto = $_POST['cve_concepto'];
+            $date = clearString($_POST['fecha-solicitud']);
+            $tipo_persona = clearString($_POST['cve_tipo_persona']);
+            $cve_persona = clearString($_POST['cve_persona']);
+            $monto = clearString($_POST['precio']);
+            $periodo = clearString($_POST['cve_periodo']);
+            $concepto = clearString($_POST['cve_concepto']);
             $pago = 0;
 
             $sql_save_solicitud = executeQuery("EXEC caja.sitemas.insertarSolicitud '$date','$tipo_persona','$cve_persona','$monto','$periodo','$concepto','$pago'");

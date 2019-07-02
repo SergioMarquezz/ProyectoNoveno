@@ -17,7 +17,7 @@
 <body background="<?php echo SERVER;?>/views/img/logo-utec-nuevo.png">
 <div class="container title-container">
     <div class="card">
-        <div class="card-header text-white" style="background: #0b1a53;">
+        <div class="card-header text-white" style="background: #4D9D29;">
             <i class="zmdi zmdi-plus"></i> &nbsp; NUEVO RECIBO DE PAGO
         </div>
         <div class="card-body">

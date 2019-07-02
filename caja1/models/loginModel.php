@@ -3,9 +3,9 @@
     require_once "mainModel.php";
 
 
-    $usr = $_POST['usuario-login'];
-    $pass = $_POST['usuario-pass'];
-    $opcion = $_POST['opcion'];
+    $usr = clearString($_POST['usuario-login']); 
+    $pass = clearString($_POST['usuario-pass']);
+    $opcion = clearString($_POST['opcion']);
 
     login();
 

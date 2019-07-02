@@ -117,7 +117,7 @@ function enviarSolicitud(){
             },
             success: function (response) {
                 var json = JSON.parse(response); 
-                console.log(json);
+                     console.log(json);
 
                 switch(json.result){
 

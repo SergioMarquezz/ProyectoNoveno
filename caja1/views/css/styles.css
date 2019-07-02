@@ -1,6 +1,6 @@
 /* Estilos login*/
 #body {
-    background: linear-gradient(90deg,  #009728, #0b1a53);
+    background: linear-gradient(90deg,  #4D9D29 , #024a86);
     padding: 20px;
 
 }
@@ -15,7 +15,7 @@
 .container-form {
     width: 80%;
     padding: 40px;
-    background: #0b1a53;
+    background: #024a86;
 
 }
 
@@ -27,7 +27,7 @@
 
 .title {
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
     font-weight: 300;
     color: #f7f7f7;
 }
@@ -39,7 +39,7 @@
 }
 
 #btn-login{
-    background: linear-gradient(90deg, #0b1a53, #123a1d); 
+    background: linear-gradient(90deg, #024a86, #5cb85c); 
 }
 
 
@@ -58,7 +58,6 @@
 
 .litle-description {
     position: relative;
-    top: 50px;
     color: white;
     font-weight: 300;
     font-size: 48px;
@@ -98,17 +97,17 @@
 
 /*Estilos Navbar*/
 
-#navbar {
-    background-color: #0b1a53 !important;
+#navbar{
+    background-color:   #4D9D29 !important;
 }
 
 /*Estilos navbar lateral */
 #slide-out{
-    background: linear-gradient(90deg, #0b1a53, #123a1d); 
+    background: linear-gradient(90deg,  #024a86, #4D9D29); 
 }
 
 .dropdown-menu{
-    background: #0b1a53;
+    background: #024a86;
 }
 
 .tipo{
@@ -125,7 +124,7 @@
 }
 
 .page-footer{
-    background-color: #009728 !important; 
+    background-color: #092432 !important; 
 }
 
 .pagina-utec{
@@ -160,4 +159,8 @@
 .label-bancos, .label-solicitud, .label-conceptos{
 
     font-size: 18px;
+}
+
+#guardarSolicitud, #actualizar, #guardar, #nuevo  {
+    background: #5cb85c;    
 }

@@ -3,8 +3,8 @@
     require_once "mainModel.php";
 
     
-    $opcion = $_POST['opcion'];
-    $cve_banco = $_POST['bankos'];
+    $opcion = clearString($_POST['opcion']);
+    $cve_banco = clearString($_POST['bankos']);
 
     selectBancos();
 

@@ -1,7 +1,7 @@
 <?php
 
     //Constantes para conexion local
-   const USER = "sa";
+   const USER = "sergio";
    const PASS = "ingsergiomarquez";
    const SERVER = "localhost";
    const DATABASE = "caja";
@@ -17,7 +17,7 @@
 
     
     //Constante para almacenar la informacion de la base de datos
-   // const SGBD = "Driver={SQL Server}; Server=".SERVER.";Database=".DATABASE.";Integrated Security=SSPI;Persist Security Info=False;";
+    //const SGBD = "Driver={SQL Server}; Server=".SERVER.";Database=".DATABASE.";Integrated Security=SSPI;Persist Security Info=False;";
 
    $connection = odbc_connect(SGBD, USER, PASS);
 

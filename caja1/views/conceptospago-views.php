@@ -1,5 +1,5 @@
 <?php
-   // require_once "ajax/verificarSession.php";
+
    include "../core/configGeneral.php";
 ?>
 <!DOCTYPE html>
@@ -23,15 +23,15 @@
 
     <div class="container">
         <div class="card">
-            <div class="card-header text-white" style="background: #0b1a53;">
+            <div class="card-header text-white" style="background: #024a86;">
                 <i class="zmdi zmdi-plus"></i> &nbsp; NUEVO CONCEPTO DE PAGO
             </div>
             <div class="card-body">
-                <form action="" >
+                <form action="" data-form="update" method="" class="FormularioConceptos" autocomplete="off" enctype="multipart/form-data">
                     <div class="row">    
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <p style="font-size:18px;">En este formulario podras activar, desactivar, actualizar los conceptos de pago correspondientes,
-                                                       cuando presiones el botón <strong>guardar</strong> los cambios seran realizados de manera exitosa.
+                            <p style="font-size:18px;">En este formulario podras activar, desactivar, actualizar, agregar los conceptos de pago correspondientes,
+                                                       cuando presiones el botón <strong>guardar o modificar</strong> los cambios seran realizados de manera exitosa.
                             </p>
                             <select class="browser-default custom-select" id="concepto-pago">
                                 <option selected disabled>Elige un concepto</option>
@@ -71,17 +71,17 @@
 
                     <div class="container row">
                         <div class="col-md-4 mb-4">
-                            <button type="button" class="btn btn-primary"><i class="fa fa-clipboard pr-2"></i>Nuevo</button>
+                            <button id="nuevo-concepto" type="button" class="btn"><i class="fa fa-clipboard pr-2"></i>Nuevo</button>
+                            <button id="cancel" type="button" class="btn btn-info"><i class="fa fa-times pr-2"></i>Cancelar</button>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <button id="guardar" type="button" class="btn btn-primary"><i class="fa fa-inbox pr-2"></i>Guardar</button>
-                            <button id="actualizar" type="button" class="btn btn-primary mt-3"><i class="fa fa-edit pr-2"></i>Modificar</button>
+                            <button disabled id="guardar" type="button" class="btn"><i class="fa fa-inbox pr-2"></i>Guardar</button>
+                            <button id="cancel" type="button" class="btn btn-danger "><i class="fa fa-trash-o pr-2"></i>Eliminar</button>
                         </div>
                         <div class="col-md-4 mb-4">
-                            <button type="button" class="btn btn-primary"><i class="fa fa-times pr-2"></i>Cancelar</button>
+                            <button id="actualizar" type="button" class="btn mt-3"><i class="fa fa-edit pr-2"></i>Modificar</button>
                         </div>
                     </div>
-                
                 </form>
             </div>
             <div class="card-footer text-muted text-center mt-5">
