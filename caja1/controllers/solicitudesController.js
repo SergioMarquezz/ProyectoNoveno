@@ -100,7 +100,8 @@ function enviarSolicitud(){
             periodo = $("#cve-periodo").val(),
             precio = $("#costo-unitario").val(),
             fecha = $("#fecha_solcitud").val(),
-            concepto = $("#clave_concepto").val();
+            concepto = $("#clave_concepto").val(),
+            matricula = $("#matricula-alumno").val();
         
         $.ajax({
             type: "POST",
@@ -113,11 +114,12 @@ function enviarSolicitud(){
                 "cve_persona": cve_persona,
                 "precio": precio,
                 "cve_periodo": periodo,
-                "cve_concepto": concepto            
+                "cve_concepto": concepto,
+                "matricula": matricula            
             },
             success: function (response) {
-                var json = JSON.parse(response); 
-                     console.log(json);
+                //var json = JSON.parse(response); 
+                     console.log(response);
 
                 switch(json.result){
 
@@ -141,10 +143,20 @@ function enviarSolicitud(){
                                     $('.FormularioSolicitud')[0].reset();
                                     $("#guardarSolicitud").hide();
 
-                                    $("#buttons").append("<button class='btn btn-block btn-success'>Pagar Documento</button>");
+                                    $("#buttons").append("<button class='btn btn-block btn-success mt-3'>Pagar Documento</button>");
                                 });
                             });
                         break;
+                    
+                    default:
+                            swal({
+                                title: "Concepto vacio",   
+                                text: "Tu solicitud no tiene ningun concepto seleccionado, elige uno",   
+                                type: "warning",     
+                                confirmButtonText: "Aceptar",
+                                allowOutsideClick: false
+                            })
+
                 }
             }
         });

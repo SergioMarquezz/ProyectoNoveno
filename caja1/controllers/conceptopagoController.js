@@ -27,7 +27,10 @@ function unicoConcepto(){
     $("#concepto-pago").change(function (e) { 
         e.preventDefault();
    
-    
+        $("#actualizar").attr('disabled', false);
+        $("#eliminar").attr('disabled', false);
+        
+
         var cve_concepto = $(this).val();
         
        
@@ -66,7 +69,9 @@ function nuevoConceptoAndCancelar(){
         
         $("#actualizar").attr('disabled', true);
         $("#guardar").attr('disabled', false);
+        $("#cancel").attr('disabled', false);
         $("#concepto-pago").attr('disabled', true);
+        $("#eliminar").attr('disabled', true);
         $(this).attr('disabled', true);
     
         costo.val("");
@@ -90,10 +95,12 @@ function nuevoConceptoAndCancelar(){
     $("#cancel").click(function (e) { 
         e.preventDefault();
 
-        $("#actualizar").attr('disabled', false);
+        $("#actualizar").attr('disabled', true);
         $("#guardar").attr('disabled', true);
         $("#concepto-pago").attr('disabled', false);
         $("#nuevo-concepto").attr('disabled', false);
+        $(this).attr('disabled',true);
+
         clave_concepto.val("");
         costo.val("");
         concepto.val("");

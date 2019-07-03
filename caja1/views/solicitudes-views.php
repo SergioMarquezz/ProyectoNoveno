@@ -63,14 +63,13 @@
                         <div class="col-md-12 mb-12" id="buttons">
                             <!--<a href="../pdf/html2PDF/pdf_prueba.php" class="btn btn-block btn-primary" target="_blank"><i class="fa fa-inbox pr-2"></i>Guardar</a>-->
                             <button id="guardarSolicitud" type="button" class="btn btn-block"><i class="fa fa-inbox pr-2"></i>Guardar Solicitud</button>
-                        </div>
-                        <div class="col-md-12 mb-12 mt-3">
-                            <button type="button" class="btn btn-block btn-danger"><i class="fa fa-times pr-2"></i>Cancelar Solicitud</button>
+                            <button type="button" class="btn btn-block btn-danger mt-4"><i class="fa fa-times pr-2"></i>Cancelar Solicitud</button>
                         </div>
                     </div>
                     <input type="hidden" id="tipo-persona">
                     <input type="hidden" id="cve-persona">
                     <input type="hidden" id="cve-periodo">
+                    <input type="hidden" id="matricula-alumno">
                 </form>
             </div>
             <div class="card-footer text-muted text-center mt-5">

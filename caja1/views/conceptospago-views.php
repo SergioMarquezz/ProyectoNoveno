@@ -56,7 +56,7 @@
                         <div class="col-lg-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="form-group">
                                 <label for="descripcion" class="label-conceptos">Descripción</label>
-                                <input type="text" id="descripcion" class="form-control">
+                                <input type="text" id="descripcion" class="form-control text-dark">
                             </div>
                         </div>
                     </div>
@@ -70,16 +70,12 @@
                     </div>
 
                     <div class="container row">
-                        <div class="col-md-4 mb-4">
-                            <button id="nuevo-concepto" type="button" class="btn"><i class="fa fa-clipboard pr-2"></i>Nuevo</button>
-                            <button id="cancel" type="button" class="btn btn-info"><i class="fa fa-times pr-2"></i>Cancelar</button>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <button disabled id="guardar" type="button" class="btn"><i class="fa fa-inbox pr-2"></i>Guardar</button>
-                            <button id="cancel" type="button" class="btn btn-danger "><i class="fa fa-trash-o pr-2"></i>Eliminar</button>
-                        </div>
-                        <div class="col-md-4 mb-4">
-                            <button id="actualizar" type="button" class="btn mt-3"><i class="fa fa-edit pr-2"></i>Modificar</button>
+                        <div class="col-md-12 mb-12">
+                            <button id="nuevo-concepto" type="button" class="btn btn-block"><i class="fa fa-clipboard pr-2"></i>Nuevo</button>
+                            <button disabled id="guardar" type="button" class="btn btn-block mt-3"><i class="fa fa-inbox pr-2"></i>Guardar</button>
+                            <button disabled id="actualizar" type="button" class="btn btn-block mt-3"><i class="fa fa-edit pr-2"></i>Modificar</button>
+                            <button disabled id="cancel" type="button" class="btn btn-info btn-block mt-3"><i class="fa fa-times pr-2"></i>Cancelar</button>
+                            <button disabled id="eliminar" type="button" class="btn btn-danger btn-block mt-3"><i class="fa fa-trash-o pr-2"></i>Eliminar</button>
                         </div>
                     </div>
                 </form>

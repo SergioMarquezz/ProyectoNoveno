@@ -1,6 +1,7 @@
 <?php
 
     require_once "mainModel.php";
+    require_once "../views/includes/referencia.php";
 
    $cve_concepto = clearString($_POST['clave']);
    $opcion = clearString($_POST['option']);
@@ -53,20 +54,32 @@
             $monto = clearString($_POST['precio']);
             $periodo = clearString($_POST['cve_periodo']);
             $concepto = clearString($_POST['cve_concepto']);
+            $matricula = clearString($_POST['matricula']);
             $pago = 0;
 
-            $sql_save_solicitud = executeQuery("EXEC caja.sitemas.insertarSolicitud '$date','$tipo_persona','$cve_persona','$monto','$periodo','$concepto','$pago'");
 
-            
-            if($sql_save_solicitud == false){
-    
-                                
-                $result['result'] = "error de registro";
+            if($concepto == ""){
+
+                $result['result'] = "sin clave";
                 print json_encode($result);
-            }else{
-                
-                $result['result'] = "solicitud guardada";
-                print json_encode($result);
+            }
+            else{
+
+                $referencia = referencia($matricula,$concepto,$monto);
+
+                $sql_save_solicitud = executeQuery("EXEC caja.sitemas.insertarSolicitud '$date','$tipo_persona','$cve_persona','$monto','$periodo','$concepto','$pago','$referencia'");
+ 
+                if($sql_save_solicitud == false){
+        
+                                    
+                    $result['result'] = "error de registro";
+                    print json_encode($result);
+                }else{
+                    
+                    $result['result'] = "solicitud guardada";
+                    print json_encode($result);
+                }
+
             }
         }
     

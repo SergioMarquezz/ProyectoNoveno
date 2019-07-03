@@ -13,6 +13,9 @@ $(document).ready(function () {
     var tipo_persona = $("#tipo-persona");
     var periodo = $("#cve-periodo");
 
+    //Variable para el form de solicitudes
+    var matricula_alumno = $("#matricula-alumno");
+
         $.ajax({
             url: "../models/misdatosModel.php",
             success: function (response) {
@@ -42,6 +45,7 @@ $(document).ready(function () {
                     cve_persona.val(json.arreglo.cve_persona);
                     tipo_persona.val(json.arreglo.tipo_persona);
                     periodo.val(json.arreglo.periodo);
+                    matricula_alumno.val(json.arreglo.matricula);
                 }       
     
                 /*if(json.admin.privilegio >= 2){
