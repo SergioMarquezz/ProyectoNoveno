@@ -35,7 +35,7 @@
 
                 while($row = odbc_fetch_array($query_concepto)){
 
-                    $array_concep["concept"][] = array_map("utf8_encode", $row);  
+                    $array_concep["concept"] = array_map("utf8_encode", $row);  
     
                     $json_concept = json_encode($array_concep);
 
@@ -65,7 +65,9 @@
             }
             else{
 
-                $referencia = referencia($matricula,$concepto,$monto);
+                $monto_total = str_replace(' . ', '', $monto);
+                
+                $referencia = referencia($matricula,$concepto,$monto_total);
 
                 $sql_save_solicitud = executeQuery("EXEC caja.sitemas.insertarSolicitud '$date','$tipo_persona','$cve_persona','$monto','$periodo','$concepto','$pago','$referencia'");
  

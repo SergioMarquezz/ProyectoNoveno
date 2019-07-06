@@ -105,7 +105,7 @@ else{
 		</li>
 		<li>
 			<a href="solicitudes-views.php" class="text-white">
-				<i class="fa fa-file-pdf-o text-white" style="font-size:20px"></i>Generar Solictiud
+				<i class="fa fa-file-pdf-o text-white" style="font-size:20px"></i>Generar Tramite
 			</a>
 		</li>
 		<hr class="border-bottom">

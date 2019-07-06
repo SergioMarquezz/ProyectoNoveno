@@ -6,6 +6,8 @@ $(document).ready(function () {
     $("#solicitudes").select2({
         theme: "classic"    
     });
+
+    $("#card-referencia").fadeOut();
 });
 
 
@@ -32,16 +34,22 @@ function selectConcepto(){
     });
 }
 
+
+
 function conceptoUnico(){
 
   $("#solicitudes").change(function (e) { 
       e.preventDefault();
 
-     
-
+  
       var cve_concepto = $(this).val();
       var clave_input = $("#clave_concepto");
       var costo = $("#costo-unitario");
+
+      //Variables para la referencia bancaria
+      var texto = $("#descripcion");
+      var total = $("#monto");
+
         console.log(cve_concepto);
       $.ajax({
           type: "POST",
@@ -53,9 +61,14 @@ function conceptoUnico(){
           dataType: "json",
           success: function (response) {
               console.log(response);
-              clave_input.val(cve_concepto);
-              costo.val(response.concept[0].costo_unitario);
+             
+               
+              var costo_sin_decimal = (parseFloat(response.concept.costo_unitario).toFixed());
 
+              costo.val(costo_sin_decimal + "00");
+              clave_input.val(cve_concepto);
+              texto.val(response.concept.descripcion);
+              total.val("$ "+response.concept.costo_unitario);
               /*if(response.concept.activo == 1){
                   
               }*/
@@ -81,7 +94,7 @@ function enviarSolicitud(){
 
         var textoAlerta;
         if(tipo==="save"){
-            textoAlerta="Tu solicitud con el concepto de "+name_concepto+ " quedara guardada en automatico estas seguro de realizarla";
+            textoAlerta="Tu tramite o servicio con el concepto de "+name_concepto+ " quedara guardado en automatico estas seguro de realizarlo";
         }
 
         swal({
@@ -118,33 +131,35 @@ function enviarSolicitud(){
                 "matricula": matricula            
             },
             success: function (response) {
-                //var json = JSON.parse(response); 
-                     console.log(response);
+                var json = JSON.parse(response); 
+                     console.log(json);
 
                 switch(json.result){
 
                     case "solicitud guardada":
                             swal({
-                                title: "Solicitud Guardada",   
-                                text: "Tu solicitud con el concepto de "+name_concepto+ " se ralizo satisfactoriamente",   
+                                title: "Trámite o servicio guardado",   
+                                text: "El tramite o servicio con el concepto de "+name_concepto+ " se ralizo satisfactoriamente",   
                                 type: "success",     
                                 confirmButtonText: "Aceptar",
                                 allowOutsideClick: false
                             }).then(function (){
-                               
+                                
                                 swal({
                                     title: "Realizar pago",   
-                                    text: "Para poder ver tu documento solicitado es importante que realices tu pago de manera inmediata",   
-                                    type: "warning",     
-                                    confirmButtonText: "Aceptar",
+                                    text: "Para poder realizar el pago correspondiente la referencia bancaria sera generada",
+                                    confirmButtonText: "Entendido",
+                                    imageUrl: '../views/img/dinero.png',
+                                    imageHeight: 150,
+                                    imageAlt: 150  ,
                                     allowOutsideClick: false
                                 }).then(function (){
                                     
-                                    $('.FormularioSolicitud')[0].reset();
-                                    $("#guardarSolicitud").hide();
+                                    $(".FormularioSolicitud").fadeOut();
+                                    $("#card-referencia").fadeIn();
 
-                                    $("#buttons").append("<button class='btn btn-block btn-success mt-3'>Pagar Documento</button>");
                                 });
+                            
                             });
                         break;
                     

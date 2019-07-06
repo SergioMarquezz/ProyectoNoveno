@@ -161,6 +161,6 @@
     font-size: 18px;
 }
 
-#guardarSolicitud, #actualizar, #guardar, #nuevo  {
+#guardarSolicitud, #actualizar, #guardar, #nuevo, #imprimir-referencia{
     background: #5cb85c;    
 }

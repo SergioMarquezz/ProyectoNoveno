@@ -16,6 +16,11 @@ $(document).ready(function () {
     //Variable para el form de solicitudes
     var matricula_alumno = $("#matricula-alumno");
 
+    //Varaibles para referencia bancaria
+    var name = $("#nombre-completo");
+    var carrera = $("#carrer");
+    var num_control = $("#numero-control");
+
         $.ajax({
             url: "../models/misdatosModel.php",
             success: function (response) {
@@ -46,6 +51,8 @@ $(document).ready(function () {
                     tipo_persona.val(json.arreglo.tipo_persona);
                     periodo.val(json.arreglo.periodo);
                     matricula_alumno.val(json.arreglo.matricula);
+                    name.val(json.arreglo.name);
+                    num_control.val(json.arreglo.matricula);
                 }       
     
                 /*if(json.admin.privilegio >= 2){
