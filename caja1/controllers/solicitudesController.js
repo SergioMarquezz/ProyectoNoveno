@@ -45,12 +45,16 @@ function conceptoUnico(){
       var cve_concepto = $(this).val();
       var clave_input = $("#clave_concepto");
       var costo = $("#costo-unitario");
+      var unitario = $("#unitario-costo");
+      var costo_letra = $("#costo-letra");
 
       //Variables para la referencia bancaria
       var texto = $("#descripcion");
       var total = $("#monto");
+      var key_concepto = $("#claveconcepto");
 
-        console.log(cve_concepto);
+      key_concepto.val(cve_concepto);
+
       $.ajax({
           type: "POST",
           url: "../models/solicitudesModel.php",
@@ -62,16 +66,36 @@ function conceptoUnico(){
           success: function (response) {
               console.log(response);
              
-               
+         
+
+
               var costo_sin_decimal = (parseFloat(response.concept.costo_unitario).toFixed());
 
-              costo.val(costo_sin_decimal + "00");
+              costo.val(costo_sin_decimal + "00" );
+              costo_letra.val(costo_sin_decimal);
               clave_input.val(cve_concepto);
               texto.val(response.concept.descripcion);
               total.val("$ "+response.concept.costo_unitario);
-              /*if(response.concept.activo == 1){
-                  
-              }*/
+
+              if(response.concept.costo_unitario != ""){
+
+                var num = costo_letra.val();
+
+                $.ajax({
+                    type: "POST",
+                    url: "../views/includes/num_letra.php",
+                    data: {
+                        "numero": num
+                    },
+                    success: function (data) {
+                        console.log(data);
+                        
+                        var str = data + " Pesos 00/100 M.N.";
+                        var res = str.toUpperCase();
+                        unitario.val("$ "+response.concept.costo_unitario + " ("+res+")");
+                    }
+                });
+              }
           }
       });
     
@@ -131,7 +155,7 @@ function enviarSolicitud(){
                 "matricula": matricula            
             },
             success: function (response) {
-                var json = JSON.parse(response); 
+                 var json = JSON.parse(response); 
                      console.log(json);
 
                 switch(json.result){
@@ -151,12 +175,32 @@ function enviarSolicitud(){
                                     confirmButtonText: "Entendido",
                                     imageUrl: '../views/img/dinero.png',
                                     imageHeight: 150,
-                                    imageAlt: 150  ,
                                     allowOutsideClick: false
                                 }).then(function (){
+
+                                    var clave_person = $("#cve-persona").val();
+                                    var clave_concepto = $("#clave_concepto").val();
+                                    var referencia = $("#bancaria");
                                     
                                     $(".FormularioSolicitud").fadeOut();
                                     $("#card-referencia").fadeIn();
+                                    
+                                    $.ajax({
+                                        type: "POST",
+                                        url: "../models/solicitudesModel.php",
+                                        data: {
+                                            "option": "referencia",
+                                            "cve-persona": clave_person,
+                                            "clave" : clave_concepto
+                                        },
+                                        dataType: "json",
+                                        success: function (response) {
+                                            
+                                            console.log(response);
+
+                                            referencia.val(response.referencia.referencia);
+                                        }
+                                    });
 
                                 });
                             

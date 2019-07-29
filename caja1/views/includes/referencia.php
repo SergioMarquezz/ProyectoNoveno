@@ -83,5 +83,5 @@
         $referencia_final  = $referencia.''.$c_verificador;
         return  $referencia_final;
     }
-    //echo referencia(1716110095,85,'200');
+   // echo referencia(1716110095,85,'70000');
 ?>

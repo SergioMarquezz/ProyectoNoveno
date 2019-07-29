@@ -20,6 +20,8 @@ $(document).ready(function () {
     var name = $("#nombre-completo");
     var carrera = $("#carrer");
     var num_control = $("#numero-control");
+ 
+    
 
         $.ajax({
             url: "../models/misdatosModel.php",
@@ -51,8 +53,14 @@ $(document).ready(function () {
                     tipo_persona.val(json.arreglo.tipo_persona);
                     periodo.val(json.arreglo.periodo);
                     matricula_alumno.val(json.arreglo.matricula);
-                    name.val(json.arreglo.name);
+                    name.val(json.arreglo.name + " "+ json.arreglo.apellido_pa + " "+ json.arreglo.apellido_ma);
                     num_control.val(json.arreglo.matricula);
+                    carrera.val(json.arreglo.carrer);
+
+                    if(json.arreglo.tipo_persona == 2){
+                       
+                        //$("#bank").hide();
+                    }
                 }       
     
                 /*if(json.admin.privilegio >= 2){

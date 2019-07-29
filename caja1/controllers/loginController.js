@@ -36,7 +36,10 @@ function iniciarSessionAlumno(){
                         confirmButtonText: ' Aceptar'
                   }).then(function () {
                       window.location.href="views/recibopago-views.php";
+                      
                   });
+
+              
                 }
                 else{
                     swal({

@@ -14,7 +14,7 @@
 
         if($opcion == 'conceptos'){
 
-            $sql_concepto = executeQuery("SELECT cve_concepto,descripcion,costo_unitario,activo FROM saiiut.saiiut.conceptos_pago ORDER BY descripcion");
+            $sql_concepto = executeQuery("SELECT cve_concepto,descripcion,costo_unitario,activo FROM saiiut.saiiut.conceptos_pago WHERE activo = 1 ORDER BY descripcion");
 
             while($row = odbc_fetch_array($sql_concepto)){
         
@@ -83,6 +83,31 @@
                 }
 
             }
+        }
+
+        else if($opcion == "referencia"){
+
+            $clave_persona = clearString($_POST['cve-persona']);
+
+            $query_referencia = executeQuery("SELECT referencia FROM caja.sitemas.solicitud_documento WHERE cve_persona = '$clave_persona' AND cve_concepto_pago = '$cve_concepto'
+                                              AND pago_realizado = 0;	");
+
+            $count_referencias = odbc_num_rows($query_referencia);
+
+            if($count_referencias == 1){
+
+
+                while($row = odbc_fetch_array($query_referencia)){
+
+                    $array_referencia["referencia"] = array_map("utf8_encode", $row);  
+    
+                    $json_referencia = json_encode($array_referencia);
+
+                }
+
+                echo $json_referencia;
+            }
+
         }
     
     }

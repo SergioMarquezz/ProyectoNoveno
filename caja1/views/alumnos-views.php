@@ -15,7 +15,7 @@
     <?php include "includes/nav-lateral.php"?> 
 
 </header>
-<body background="<?php echo SERVER;?>/views/img/logo-utec-nuevo.png">
+<body background="<?php echo SERVER;?>/views/img/logo-trasparencia.png">
 
 <div class="container title-container">
     <div class="page-header">

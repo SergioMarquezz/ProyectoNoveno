@@ -32,9 +32,8 @@ function unicoConcepto(){
         
 
         var cve_concepto = $(this).val();
-        
-       
-       clave_concepto.val(cve_concepto);
+
+
   
         $.ajax({
             type: "POST",

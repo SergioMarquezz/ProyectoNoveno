@@ -161,6 +161,20 @@
     font-size: 18px;
 }
 
-#guardarSolicitud, #actualizar, #guardar, #nuevo, #imprimir-referencia{
+#guardarSolicitud, #actualizar, #guardar, #nuevo, #imprimir-referencia, #files #ver-datos{
     background: #5cb85c;    
+}
+
+/*Estilos para el scroll de la tabla de pagos*/
+.my-custom-scrollbar {
+    position: relative;
+    height: 300px;
+    overflow: auto;
+}
+.table-wrapper-scroll-y {
+    display: block;
+}
+
+th, tr:hover {
+  background-color: #dbdbdb;
 }

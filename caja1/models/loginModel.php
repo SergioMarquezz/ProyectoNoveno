@@ -63,12 +63,13 @@
         }else if($opcion == "Alumno"){
             
             $query = "SELECT saiiut.saiiut.personas.cve_persona, cve_tipo_persona, cve_periodo_actual, saiiut.saiiut.personas.nombre, 
-            saiiut.saiiut.personas.apellido_pat, saiiut.saiiut.personas.apellido_mat, matricula,
+            saiiut.saiiut.personas.apellido_pat, saiiut.saiiut.personas.apellido_mat, matricula, saiiut.saiiut.carreras_cgut.nombre AS carrera,
             calle, numero_exterior
             FROM saiiut.saiiut.alumnos
             INNER JOIN saiiut.saiiut.personas ON saiiut.saiiut.alumnos.cve_alumno = saiiut.saiiut.personas.cve_persona
             INNER JOIN saiiut.saiiut.usuarios ON saiiut.saiiut.alumnos.matricula = saiiut.saiiut.usuarios.login_usuario
             INNER JOIN saiiut.saiiut.domicilios ON saiiut.saiiut.alumnos.cve_alumno = saiiut.saiiut.domicilios.cve_persona
+            INNER JOIN saiiut.saiiut.carreras_cgut ON saiiut.saiiut.alumnos.cve_carrera = saiiut.saiiut.carreras_cgut.cve_carrera
             WHERE login_usuario = '$usr' AND contrasena2 = '$pass' AND saiiut.saiiut.usuarios.activo = 1";
 
             $sql_alumno = executeQuery($query);
@@ -86,7 +87,10 @@
                 $matricula = odbc_result($sql_alumno,"matricula");
                 $calle_alumno = odbc_result($sql_alumno,"calle");
                 $numero_exterior = odbc_result($sql_alumno,"numero_exterior");
+                $carrera = utf8_encode(odbc_result($sql_alumno,"carrera"));
 
+
+            
                 session_start();
                 $_SESSION['clave_persona'] = $cve_persona;
                 $_SESSION['tipo_persona'] = $cve_tipo_persona;
@@ -97,6 +101,7 @@
                 $_SESSION['matricula'] = $matricula;
                 $_SESSION['calle'] = $calle_alumno;
                 $_SESSION['numero'] = $numero_exterior;
+                $_SESSION['carrera'] = $carrera;
                 
 
                 if($cve_tipo_persona == 2){

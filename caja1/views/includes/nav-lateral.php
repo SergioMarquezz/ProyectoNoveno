@@ -49,7 +49,7 @@ else{
 			</a>
 		</li>
 		<li>
-			<a href="bancos-views.php" class="text-white">
+			<a href="bancos-views.php" class="text-white" id="bank">
 				<i class="zmdi zmdi-balance zmdi-hc-lg text-white"></i> Bancos
 			</a>
 		</li>
@@ -108,6 +108,11 @@ else{
 				<i class="fa fa-file-pdf-o text-white" style="font-size:20px"></i>Generar Tramite
 			</a>
 		</li>
+		<li>
+			<a href="visualizar-pagos.php" class="text-white">
+				<i class="fa fa-eye text-white" style="font-size:20px"></i>Visualizar Pagos
+			</a>
+		</li>
 		<hr class="border-bottom">
 		<li class="dropdown show">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -132,7 +137,7 @@ else{
 					<a href="<?php echo SERVER?>admin" class="text-white"><i class="zmdi zmdi-account zmdi-hc-fw text-white"></i> </a>
 				</li>
 				<li>
-					<a href="<?php echo SERVER?>alumnos" class="text-white"><i class="zmdi zmdi-male-female zmdi-hc-fw text-white"></i> </a>
+					<a href="<?php echo SERVER?>alumnos" class="text-white"><i class="zmdi zmdi-male-fe	male zmdi-hc-fw text-white"></i> </a>
 				</li>
 			</ul>
 		</li>

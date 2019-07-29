@@ -11,5 +11,6 @@
 <script src="<?php echo SERVER; ?>controllers/solicitudesController.js"></script>
 <script src="<?php echo SERVER; ?>controllers/loginController.js"></script>
 <script src="<?php echo SERVER; ?>controllers/conceptopagoController.js"></script>
+<script src="<?php echo SERVER; ?>controllers/pagosController.js"></script>
 <script src="<?php echo SERVER; ?>plugins/select2.js"></script>
 

@@ -14,7 +14,7 @@
 <header>
     <?php include "includes/nav-lateral.php"?> 
 </header>
-<body background="<?php echo SERVER;?>/views/img/logo-utec-nuevo.png">
+<body background="<?php echo SERVER;?>/views/img/logo-trasparencia.png">
 <div class="container title-container">
     <div class="card">
         <div class="card-header text-white" style="background: #4D9D29;">

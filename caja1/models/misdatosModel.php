@@ -31,7 +31,8 @@
             "apellido_ma" => $_SESSION['ape_materno'],
             "matricula" => $_SESSION['matricula'],
             "calle" => $_SESSION['calle'],
-            "number" => $_SESSION['numero']
+            "number" => $_SESSION['numero'],
+            "carrer" =>   $_SESSION['carrera']
            
         ));
 

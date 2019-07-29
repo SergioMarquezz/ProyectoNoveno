@@ -1,7 +1,5 @@
 <?php
-   // require_once "ajax/verificarSession.php";
    include "../core/configGeneral.php";
-
     
 ?>
 <!DOCTYPE html>
@@ -18,7 +16,7 @@
     <?php include "includes/nav-lateral.php"?> 
 </header>
 
-<body background="<?php echo SERVER;?>/views/img/logo-utec-nuevo.png">
+<body background="<?php echo SERVER;?>/views/img/logo-trasparencia.png">
 <script src="../plugins/highcharts.js"></script>
 <script src="../plugins/data.js"></script>
 <script src="../plugins/drilldown.js"></script>
@@ -66,7 +64,7 @@
         </div>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
             <div class="card" style="max-width: 18rem;">
-                <div class="card-header">Usuarios registrados</div>
+                <div class="card-header">Alumnos Regulares</div>
                 <div class="view overlay">
                     <img class="card-img-top" src="img/logo.png" alt="Card image cap">
                     <a href="#!">
