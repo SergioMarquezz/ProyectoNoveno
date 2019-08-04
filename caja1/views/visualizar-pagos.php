@@ -68,12 +68,12 @@
                                                     <div class="col-lg-6">
                                                         <div class="panel-heading clearfix">
                                                             <div class="pull-right mt-5">
-                                                                <a href="add_product.php" class="btn btn-primary">Guardar Datos</a>
+                                                                <button class="btn btn-primary" id="save-datos">Guardar Datos</button>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                    <div class="table-wrapper-scroll-y my-custom-scrollbar">
+                                                    <div class="scroll-y scrollbar">
                                                         <table class="table-bordered table-responsive" id="myTable">
                                                             <thead>
                                                                 <tr>
@@ -115,33 +115,29 @@
                             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
                                 <div class="card-body">
                                    <form>
-                                        <!--<div class="file-field input-field">
+                                        <div class="file-field input-field">
                                             <div class="btn">
                                                 <span>Selecciona Archivo</span>
-                                                <input type="file" id="cvs" name="file-csv">
+                                                <input type="file" id="subir-csv" name="archivo">
                                             </div>
                                             <div class="row">
                                                 <div class="file-path-wrapper col-lg-4">
                                                     <input class="file-path" type="text" readonly>
                                                 </div>
                                             </div>
-                                        </div>-->
-                                       <!-- <input type="text" name="option">-->
-                                        <input type="file" id="subir-csv" name="archivo">
+                                        </div>
                                         <button class="btn btn-blue-grey" type="button" id="subir-archivo">Subir</button>         
                                    </form>
+                                   <div id="myProgress">
+                                        <div id="myBar">0%</div>
+                                   </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- Accordion card -->
+                       <!-- <div class="card">
 
-                        <!-- Accordion card -->
-                        <div class="card">
-
-                            <!-- Card header -->
                             <div class="card-header" role="tab" id="headingThree">
 
-                            <!--Options-->
                             <div class="dropdown float-left">
                                 <button class="btn btn-info btn-sm m-0 mr-3 p-2 dropdown-toggle" type="button" data-toggle="dropdown"
                                 aria-haspopup="true" aria-expanded="false">
@@ -154,7 +150,6 @@
                                 </div>
                             </div>
 
-                            <!-- Heading -->
                             <a id="folder-3" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree"
                                 aria-expanded="true" aria-controls="collapseThree">
                                 <h5 class="mt-1 mb-0">
@@ -163,8 +158,6 @@
                                 </h5>
                             </a>
                             </div>
-
-                            <!-- Card body -->
                             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
                             <div class="card-body">
                                 Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
@@ -178,7 +171,7 @@
                                 labore sustainable VHS.
                             </div>
                             </div>
-                        </div>
+                        </div>-->
                     </div>
                 </section>
                

@@ -3,12 +3,20 @@
     require_once "../../models/pagosModel.php";
 
     
-    /*$file_scv = $_POST['csv'];
+    $option = $_POST['option'];
 
-    fileCsv($file_scv);
-*/
+    if($option == 'read'){
 
+        $file_scv = $_POST['csv'];
+        fileCsv($file_scv);
+    }
 
-    uploadFiles();
+    elseif ($option == 'upload') {
+    
+        uploadFiles();
+    }
+
+  
+
 
 ?>

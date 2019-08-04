@@ -166,15 +166,31 @@
 }
 
 /*Estilos para el scroll de la tabla de pagos*/
-.my-custom-scrollbar {
+.scrollbar {
     position: relative;
     height: 300px;
     overflow: auto;
 }
-.table-wrapper-scroll-y {
+.scroll-y {
     display: block;
 }
 
 th, tr:hover {
   background-color: #dbdbdb;
 }
+
+/*Estilos progresbar*/
+#myProgress {
+    width: 100%;
+    background-color: #ddd;
+}
+  
+#myBar {
+    width: 0%;
+    height: 30px;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
+

@@ -1,0 +1,101 @@
+<?php
+
+    require_once "mainModel.php";
+    require_once "../views/includes/fecha.php";
+
+   $save = $_POST['data'];
+
+   insertFile($save);
+
+    function insertFile($path){
+
+        global $fecha;
+
+        $files_csv = "../pagos/";
+        $csv_files = $files_csv.$path;
+        $line = 0;
+        $csv_file = fopen($csv_files, 'r');
+        
+    
+        //Para archivos csv =  fgetcsv($csv_file, ",")
+        while ((($data = fgetcsv($csv_file, 1000, "\t")) !== FALSE)){
+    
+            $num = count($data);
+            $line++;
+    
+            for ($column=0; $column < $num; $column++){
+    
+                $word = substr($data[$column+1], 0, 3);
+    
+                if ($word == 'CE0' || $word == 'CE1'){
+    
+                    $date = $data[$column];
+                    $referencia = $data[$column+1];
+                    $pago = substr($data[$column+1],12,2);
+                    $matri_clave = substr($data[$column+1],2,10);
+                    $cargo = $data[$column+2];
+                    $abono = $data[$column+3];
+                    $saldo = $data[$column+4];
+                    $referencia_completa = substr($data[$column+1],2,20);
+
+                    $tipo_persona = 2;
+                    $periodo = 71;
+                    $realizado = 1;
+                    $guardado = $fecha;
+                    $cve_persona = "9459";
+
+                    $str_saldo = str_replace(",", "", $saldo);
+                    $str_abono = str_replace(",","",$abono);
+
+                        
+                    $sql_insert = executeQuery("INSERT INTO saiiut.saiiut.pagos(fecha,referencia,cve_tipo_persona,cve_persona,abono,cve_periodo,
+                                                                                cve_concepto_pago,matricula_clave,pago_realizado,saldo,referencia_completa,fecha_guardado)
+                                                VALUES('$date','$referencia','$tipo_persona','$cve_persona',
+                                                '$str_abono','$periodo','$pago','$matri_clave','$realizado','$str_saldo','$referencia_completa','$guardado')");
+
+                   
+                
+                  $referencias_exist = array($referencia_completa);
+                   
+
+                    verificarReferencia($referencias_exist);
+                }
+              
+                $column=$column+5;
+            }
+           
+            
+        }
+
+        if($sql_insert){
+
+            echo "Guardado";
+        }
+    
+        fclose($csv_file); 
+        
+    }
+
+
+    function verificarReferencia($array){
+
+        $sql = executeQuery("SELECT referencia FROM caja.sitemas.solicitud_documento");
+
+        while($row = odbc_fetch_array($sql)){
+
+
+           $row_update = $row['referencia'];
+
+            if(in_array($row['referencia'],$array)){
+                
+                $update = executeQuery("UPDATE caja.sitemas.solicitud_documento SET pago_realizado = 1 
+                WHERE referencia = '$row_update'" );
+            }
+
+            
+        }
+    }
+
+
+
+?>

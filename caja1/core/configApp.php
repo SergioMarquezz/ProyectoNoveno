@@ -22,12 +22,6 @@
    $connection = odbc_connect(SGBD, USER, PASS);
 
   
-
-   
-
-   
-   
-
     //Para ir cambiando la incriptacion despues de insertar un registro no se debe cambiar
     const METHOD = "AES-256-CBC";
     const SECRET_KEY = '$SERGIO@2019';
