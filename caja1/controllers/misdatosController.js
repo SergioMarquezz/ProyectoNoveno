@@ -4,14 +4,13 @@ $(document).ready(function () {
     var ape_paterno = $("#paterno-user");
     var ape_materno = $("#materno");
     var correo = $("#correo");
-    var calle = $("#calle");
+   // var calle = $("#calle");
     var colonia = $("#colonia");
-    var number = $("#numero");
+  //  var number = $("#numero");
     var tel = $("#telefono");
     var matricula = $("#matricula");
     var cve_persona = $("#cve-persona");
     var tipo_persona = $("#tipo-persona");
-    var periodo = $("#cve-periodo");
 
     //Variable para el form de solicitudes
     var matricula_alumno = $("#matricula-alumno");
@@ -26,6 +25,7 @@ $(document).ready(function () {
         $.ajax({
             url: "../models/misdatosModel.php",
             success: function (response) {
+
                 var json = JSON.parse(response); 
                 console.log(json); 
 
@@ -45,13 +45,12 @@ $(document).ready(function () {
                     nombre.val(json.arreglo.name);
                     ape_paterno.val(json.arreglo.apellido_pa);
                     ape_materno.val(json.arreglo.apellido_ma);
-                    calle.val(json.arreglo.calle);
+                 //   calle.val(json.arreglo.calle);
                     colonia.val(json.arreglo.col);
                     matricula.val(json.arreglo.matricula);
-                    number.val(json.arreglo.number);
+                  //  number.val(json.arreglo.number);
                     cve_persona.val(json.arreglo.cve_persona);
                     tipo_persona.val(json.arreglo.tipo_persona);
-                    periodo.val(json.arreglo.periodo);
                     matricula_alumno.val(json.arreglo.matricula);
                     name.val(json.arreglo.name + " "+ json.arreglo.apellido_pa + " "+ json.arreglo.apellido_ma);
                     num_control.val(json.arreglo.matricula);

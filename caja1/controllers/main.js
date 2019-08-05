@@ -45,7 +45,7 @@ function salir(){
 }
 
 //Funcion para el envio de datos de todos los formularios
-function enviarForms(){
+/*function enviarForms(){
 
 	$('.FormularioAjax').submit(function(e){
         e.preventDefault();
@@ -115,7 +115,7 @@ function enviarForms(){
             return false;
         });
     });
-}
+}*/
 
 
 Highcharts.chart('container', {
@@ -177,15 +177,6 @@ Highcharts.chart('container', {
     }]
 });
 
-
-
-/*$(window).scroll(function () { 
-
-    if($(window).scrollTop()<10){
-        $("#navbar").addClass('fixed-top');
-    }
-    
-});*/
 
 
 

@@ -103,6 +103,7 @@ function uploadFile(){
                 imageWidth: 400,
                 imageHeight: 250,
                 confirmButtonText: 'Aceptar',
+                allowOutsideClick: false,
                 animation: false
               })
         }
@@ -120,7 +121,8 @@ function saveData(){
             type: "question",   
             showCancelButton: true,     
             confirmButtonText: "Si",
-            cancelButtonText: "NO"
+            cancelButtonText: "NO",
+            allowOutsideClick: false
         }).then(function (){
             console.log(file_cvs);
 
@@ -140,10 +142,14 @@ function saveData(){
                             text: "Los datos se han guardado correctamente",   
                             type: "success",   
                             confirmButtonText: "Aceptar",
-                        })
-                    }else{
+                            allowOutsideClick: false
+                        }).then(function (){
 
+                            location.reload();
+                        })
                     }
+
+                
                 }
             });
         })
@@ -174,7 +180,8 @@ function seeData(){
                 imageWidth: 400,
                 imageHeight: 250,
                 confirmButtonText: 'Aceptar',
-                animation: false
+                animation: false,
+                allowOutsideClick: false
               })
         }else{
 

@@ -64,19 +64,15 @@
                     </div>
                     <input type="hidden" id="tipo-persona">
                     <input type="hidden" id="cve-persona">
-                    <input type="hidden" id="cve-periodo">
                     <input type="hidden" id="matricula-alumno">
                 </form>
                 <div id="card-referencia" class="container">
                     <div class="card" style="">
                         <div class="card-header text-white" style="background: #024a86;">REFERENCIA BANCARIA</div>
                         <div class="view overlay">
-                            <div class="row">
+                            <div class="row justify-content-center">
                                 <div class="col-xl-6 mt-5">
                                     <img class="card-img-top" src="img/logo.png" alt="Card image cap">
-                                </div>
-                                <div class="col-xl-6 mt-5">
-                                    <img class="card-img-top" src="img/BBVA.png" alt="Card image cap">
                                 </div>
                             </div>  
                             <a href="#!">
@@ -143,6 +139,11 @@
                                        <button id="imprimir-referencia" class="float-right btn" type="submit"><i class="fa fa-file-pdf-o pr-2"></i>Imprimir Referencia</button>
                                     </div>
                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p class="text-danger">Nota: El pago correspondiente lo podras realizar en el banco BBVA Bancomer</p>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>

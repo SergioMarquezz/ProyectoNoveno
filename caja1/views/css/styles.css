@@ -5,34 +5,6 @@
 
 }
 
-.container-all {
-    width: 100%;
-    margin-top: 50px;
-    display: flex;
-    overflow: hidden;
-}
-
-.container-form {
-    width: 80%;
-    padding: 40px;
-    background: #024a86;
-
-}
-
-.logo {
-
-    display: block;
-    margin: auto;
-}
-
-.title {
-    text-align: center;
-    margin-top: 50px;
-    font-weight: 300;
-    color: #f7f7f7;
-}
-
-
 
 .label-login{
     font-size: 18px !important;
@@ -42,58 +14,6 @@
     background: linear-gradient(90deg, #024a86, #5cb85c); 
 }
 
-
-
-/*parte derecha*/
-
-.container-text {
-    width: 100%;
-    /*background-image: url(../img/img1.jpg); /*::/images/img1.jpg*/
-    background-position: center;
-    background-size: cover;
-    padding: 20px; 
-    position: relative;
-}
-
-
-.litle-description {
-    position: relative;
-    color: white;
-    font-weight: 300;
-    font-size: 48px;
-}
-
-.text-description {
-    position: relative;
-    top: 80px;
-    color: white;
-    font-size: 18px;
-    font-weight: 200;
-}
-
-/*Responsive*/
-
-@media screen and (max-width: 800px){
-    .container-text{
-        display: none;
-    }
-
-    .container-form{
-        margin: auto;
-        width: 100%;
-    }
-
-}
-
-@media screen and (max-width: 50px){
-    
-    .title-welcome{
-        font-weight: 400;
-        font-size: 30px;
-        margin-top: 20px;
-    }
-            
-}
 
 /*Estilos Navbar*/
 
@@ -168,7 +88,7 @@
 /*Estilos para el scroll de la tabla de pagos*/
 .scrollbar {
     position: relative;
-    height: 300px;
+    height: 450px;
     overflow: auto;
 }
 .scroll-y {
@@ -194,3 +114,7 @@ th, tr:hover {
     color: white;
 }
 
+#trasparente{
+
+    background: rgba(2,74,134,0.2);
+}

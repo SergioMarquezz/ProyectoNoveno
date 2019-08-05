@@ -7,6 +7,7 @@
    $opcion = clearString($_POST['option']);
 
     solicitud();
+   
 
     function solicitud(){
 
@@ -52,7 +53,7 @@
             $tipo_persona = clearString($_POST['cve_tipo_persona']);
             $cve_persona = clearString($_POST['cve_persona']);
             $monto = clearString($_POST['precio']);
-            $periodo = clearString($_POST['cve_periodo']);
+            $periodo = periodoActivo();
             $concepto = clearString($_POST['cve_concepto']);
             $matricula = clearString($_POST['matricula']);
             $pago = 0;
@@ -110,6 +111,20 @@
 
         }
     
+    }
+
+    function periodoActivo(){
+        
+      $sql =  executeQuery("SELECT cve_periodo FROM saiiut.saiiut.periodos WHERE activo = 1");
+
+      $num = odbc_num_rows($sql);
+
+      if($num == 1){
+
+        $periodo = odbc_result($sql,"cve_periodo");
+
+        return $periodo;
+      }
     }
 
 ?>

@@ -68,13 +68,22 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="container row">
-                        <div class="col-md-12 mb-12">
+                        <div class="col-lg-3 col-lg-3">
                             <button id="nuevo-concepto" type="button" class="btn btn-block"><i class="fa fa-clipboard pr-2"></i>Nuevo</button>
-                            <button disabled id="guardar" type="button" class="btn btn-block mt-3"><i class="fa fa-inbox pr-2"></i>Guardar</button>
-                            <button disabled id="actualizar" type="button" class="btn btn-block mt-3"><i class="fa fa-edit pr-2"></i>Modificar</button>
-                            <button disabled id="cancel" type="button" class="btn btn-info btn-block mt-3"><i class="fa fa-times pr-2"></i>Cancelar</button>
+                        </div>
+                        <div class="col-lg-3 col-lg-3">
+                            <button disabled id="guardar" type="button" class="btn btn-block"><i class="fa fa-inbox pr-2"></i>Guardar</button>
+                        </div>
+                        <div class="col-lg-3 col-lg-3">
+                            <button disabled id="actualizar" type="button" class="btn btn-block"><i class="fa fa-edit pr-2"></i>Modificar</button>
+                        </div>
+                        <div class="col-lg-3 col-lg-3">
+                            <button disabled id="cancel" type="button" class="btn btn-info btn-block"><i class="fa fa-times pr-2"></i>Cancelar</button>
+                        </div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-2">
                             <button disabled id="eliminar" type="button" class="btn btn-danger btn-block mt-3"><i class="fa fa-trash-o pr-2"></i>Eliminar</button>
                         </div>
                     </div>

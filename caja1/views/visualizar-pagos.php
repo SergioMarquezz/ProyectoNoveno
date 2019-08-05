@@ -19,7 +19,7 @@
 
     <div class="container title-container">
         <div class="page-header">
-            <h4 class="text-titles mt-4"><i class="fa fa-eye"></i>VISUALIZACIÓN DE PAGOS</h4>
+            <h4 class="text-titles mt-4"><i class="fa fa-eye"></i>ARCHIVOS DE PAGOS</h4>
         </div>
     </div>
     <div class="container-fluid">

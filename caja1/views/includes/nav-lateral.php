@@ -7,15 +7,16 @@ if(!session_id()){
 
 }
 
-/*if( $_SESSION['tipo_admin'] == "Administrador"){
+if( $_SESSION['tipo_admin'] == "Administrador"){
 		
 	$tipo_user = "admin";
+	
 }
 
 else{
 
 	$tipo_user = "alumno";
-}*/
+}
 ?>
 
   <ul id="slide-out" class="sidenav"> <!--sidenav-fixed-->
@@ -28,7 +29,8 @@ else{
 
       <span class="white-text name"><?php echo $_SESSION['name_admin']?></span>
 
-      <span class="white-text email">jdandturk@gmail.com</span>
+	  <span class="white-text email">jdandturk@gmail.com</span>
+	  <input type="hidden" value="<?php echo $tipo_user?>" id="tipo-user">
 
       <a href="misdatos-views.php" title="Mis datos" class="text-white ml-5">
 
@@ -53,7 +55,7 @@ else{
 				<i class="zmdi zmdi-balance zmdi-hc-lg text-white"></i> Bancos
 			</a>
 		</li>
-		<li>
+		<li id="recibo">
 			<a href="recibopago-views.php" class="text-white">
 				<i class="fa fa-file text-white" style="font-size:20px"></i>Recibo de pago
 			</a>
@@ -63,7 +65,7 @@ else{
 				<i class="zmdi zmdi-comment zmdi-hc-lg text-white" style="font-size:20px"></i>Conceptos de pago
 			</a>
 		</li>
-		<li class="dropdown show">
+		<li class="dropdown show" id="pago-title">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<i class="fa fa-graduation-cap text-white" style="font-size:18px"></i> Pagos de titulo
 			</a>
@@ -77,7 +79,7 @@ else{
 			</ul>
 		</li>
 		<li>
-		<li class="dropdown show">
+		<li class="dropdown show" id="colegiatura">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<i class="fa fa-dollar text-white" style="font-size:20px"></i> Pagos de colegiatura
 			</a>
@@ -93,7 +95,7 @@ else{
 				</li>
 			</ul>
 		</li>
-		<li>
+		<li id="nivelacion">
 			<a href="#" class="text-white">
 				<i class="fa fa-book text-white" style="font-size:20px"></i>Examen de nivelación
 			</a>
@@ -103,14 +105,14 @@ else{
 				<i class="fa fa-building text-white" style="font-size:20px"></i>Sucursales
 			</a>
 		</li>
-		<li>
+		<li id="list-tramite">
 			<a href="solicitudes-views.php" class="text-white">
 				<i class="fa fa-file-pdf-o text-white" style="font-size:20px"></i>Generar Tramite
 			</a>
 		</li>
 		<li>
 			<a href="visualizar-pagos.php" class="text-white">
-				<i class="fa fa-eye text-white" style="font-size:20px"></i>Visualizar Pagos
+				<i class="fa fa-eye text-white" style="font-size:20px"></i>Archivos de Pagos
 			</a>
 		</li>
 		<hr class="border-bottom">

@@ -134,7 +134,6 @@ function enviarSolicitud(){
 
         var tipo_persona = $("#tipo-persona").val(),
             cve_persona = $("#cve-persona").val(),
-            periodo = $("#cve-periodo").val(),
             precio = $("#costo-unitario").val(),
             fecha = $("#fecha_solcitud").val(),
             concepto = $("#clave_concepto").val(),
@@ -150,11 +149,11 @@ function enviarSolicitud(){
                 "cve_tipo_persona": tipo_persona,
                 "cve_persona": cve_persona,
                 "precio": precio,
-                "cve_periodo": periodo,
                 "cve_concepto": concepto,
                 "matricula": matricula            
             },
             success: function (response) {
+                console.log(response);
                  var json = JSON.parse(response); 
                      console.log(json);
 

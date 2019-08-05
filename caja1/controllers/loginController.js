@@ -1,17 +1,12 @@
 $(document).ready(function () {
     
     iniciarSession();
-    iniciarSessionAlumno();
-   
-    
+    typeUser();
 });
 
 
 function iniciarSessionAlumno(){
 
-    $("#btn-login").click(function (e) { 
-        e.preventDefault();
-        
         var user = $("#usuario").val();
         var pass = $("#contrasenia").val();
 
@@ -53,7 +48,6 @@ function iniciarSessionAlumno(){
                 
             }
         });
-    });
 }
 
 function iniciarSession(){
@@ -76,7 +70,7 @@ function iniciarSession(){
                 console.log(response);
 
                 if(response == "Administrador"){
-                    
+                     
                     swal({
                         title: "Acceso correcto",
                         text: "<strong>Tus credenciales que ingresaste son correctas, has ingresado al sistema como administrador</strong>",
@@ -86,8 +80,30 @@ function iniciarSession(){
                   }).then(function () {
                       window.location.href="views/principal-views.php";
                   });
+                }else{
+                    iniciarSessionAlumno();
                 }
             }
         });
     });
+}
+
+function typeUser(){
+    
+    var tipo_user = $("#tipo-user").val();
+    
+    if(tipo_user == "admin"){
+
+        $("#list-tramite").hide();
+        $("#recibo").hide();
+        $("#pago-title").hide();
+        $("#colegiatura").hide();
+        $("#nivelacion").hide();
+    }
+
+    else if(tipo_user == "alumno"){
+
+        
+        
+    }
 }
