@@ -68,7 +68,7 @@
     
                     if($email != ""){
     
-                        $sql_email = executeQuery("SELECT email FROM caja.sitemas.administradores WHERE email = '$email'");
+                        $sql_email = executeQuery("SELECT email FROM administradores WHERE email = '$email'");
                         $email_count = odbc_num_rows($sql_email);
                 
                     }else{
@@ -85,7 +85,7 @@
     
                     }else{
     
-                        $sql_user = executeQuery("SELECT nombre_user FROM caja.sitemas.administradores WHERE nombre_user = '$user'");
+                        $sql_user = executeQuery("SELECT nombre_user FROM administradores WHERE nombre_user = '$user'");
                         $user_count = odbc_num_rows($sql_user);
                         
                         if($user_count >= 1){
@@ -96,7 +96,7 @@
     
                         }else{
     
-                            $sql_registros = executeQuery("SELECT cve_administrador FROM caja.sitemas.administradores");
+                            $sql_registros = executeQuery("SELECT cve_administrador FROM administradores");
                             $registros_count = (odbc_num_rows($sql_registros)) + 1;
     
                             //Se genera el codigo para cada cuenta
@@ -104,7 +104,7 @@
     
                             $clave_pass = encryption($pass);
     
-                            $sql_save_admin = executeQuery("EXEC caja.sitemas.insertarAdmin '$codigo_cuenta','$privilegio','$name','$paterno','$materno','$calle','$col','$number','$celular','$sexo','$user','$clave_pass','$email','$activo','$tipo_cuenta'");
+                            $sql_save_admin = executeQuery("EXEC insertarAdmin '$codigo_cuenta','$privilegio','$name','$paterno','$materno','$calle','$col','$number','$celular','$sexo','$user','$clave_pass','$email','$activo','$tipo_cuenta'");
     
                             if($sql_save_admin == false){
     

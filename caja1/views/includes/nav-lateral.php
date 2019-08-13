@@ -31,6 +31,7 @@ else{
 
 	  <span class="white-text email">jdandturk@gmail.com</span>
 	  <input type="hidden" value="<?php echo $tipo_user?>" id="tipo-user">
+	  <input type="hidden" id="key_people" value="<?php echo $_SESSION['clave_persona'] ?>">
 
       <a href="misdatos-views.php" title="Mis datos" class="text-white ml-5">
 
@@ -61,7 +62,7 @@ else{
 			</a>
 		</li>
 		<li>
-			<a href="conceptospago-views.php" class="text-white">
+			<a href="conceptospago-views.php" class="text-white" id="conceptos">
 				<i class="zmdi zmdi-comment zmdi-hc-lg text-white" style="font-size:20px"></i>Conceptos de pago
 			</a>
 		</li>
@@ -101,7 +102,7 @@ else{
 			</a>
 		</li>
 		<li>
-			<a href="#" class="text-white">
+			<a href="#" class="text-white" id="sucursales">
 				<i class="fa fa-building text-white" style="font-size:20px"></i>Sucursales
 			</a>
 		</li>
@@ -111,12 +112,12 @@ else{
 			</a>
 		</li>
 		<li>
-			<a href="visualizar-pagos.php" class="text-white">
+			<a href="visualizar-pagos.php" class="text-white" id="archivos">
 				<i class="fa fa-eye text-white" style="font-size:20px"></i>Archivos de Pagos
 			</a>
 		</li>
 		<hr class="border-bottom">
-		<li class="dropdown show">
+		<li class="dropdown show" id="usuarios">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<i class="zmdi zmdi-account-add zmdi-hc-fw text-white"  style="font-size:20px"></i> Usuarios
 			</a>

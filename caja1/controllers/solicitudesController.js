@@ -177,33 +177,24 @@ function enviarSolicitud(){
                                     allowOutsideClick: false
                                 }).then(function (){
 
-                                    var clave_person = $("#cve-persona").val();
-                                    var clave_concepto = $("#clave_concepto").val();
-                                    var referencia = $("#bancaria");
-                                    
-                                    $(".FormularioSolicitud").fadeOut();
-                                    $("#card-referencia").fadeIn();
-                                    
-                                    $.ajax({
-                                        type: "POST",
-                                        url: "../models/solicitudesModel.php",
-                                        data: {
-                                            "option": "referencia",
-                                            "cve-persona": clave_person,
-                                            "clave" : clave_concepto
-                                        },
-                                        dataType: "json",
-                                        success: function (response) {
-                                            
-                                            console.log(response);
-
-                                            referencia.val(response.referencia.referencia);
-                                        }
-                                    });
+                                    referencias();    
 
                                 });
                             
                             });
+                        break;
+                    
+                    case "referencia existe":
+                            swal({
+                                title: "Solicitud ya realizada",   
+                                text: "Tu solicitud con concepto: "+name_concepto+" para el dia de hoy ya fue realizada, la referencia bancaria correspondiente sera generada",   
+                                type: "info",     
+                                confirmButtonText: "Entendido",
+                                allowOutsideClick: false
+                            }).then(function(){
+
+                              referencias();  
+                            })
                         break;
                     
                     default:
@@ -222,5 +213,32 @@ function enviarSolicitud(){
         })
 
        
+    });
+}
+
+function referencias(){
+
+    var clave_person = $("#cve-persona").val();
+    var clave_concepto = $("#clave_concepto").val();
+    var referencia = $("#bancaria");
+    
+    $(".FormularioSolicitud").fadeOut();
+    $("#card-referencia").fadeIn();
+    
+    $.ajax({
+        type: "POST",
+        url: "../models/solicitudesModel.php",
+        data: {
+            "option": "referencia",
+            "cve-persona": clave_person,
+            "clave" : clave_concepto
+        },
+        dataType: "json",
+        success: function (response) {
+            
+            console.log(response);
+
+            referencia.val(response.referencia.referencia);
+        }
     });
 }

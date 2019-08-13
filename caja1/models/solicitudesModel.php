@@ -7,11 +7,10 @@
    $opcion = clearString($_POST['option']);
 
     solicitud();
-   
 
     function solicitud(){
 
-        global $cve_concepto, $opcion;
+        global $cve_concepto, $opcion, $unique_referencia;
 
         if($opcion == 'conceptos'){
 
@@ -70,18 +69,36 @@
                 
                 $referencia = referencia($matricula,$concepto,$monto_total);
 
-                $sql_save_solicitud = executeQuery("EXEC caja.sitemas.insertarSolicitud '$date','$tipo_persona','$cve_persona','$monto','$periodo','$concepto','$pago','$referencia'");
+                  $referencia_unique = uniqueReferencia($cve_persona,$concepto,$date);
+
+                    if($referencia_unique == 1){
+
+                            $persona_cve = odbc_result($unique_referencia,"cve_persona");
+                            $concepto_cve = odbc_result($unique_referencia,"cve_concepto_pago");
+                            $date_today = odbc_result($unique_referencia,"fecha_solicitud");
+                            $a_reference = odbc_result($unique_referencia,"referencia"); 
+
+                            if($persona_cve == $cve_persona && $concepto == $concepto_cve){
+
+                                $result['result'] = "referencia existe";
+                                print json_encode($result);
+                            }
+                          
+                    }else{
+
+                        $sql_save_solicitud = executeQuery("EXEC insertarSolicitud '$date','$tipo_persona','$cve_persona','$monto','$periodo','$concepto','$pago','$referencia'");
  
-                if($sql_save_solicitud == false){
-        
-                                    
-                    $result['result'] = "error de registro";
-                    print json_encode($result);
-                }else{
-                    
-                    $result['result'] = "solicitud guardada";
-                    print json_encode($result);
-                }
+                        if($sql_save_solicitud == false){
+                
+                                            
+                            $result['result'] = "error de registro";
+                            print json_encode($result);
+                        }else{
+                            
+                            $result['result'] = "solicitud guardada";
+                            print json_encode($result);
+                        }
+                    }
 
             }
         }
@@ -90,7 +107,7 @@
 
             $clave_persona = clearString($_POST['cve-persona']);
 
-            $query_referencia = executeQuery("SELECT referencia FROM caja.sitemas.solicitud_documento WHERE cve_persona = '$clave_persona' AND cve_concepto_pago = '$cve_concepto'
+            $query_referencia = executeQuery("SELECT referencia FROM solicitud_documento WHERE cve_persona = '$clave_persona' AND cve_concepto_pago = '$cve_concepto'
                                               AND pago_realizado = 0;	");
 
             $count_referencias = odbc_num_rows($query_referencia);
@@ -125,6 +142,19 @@
 
         return $periodo;
       }
+    }
+
+
+    function uniqueReferencia($persona_clave,$concepto_pago,$fecha){
+
+        global $unique_referencia;
+        $unique_referencia = executeQuery("SELECT fecha_solicitud, cve_persona, cve_concepto_pago, referencia
+        FROM solicitud_documento
+        WHERE cve_persona = '$persona_clave' AND cve_concepto_pago = '$concepto_pago' AND fecha_solicitud = '$fecha'");
+
+        $row_nums = odbc_num_rows($unique_referencia);
+
+        return $row_nums;
     }
 
 ?>

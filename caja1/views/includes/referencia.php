@@ -11,7 +11,7 @@
         $suma = $matricula.$pago;
 
         $fecha = date('d-m-Y');
-        $fecha = strtotime('+0 day',strtotime($fecha));
+        $fecha = strtotime('+2 day',strtotime($fecha));
         $fecha = date('d-m-Y',trim($fecha));
         $fecha = trim($fecha);
         
@@ -83,5 +83,5 @@
         $referencia_final  = $referencia.''.$c_verificador;
         return  $referencia_final;
     }
-   // echo referencia(1716110095,85,'70000');
+   //   echo referencia(1716110095,85,'70000');
 ?>

@@ -4,7 +4,7 @@
    const USER = "sa";
    const PASS = "UtecAreaSistemas";
    const SERVER = "localhost";
-   const DATABASE = "caja";
+   const DATABASE = "administracion";
 
     //Constantes para conexion al servidor remoto del saiiut
     /*const SERVER_SAIIUT = '200.10.10.3';
@@ -13,7 +13,7 @@
     const PASS_SAIIUT = "UtecAreaSistemas";*/
 
     //Linea de codigo para conectar con SQL Server 2017
-   //const SGBD = "Driver={SQL Server Native Client 10.0};Server=".SERVER.";Database=".DATABASE.";";
+  // const SGBD = "Driver={SQL Server Native Client 10.0};Server=".SERVER.";Database=".DATABASE.";";
 
     
     //Constante para almacenar la informacion de la base de datos

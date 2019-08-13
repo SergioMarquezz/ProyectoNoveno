@@ -17,8 +17,7 @@ $validez = $_POST['valida'];
 $pago = $_POST['cantidad'];
 
 
-
-$html = "
+/*$html = "
 
 <style>
 
@@ -75,16 +74,15 @@ $html = "
             </tr>
         </tbody>
     </table>
-";
+";*/
 
 $mpdf->WriteHTML('');
-$mpdf->Image('../views/img/referencia.jpg', 0, 0, 210, 280, 'jpg', '', true, false);
-$mpdf->Image('../views/img/BBVA.png', 145, 40, 50, 20, 'png', '', true, false);
+$mpdf->Image('../views/img/REFERENCIA BANCARIA alumno.png', 0, 0, 210, 150, 'png', '', true, false);
 
 
 //$mpdf->SetTextColor(1,1,126);
 //$mpdf->WriteCell(50,5,$fecha,'LRBT',0,'C');
-$mpdf->WriteHTML($html);
+//$mpdf->WriteHTML("");
 // Output a PDF file directly to the browser
 $mpdf->Output();
 

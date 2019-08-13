@@ -26,24 +26,44 @@ function uploadFile(){
         });
 
         if(file_cvs != undefined){
-
-           $("#subir-archivo").attr('disabled', true);
+            
             var elem = document.getElementById("myBar");
             var width = 10;
-            var id = setInterval(frame, 100);
+          
+
+            var inputFileCsv = document.getElementById("subir-csv");
+            var file = inputFileCsv.files[0];
+
+            if(file.type == "text/plain"){
+
+                var id = setInterval(frame, 100);
+                $("#subir-archivo").attr('disabled', true);
+                $("#btn-file").attr("disabled", true);
+
+            }else{
+                
+                swal({
+                    title: 'Ocurrio un error',
+                    text: "El archivo debe ser de texto con extensión .txt",
+                    type: 'error',
+                    confirmButtonColor: '#ff0000',
+                    confirmButtonText: "Aceptar",
+                    allowOutsideClick: false
+                });
+            }
+
         function frame() {
             if (width >= 100) {
                 clearInterval(id);
                   
                   $("#subir-archivo").attr('disabled', false);
+                  $("#btn-file").attr("disabled", false);
                  
                   var cero = width - 100;
 
                   elem.innerHTML = width - 100;
                   elem.style.width = cero; 
 
-                  var inputFileCsv = document.getElementById("subir-csv");
-                var file = inputFileCsv.files[0];
 
                 var dataForm = new FormData();
                 dataForm.append('archivo', file);
@@ -71,20 +91,11 @@ function uploadFile(){
                                 confirmButtonColor: '#3085d6',
                                 confirmButtonText: "Aceptar",
                                 allowOutsideClick: false
-                            })
-                        }else if(json.upload == "extension invalida"){
+                            }).then(function(){
 
-                            swal({
-                                title: 'Ocurrio un error',
-                                text: "El archivo debe ser de texto con extensión .txt",
-                                type: 'error',
-                                confirmButtonColor: '#ff0000',
-                                confirmButtonText: "Aceptar",
-                                allowOutsideClick: false
+                              location.reload();
                             })
-
                         }
-                    
                     }
                 });
 

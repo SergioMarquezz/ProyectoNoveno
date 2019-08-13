@@ -11,7 +11,7 @@ function fecha (){
 	$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
 
 	$fecha = date('d-m-Y');
-	$fecha = strtotime('+0 day',strtotime($fecha));
+	$fecha = strtotime('+2 day',strtotime($fecha));
 	$fecha = date('d-m-Y',trim($fecha));
 	$fecha = trim($fecha);
 
@@ -21,6 +21,23 @@ function fecha (){
 
 	$hoy = $dia." de ".$meses[$mes-1]. " del ".$ano;
 	return $hoy;
+}
+
+function meses(){
+
+	$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
+	$fecha = date('d-m-Y');
+	$fecha = strtotime('+0 day',strtotime($fecha));
+	$fecha = date('d-m-Y',trim($fecha));
+	$fecha = trim($fecha);
+
+	$ano = substr($fecha, 6, 4);
+	$mes = substr($fecha, 3, 2);
+
+
+	$mes_hoy = $meses[$mes-1]."-".$ano;
+	return $mes_hoy;
 }
 
 

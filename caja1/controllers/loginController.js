@@ -1,12 +1,15 @@
 $(document).ready(function () {
     
     iniciarSession();
+    iniciarSessionAlumno();
     typeUser();
 });
 
 
 function iniciarSessionAlumno(){
 
+    $("#btn-login").click(function(e){
+        e.preventDefault()
         var user = $("#usuario").val();
         var pass = $("#contrasenia").val();
 
@@ -48,15 +51,16 @@ function iniciarSessionAlumno(){
                 
             }
         });
+    });
 }
 
 function iniciarSession(){
 
-    $("#btn-login").click(function (e) { 
+    $("#login-btn").click(function (e) { 
         e.preventDefault();
         
-        var user = $("#usuario").val();
-        var pass = $("#contrasenia").val();
+        var user = $("#usuarios-admin").val();
+        var pass = $("#pass-admin").val();
 
         $.ajax({
             type: "POST",
@@ -81,7 +85,7 @@ function iniciarSession(){
                       window.location.href="views/principal-views.php";
                   });
                 }else{
-                    iniciarSessionAlumno();
+                        
                 }
             }
         });
@@ -103,7 +107,13 @@ function typeUser(){
 
     else if(tipo_user == "alumno"){
 
-        
+        $("#bank").hide();
+        $("#conceptos").hide();
+        $("#sucursales").hide();
+        //$("#archivos").hide();
+        $("#usuarios").hide();
+        $("#report").hide();
+        $("hr").hide();
         
     }
 }

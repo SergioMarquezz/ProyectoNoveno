@@ -116,7 +116,7 @@
                                 <div class="card-body">
                                    <form>
                                         <div class="file-field input-field">
-                                            <div class="btn">
+                                            <div class="btn" id="btn-file">
                                                 <span>Selecciona Archivo</span>
                                                 <input type="file" id="subir-csv" name="archivo">
                                             </div>

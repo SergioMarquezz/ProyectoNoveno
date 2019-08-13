@@ -10,8 +10,17 @@
     font-size: 18px !important;
 }
 
-#btn-login{
-    background: linear-gradient(90deg, #024a86, #5cb85c); 
+#btn-login, #login-btn, #aspirantes-btn{
+    background: linear-gradient(90deg, #024a86, #5cb85c);
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    border: none;
+    cursor: pointer;
+    margin-right: 6%;
+    color:#ffffff;
+    margin-top: 4%;
+    font-size: 15px;
 }
 
 
@@ -23,7 +32,7 @@
 
 /*Estilos navbar lateral */
 #slide-out{
-    background: linear-gradient(90deg,  #024a86, #4D9D29); 
+    background: linear-gradient(90deg,  #024a86, #024a86 ); 
 }
 
 .dropdown-menu{
@@ -40,8 +49,12 @@
 }
 
 .modal{
-    background: linear-gradient(90deg, #0b1a53 , #009728); 
+    /*background: linear-gradient(90deg, #0b1a53 , #009728); */
+
+    background-color: #0b1a53;
 }
+
+
 
 .page-footer{
     background-color: #092432 !important; 
@@ -118,3 +131,32 @@ th, tr:hover {
 
     background: rgba(2,74,134,0.2);
 }
+
+/*Estilos login tabs*/
+
+.register{
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
+    margin-top: 3%;
+    padding: 3%;
+    border-radius: 2.5rem;
+}
+
+#derecha{
+    background: linear-gradient(90deg,  #4D9D29 , #024a86);
+}
+
+#bienvenida{
+
+    font-size: 30px;
+}
+
+#texto-inicial{
+    font-size: 18px;
+   
+}
+
+.jumbotron{
+
+    background-image: url("../img/logo-trasparencia.png");
+}
+

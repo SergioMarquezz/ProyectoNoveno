@@ -3,9 +3,9 @@
     require_once "mainModel.php";
 
 
-    $usr = clearString($_POST['usuario-login']); 
-    $pass = clearString($_POST['usuario-pass']);
-    $opcion = clearString($_POST['opcion']);
+    $usr = "granillohermi@gmail.com";//clearString($_POST['usuario-login']); 
+    $pass = "LX6YR2PMFL";//clearString($_POST['usuario-pass']);
+    $opcion = "aspirante";//clearString($_POST['opcion']);
 
     login();
 
@@ -17,7 +17,7 @@
 
             $password = encryption($pass);
 
-            $sql = executeQuery("SELECT * FROM caja.sitemas.administradores WHERE nombre_user = '$usr' 
+            $sql = executeQuery("SELECT * FROM administradores WHERE nombre_user = '$usr' 
                                 AND contrasenia = '$password' AND activo = 1");
         
         
@@ -107,6 +107,21 @@
                     echo "alumno";
                 }
 
+            }
+        }else if($opcion == "aspirante"){
+
+            $sql_candidate = "SELECT consecutivo_aspirante, saiiut.saiiut.registro_inicial.nombre, apellido_pat, apellido_mat, saiiut.saiiut.carreras_cgut.nombre AS carrera
+            FROM saiiut.saiiut.registro_inicial
+            INNER JOIN saiiut.saiiut.carreras_cgut ON saiiut.saiiut.registro_inicial.carrera = saiiut.saiiut.carreras_cgut.cve_carrera
+            WHERE correo = '$usr' AND password = '$pass'";
+
+            $query_candidte = executeQuery($sql_candidate);
+
+            $count_query = odbc_num_rows($query_candidte);
+
+            if($count_query == 1){
+
+                echo odbc_result($query_candidte,"consecutivo_aspirante");
             }
         }
 

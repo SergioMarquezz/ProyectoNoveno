@@ -29,57 +29,99 @@
 </div>
 <hr>
 <article>
-    <div class="container row">
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-header">Pagos Realizados</div>
-                <div class="view overlay">
-                    <img class="card-img-top" src="img/logo.png" alt="Card image cap">
-                    <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
+    <div class="container-fluid">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div class="card border-success bg-light" style="width: 18rem;">
+                    <div class="card-header text-white" style="background: #024a86;">Pagos pendientes</div>
+                    <img class="card-img-top mt-3" src="img/logo.png" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title">Tramites o servicios pendientes por pagar</h5>
+                        <p class="card-text" id="texto-pendientes"></p>
+                    </div>
+                    <ul class="list-group list-group-flush" id="lista-pendientes">
+                      <!--  <li class="list-group-item border-success">Cras justo odio por $200</li>
+                        <li class="list-group-item border-success">Dapibus ac fa   cilisis in</li>
+                        <li class="list-group-item border-success">Vestibulum at eros</li>-->
+                    </ul>
                 </div>
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="../pdf/html2PDF/pdf_prueba.php" class="btn btn-primary" target="_blank">Button</a>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <div class="card border-success" style="max-width: 18rem;">
+                    <div class="card-header text-white" style="background: #024a86;">Pagos realizados</div>
+                    <div class="view overlay">
+                        <img class="card-img-top" src="img/logo.png" alt="Card image cap">
+                        <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
+                <!--<div class="card border-success" style="max-width: 18rem;">
+                    <div class="card-header text-white"style="background: #024a86;">Alumnos Regulares</div>
+                    <div class="view overlay">
+                        <img class="card-img-top" src="img/logo.png" alt="Card image cap">
+                        <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="#" class="btn btn-primary">Button</a>
+                    </div>
+                </div>-->
+                <div class="card bg-light border-success" style="max-width: 18rem;">
+                    <div class="card-header text-white"style="background: #024a86;">Tramites y/o servicios totales</div>
+                    <div class="view overlay">
+                        <img class="card-img-top" src="img/logo.png" alt="Card image cap">
+                        <a href="#!">
+                        <div class="mask rgba-white-slight"></div>
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Tramites y/o servicios que has realizado durante el cuatrimestre actual</h5>
+                        <p class="card-text">Estimado alumno puedes ver todos aquellos tramites y servicios que has realizado presionando el botón</p>
+                        <button id="btn-mas-informe" type="button" class="btn btn-primary">
+                            Ver más información
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-header">Pagos a realizar</div>
-                <div class="view overlay">
-                    <img class="card-img-top" src="img/logo.png" alt="Card image cap">
-                    <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Button</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
-            <div class="card" style="max-width: 18rem;">
-                <div class="card-header">Alumnos Regulares</div>
-                <div class="view overlay">
-                    <img class="card-img-top" src="img/logo.png" alt="Card image cap">
-                    <a href="#!">
-                    <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-                <div class="card-body">
-                    <h4 class="card-title">Card title</h4>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="#" class="btn btn-primary">Button</a>
-                </div>
-            </div>
-        </div>
-    </div>        
+    </div> 
+    </div>      
 </article>
+   <div class="modal" id="modal-totales">
+        <div class="container-fluid">
+            <h5 class="text-center text-white">Mis tramites y servicios durante el cuatrimestre</h5>
+            <table class="mt-3 table-bordered">
+            <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fecha de solicitud</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                    </tr>
+            </thead>
+                <tbody id="body-modal">
+                
+                </tbody>
+            </table>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 mt-3">
+                    <button id="btn-modal" class="btn btn-info btn-block">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>  
 
 <div id="container" style="width:100%; height:400px;"></div>
 

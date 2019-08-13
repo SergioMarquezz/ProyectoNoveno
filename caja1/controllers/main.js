@@ -6,11 +6,26 @@ $(document).ready(function(){
 		e.preventDefault();
     });
     
-	//enviarForms();
     salir();
+    pendientes();
+    tramitesTotales();
+    modal();
 
 });
 (jQuery);
+
+function modal(){
+
+    $("#btn-mas-informe").click(function (e) { 
+        e.preventDefault();
+        $("#modal-totales").modal().show();
+    });
+
+    $("#btn-modal").click(function (e) { 
+        e.preventDefault();
+        $("#modal-totales").modal().hide();
+    });
+}
 
 //Funcion para salir del sistema
 function salir(){
@@ -42,6 +57,100 @@ function salir(){
 		
 		});
 	});
+}
+
+function pendientes(){
+   
+    var clave_persona = $("#key_people").val();
+
+    $.ajax({
+        type: "POST",
+        url: "../models/principalModel.php",
+        data: {
+            "cve_persona": clave_persona,
+            "opciones": "faltan"
+        },
+        success: function (response) {
+            var json = JSON.parse(response); 
+            console.log(json);
+            if(json.pagos.pendiente != 0){
+
+                $("#texto-pendientes").text(" En este momento tienes "+json.pagos.pendiente+" tramites que has solicitado pero que aun no has pagado, te recomedamos realizar el pago correspodiente");
+                $(".list-group").show();
+            }
+            else{
+                $("#texto-pendientes").html("<h3 class='text-center'>"+json.pagos.pendiente+"</h3>");
+                $(".list-group").hide();
+            }
+        }
+    });
+
+    $.ajax({
+        type: "POST",
+        url: "../models/principalModel.php",
+        data: {
+            "cve_persona": clave_persona,
+            "opciones": "pendientes"
+        },
+        success: function(data){
+            var json = JSON.parse(data);
+
+            $.each(json.pendientes, function (){
+                
+                $("#lista-pendientes").append("<li class='list-group-item border-success'>"+this.descripcion+""+" pagar la cantidad de $ "+this.costo_unitario+"</li>")
+
+                console.log(this); 
+            })
+            
+        }
+    })
+}
+
+function tramitesTotales(){
+
+    $("#btn-mas-informe").click(function(e){
+
+        var clave_persona = $("#key_people").val();
+        $(this).attr('disabled', true);
+
+        $.ajax({
+            type: "POST",
+            url: "../models/principalModel.php",
+            data: {
+                "cve_persona": clave_persona,
+                "opciones": "totales"
+            },
+            success: function (response) {
+                var json = JSON.parse(response);
+                
+                var filas = json.totales.length;
+                
+                var num = 0;
+
+                for( i= 0; i < filas; i++){
+
+                    num++;
+                    var tbody_table = "<tr><td class='text-white'>"+num+"</td>"+
+                                        "<td class='text-white'>"+json.totales[i].fecha_solicitud+"</td>"+
+                                        "<td class='text-white'>"+json.totales[i].descripcion+"</td>"+
+                                        "<td class='text-white'>"+json.totales[i].costo_unitario+"</td>"+
+                                      "</tr>";
+
+                    $("#body-modal").append(tbody_table);
+
+                    
+                }
+            }
+        });
+
+        
+    })
+
+    $("#btn-modal").click(function (e) { 
+        e.preventDefault();
+        $("#btn-mas-informe").attr('disabled', false);
+        $("#body-modal").empty();
+    });
 }
 
 //Funcion para el envio de datos de todos los formularios

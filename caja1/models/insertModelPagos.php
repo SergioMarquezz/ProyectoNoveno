@@ -3,15 +3,15 @@
     require_once "mainModel.php";
     require_once "../views/includes/fecha.php";
 
-   //$save = $_POST['data'];
+   $save = $_POST['data'];
 
-   //insertFile($save);
-   insertFile("caja.txt");
+   insertFile($save);
+   //insertFile("caja.txt");
 
    
     function insertFile($path){
 
-        global $fecha, $cve_persona, $periodo, $type_people;
+        global $fecha, $cve_persona, $type_people;
 
         $files_csv = "../pagos/";
         $csv_files = $files_csv.$path;
@@ -41,7 +41,7 @@
                     $referencia_completa = substr($data[$column+1],2,20);
 
                     //$tipo_persona = 2;
-                    $periodo_activo =  periodoActivo();
+                    $periodo_activo = periodoActivo();
                     $realizado = 1;
                     $guardado = $fecha;
                    // $cve_persona = "9459";
@@ -60,7 +60,6 @@
                   $referencias_exist = array($referencia_completa);
 
                     verificarReferencia($referencias_exist);
-                   // selectCves($referencias_exist);
 
                     
                 }
@@ -85,7 +84,7 @@
 
         
 
-        $sql = executeQuery("SELECT cve_tipo_persona,cve_persona,referencia FROM caja.sitemas.solicitud_documento");
+        $sql = executeQuery("SELECT cve_tipo_persona,cve_persona,referencia FROM solicitud_documento");
 
         while($row = odbc_fetch_array($sql)){
 
@@ -97,7 +96,7 @@
                 $periodo = periodoActivo();
                 $type_people = odbc_result($sql,"cve_tipo_persona");
                 
-                $update = executeQuery("UPDATE caja.sitemas.solicitud_documento SET pago_realizado = 1 
+                $update = executeQuery("UPDATE solicitud_documento SET pago_realizado = 1 
                 WHERE referencia = '$row_update'" );
 
                 $update_pay = executeQuery("UPDATE saiiut.saiiut.pagos SET cve_tipo_persona = '$type_people', cve_persona = '$cve_persona'

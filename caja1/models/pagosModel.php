@@ -77,11 +77,7 @@ function fileCsv($path){
         //Ruta a guardar
         $path = $upload_folder.$name_files;
 
-        if($ext_file != "txt"){
-            $return['upload'] = "extension invalida";
-        }       
-
-        elseif (!move_uploaded_file($tmp_file, $path)) {
+        if (!move_uploaded_file($tmp_file, $path)) {
             $return['upload'] = false;
         }
       

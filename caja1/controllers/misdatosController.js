@@ -19,6 +19,7 @@ $(document).ready(function () {
     var name = $("#nombre-completo");
     var carrera = $("#carrer");
     var num_control = $("#numero-control");
+
  
     
 
