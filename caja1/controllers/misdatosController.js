@@ -30,7 +30,7 @@ $(document).ready(function () {
                 var json = JSON.parse(response); 
                 console.log(json); 
 
-                if(json.arreglo.name  === undefined  ){
+               /* if(json.arreglo.name  === undefined  ){
 
                     nombre.val(json.arreglo.nombre);
                     ape_paterno.val(json.arreglo.paterno);
@@ -42,26 +42,27 @@ $(document).ready(function () {
                     tel.val(json.arreglo.tel);
                     
                 }
-                else{
-                    nombre.val(json.arreglo.name);
-                    ape_paterno.val(json.arreglo.apellido_pa);
-                    ape_materno.val(json.arreglo.apellido_ma);
+                else{*/
+                    //Alumnos
+                    nombre.val(json.arreglo_alumnos.name);
+                    ape_paterno.val(json.arreglo_alumnos.apellido_pa);
+                    ape_materno.val(json.arreglo_alumnos.apellido_ma);
                  //   calle.val(json.arreglo.calle);
-                    colonia.val(json.arreglo.col);
-                    matricula.val(json.arreglo.matricula);
+                    colonia.val(json.arreglo_alumnos.col);
+                    matricula.val(json.arreglo_alumnos.matricula);
                   //  number.val(json.arreglo.number);
-                    cve_persona.val(json.arreglo.cve_persona);
-                    tipo_persona.val(json.arreglo.tipo_persona);
-                    matricula_alumno.val(json.arreglo.matricula);
-                    name.val(json.arreglo.name + " "+ json.arreglo.apellido_pa + " "+ json.arreglo.apellido_ma);
-                    num_control.val(json.arreglo.matricula);
-                    carrera.val(json.arreglo.carrer);
+                    cve_persona.val(json.arreglo_alumnos.cve_persona);
+                    tipo_persona.val(json.arreglo_alumnos.tipo_persona);
+                    matricula_alumno.val(json.arreglo_alumnos.matricula);
+                    name.val(json.arreglo_alumnos.name + " "+ json.arreglo_alumnos.apellido_pa + " "+ json.arreglo_alumnos.apellido_ma);
+                    num_control.val(json.arreglo_alumnos.matricula);
+                    carrera.val(json.arreglo_alumnos.carrer);
 
-                    if(json.arreglo.tipo_persona == 2){
+                /*    if(json.arreglo.tipo_persona == 2){
                        
                         //$("#bank").hide();
                     }
-                }       
+                }       */
     
                 /*if(json.admin.privilegio >= 2){
                     

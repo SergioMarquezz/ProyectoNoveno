@@ -2,9 +2,10 @@
 
     session_start();
 
+    //Datos administrador
     if(isset($_SESSION['cuenta_codigo_admin'])){
 
-        $array_admin = Array("arreglo" => Array(
+        $array_admin = array("arreglo_admin" => array(
             "nombre" =>  $_SESSION['name_admin'],
             "paterno" =>   $_SESSION['paterno'],
             "materno" =>   $_SESSION['materno'],
@@ -20,9 +21,10 @@
         print json_encode($array_admin);
        
 
+     //Datos alumnos   
     }else if(isset($_SESSION['clave_persona'])){
 
-        $array_alumno = Array("arreglo" => Array(
+        $array_alumno = array("arreglo_alumnos" => array(
             "cve_persona" => $_SESSION['clave_persona'],
             "tipo_persona" => $_SESSION['tipo_persona'],
             "periodo" => $_SESSION['periodo'],
@@ -38,5 +40,22 @@
 
         print json_encode($array_alumno);
     }
+
+    //Datos aspirante
+    else if(isset($_SESSION['type_people'])){
+
+        $array_aspirante = array("arreglo_aspirante" =>array(
+
+            "consecutive" =>  $_SESSION['key'],
+            "name_cadidate" => $_SESSION['name_admin'] ,
+            "father" => $_SESSION['father'],
+            "mother" =>  $_SESSION['mother'],
+            "career" =>  $_SESSION['career'],
+            "key_type" =>  $_SESSION['type_people']
+        ));
+
+        print json_encode($array_aspirante);
+    }
+
 
 ?>

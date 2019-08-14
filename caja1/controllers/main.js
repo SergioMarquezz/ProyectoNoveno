@@ -92,14 +92,13 @@ function pendientes(){
             "cve_persona": clave_persona,
             "opciones": "pendientes"
         },
+        dataType: "json",
         success: function(data){
-            var json = JSON.parse(data);
-
-            $.each(json.pendientes, function (){
+            $.each(data.pendientes, function (){
                 
                 $("#lista-pendientes").append("<li class='list-group-item border-success'>"+this.descripcion+""+" pagar la cantidad de $ "+this.costo_unitario+"</li>")
 
-                console.log(this); 
+                
             })
             
         }
@@ -121,9 +120,9 @@ function tramitesTotales(){
                 "opciones": "totales"
             },
             success: function (response) {
-                var json = JSON.parse(response);
-                
-                var filas = json.totales.length;
+               // var json = JSON.parse(response);
+                console.log(response);
+            /*    var filas = json.totales.length;
                 
                 var num = 0;
 
@@ -139,7 +138,7 @@ function tramitesTotales(){
                     $("#body-modal").append(tbody_table);
 
                     
-                }
+                }*/
             }
         });
 

@@ -3,9 +3,9 @@
     require_once "mainModel.php";
 
 
-    $usr = "granillohermi@gmail.com";//clearString($_POST['usuario-login']); 
-    $pass = "LX6YR2PMFL";//clearString($_POST['usuario-pass']);
-    $opcion = "aspirante";//clearString($_POST['opcion']);
+    $usr = clearString($_POST['usuario-login']); 
+    $pass = clearString($_POST['usuario-pass']);
+    $opcion = clearString($_POST['opcion']);
 
     login();
 
@@ -121,7 +121,23 @@
 
             if($count_query == 1){
 
-                echo odbc_result($query_candidte,"consecutivo_aspirante");
+                $id = odbc_result($query_candidte,"consecutivo_aspirante");
+                $name = odbc_result($query_candidte,"nombre");
+                $last_name_pa = odbc_result($query_candidte,"apellido_pat");
+                $last_name_ma = odbc_result($query_candidte,"apellido_mat");
+                $career = utf8_encode(odbc_result($query_candidte,"carrera"));
+
+                session_start();
+
+                $_SESSION['key'] = $id;
+                $_SESSION['name_admin'] = $name;
+                $_SESSION['father'] = $last_name_pa;
+                $_SESSION['mother'] = $last_name_ma;
+                $_SESSION['career'] = $career;
+                $_SESSION['type_people'] = 1;
+
+                echo "aspirante";
+
             }
         }
 

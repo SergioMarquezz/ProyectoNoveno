@@ -7,15 +7,23 @@ if(!session_id()){
 
 }
 
-if( $_SESSION['tipo_admin'] == "Administrador"){
+if(isset($_SESSION['tipo_admin']) == "Administrador"){
 		
 	$tipo_user = "admin";
 	
 }
 
-else{
+elseif(isset($_SESSION['tipo_persona']) == 2){
 
 	$tipo_user = "alumno";
+}
+elseif(isset($_SESSION['type_people']) == 1){
+	
+	$tipo_user = "aspirante";
+}
+else{
+
+	$tipo_user = "personal utec";
 }
 ?>
 
@@ -31,7 +39,7 @@ else{
 
 	  <span class="white-text email">jdandturk@gmail.com</span>
 	  <input type="hidden" value="<?php echo $tipo_user?>" id="tipo-user">
-	  <input type="hidden" id="key_people" value="<?php echo $_SESSION['clave_persona'] ?>">
+	  <input type="text" id="key_people" value="<?php echo $_SESSION['clave_persona'] ?>">
 
       <a href="misdatos-views.php" title="Mis datos" class="text-white ml-5">
 

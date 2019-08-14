@@ -96,7 +96,7 @@
                                     <div class="tab-pane fade" id="login-aspirantes" role="tabpanel" aria-labelledby="pills-profile-tab">
                                         <form method="post">
                                             <div class="form-group">
-                                                <input type="text" name="usuario-login" id="usuarios-asipirante" class="form-control" placeholder="Correo" value="" required=""/>
+                                                <input type="email" name="usuario-login" id="usuarios-asipirante" class="form-control" placeholder="Correo" value="" required=""/>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="usuario-pass" id="pass-asipirante" class="form-control" placeholder="Contraseña" value="" required=""/>

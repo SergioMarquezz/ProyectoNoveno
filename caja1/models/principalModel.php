@@ -7,8 +7,8 @@
 
     function pendientes(){
 
-        $clave_persona = $_POST['cve_persona'];
-        $opciones = $_POST['opciones'];
+        $clave_persona = 9459;//$_POST['cve_persona'];
+        $opciones = "totales";//$_POST['opciones'];
 
         if($opciones == "faltan"){
 

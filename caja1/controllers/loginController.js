@@ -1,7 +1,8 @@
 $(document).ready(function () {
     
-    iniciarSession();
+    iniciarSessionAdmin();
     iniciarSessionAlumno();
+    loginCandidate();
     typeUser();
 });
 
@@ -40,13 +41,7 @@ function iniciarSessionAlumno(){
               
                 }
                 else{
-                    swal({
-                        title: "Problemas al iniciar sesión",
-                        text: "El nombre de usuario y contraseña no son correctos o tu cuenta puede estas desabilitada",
-                        type: 'error',
-                        confirmButtonColor: '#03A9F4',
-                        confirmButtonText: ' Aceptar!'
-                  })
+                    messageError();
                 }
                 
             }
@@ -54,7 +49,7 @@ function iniciarSessionAlumno(){
     });
 }
 
-function iniciarSession(){
+function iniciarSessionAdmin(){
 
     $("#login-btn").click(function (e) { 
         e.preventDefault();
@@ -85,11 +80,59 @@ function iniciarSession(){
                       window.location.href="views/principal-views.php";
                   });
                 }else{
-                        
+                    messageError();
                 }
             }
         });
     });
+}
+
+
+function loginCandidate(){
+
+    $("#aspirantes-btn").click(function (e){ 
+        e.preventDefault();
+
+        var user = $("#usuarios-asipirante").val();
+        var pass = $("#pass-asipirante").val();
+
+        $.ajax({
+            type: "POST",
+            url: "models/loginModel.php",
+            data: {
+                "usuario-login": user,
+                "usuario-pass": pass,
+                "opcion": "aspirante"
+            },
+            success: function (response) {
+                
+                if(response == "aspirante"){
+                    swal({
+                        title: "Acceso correcto",
+                        text: "<strong>Tus credenciales que ingresaste son correctas, en este momento eres aspirante</strong>",
+                        type: 'success',
+                        confirmButtonColor: '#03A9F4',
+                        confirmButtonText: ' Aceptar'
+                  }).then(function () {
+                     window.location.href="views/principal-views.php";
+                  });
+                }else{
+                    messageError();
+                }
+            }
+        });
+    });
+}
+
+function messageError(){
+
+    swal({
+        title: "Problemas al iniciar sesión",
+        text: "El nombre de usuario y contraseña no son correctos o tu cuenta puede estas desabilitada",
+        type: 'error',
+        confirmButtonColor: '#03A9F4',
+        confirmButtonText: ' Aceptar!'
+  });
 }
 
 function typeUser(){
@@ -110,10 +153,23 @@ function typeUser(){
         $("#bank").hide();
         $("#conceptos").hide();
         $("#sucursales").hide();
-        //$("#archivos").hide();
+        $("#archivos").hide();
         $("#usuarios").hide();
         $("#report").hide();
         $("hr").hide();
         
+    }
+    else{
+        $("#pago-title").hide();
+        $("#colegiatura").hide();
+        $("#nivelacion").hide();
+        $("#bank").hide();
+        $("#recibo").hide();
+        $("#conceptos").hide();
+        $("#sucursales").hide();
+        $("#archivos").hide();
+        $("#usuarios").hide();
+        $("#report").hide();
+        $("hr").hide();
     }
 }
