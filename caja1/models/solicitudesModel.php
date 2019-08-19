@@ -3,10 +3,11 @@
     require_once "mainModel.php";
     require_once "../views/includes/referencia.php";
 
-   $cve_concepto = clearString($_POST['clave']);
-   $opcion = clearString($_POST['option']);
+  $cve_concepto = clearString($_POST['clave']);
+  $opcion = clearString($_POST['option']);
 
-    solicitud();
+   solicitud();
+ 
 
     function solicitud(){
 
@@ -69,7 +70,7 @@
                 
                 $referencia = referencia($matricula,$concepto,$monto_total);
 
-                  $referencia_unique = uniqueReferencia($cve_persona,$concepto,$date);
+                  $referencia_unique = uniqueReferencia($cve_persona,$concepto, $date);
 
                     if($referencia_unique == 1){
 
@@ -86,8 +87,10 @@
                           
                     }else{
 
-                        $sql_save_solicitud = executeQuery("EXEC insertarSolicitud '$date','$tipo_persona','$cve_persona','$monto','$periodo','$concepto','$pago','$referencia'");
- 
+                       
+                       $sql_save_solicitud = executeQuery("INSERT INTO solicitud_documento(fecha_solicitud,cve_tipo_persona,cve_persona,monto,cve_periodo,cve_concepto_pago,pago_realizado,referencia) 
+                       VALUES ('$date',$tipo_persona,'$cve_persona','$monto','$periodo','$concepto','$pago','$referencia')");
+
                         if($sql_save_solicitud == false){
                 
                                             
@@ -100,7 +103,7 @@
                         }
                     }
 
-            }
+              }
         }
 
         else if($opcion == "referencia"){
@@ -127,7 +130,38 @@
             }
 
         }
+
+        else if($opcion == "extra"){
+
+            extraordinaryExam();
+        }
     
+    }
+
+    function extraordinaryExam(){
+
+        $query_exam = executeQuery("SELECT cve_concepto,descripcion,costo_unitario FROM saiiut.saiiut.conceptos_pago
+        WHERE cve_concepto = 6");
+
+        $num_concept = odbc_num_rows($query_exam);
+
+        if($num_concept == 1){
+
+            $description = odbc_result($query_exam,"descripcion");
+            $key_concept = odbc_result($query_exam,"cve_concepto");
+            $unit_cost = odbc_result($query_exam,"costo_unitario");
+
+            $utf8_concept = utf8_encode($description);
+    
+            $data_extraordinary = array("extraordinary" => array(
+
+                "concept" => $utf8_concept,
+                "key" => $key_concept,
+                "cost" => $unit_cost
+            ));
+
+            print json_encode($data_extraordinary);
+          }
     }
 
     function periodoActivo(){

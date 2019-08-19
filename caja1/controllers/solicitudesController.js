@@ -14,7 +14,26 @@ $(document).ready(function () {
 
 function selectConcepto(){
 
+   var type_user = $("#tipo-user").val();
+    
+   if(type_user == "aspirante"){
+
     $.ajax({
+        type: "POST",
+        url: "../models/solicitudesModel.php",
+        data: {
+            "clave": "",
+            "option": "extra"
+        },
+        dataType: "json",
+        success: function (response) {
+            
+            $("#solicitudes").append("<option value="+response.extraordinary.key+">"+response.extraordinary.concept+"</option>");
+        }
+    });
+   }
+   else{
+       $.ajax({
         type: "POST",
         url: "../models/solicitudesModel.php",
         data:{
@@ -25,13 +44,16 @@ function selectConcepto(){
         
         success: function (response) {
             console.log(response);
-            $.each(response.concepto, function () { 
+
+          
+            $.each(response.concepto, function (){ 
                  
                 $("#solicitudes").append("<option value="+this.cve_concepto+">"+this.descripcion+"</option>");
             });
           
         }
     });
+   }
 }
 
 
@@ -204,8 +226,7 @@ function enviarSolicitud(){
                                 type: "warning",     
                                 confirmButtonText: "Aceptar",
                                 allowOutsideClick: false
-                            })
-
+                            });
                 }
             }
         });

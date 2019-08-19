@@ -34,7 +34,7 @@ function iniciarSessionAlumno(){
                         confirmButtonColor: '#03A9F4',
                         confirmButtonText: ' Aceptar'
                   }).then(function () {
-                      window.location.href="views/recibopago-views.php";
+                      window.location.href="views/principal-views.php";
                       
                   });
 
@@ -77,7 +77,7 @@ function iniciarSessionAdmin(){
                         confirmButtonColor: '#03A9F4',
                         confirmButtonText: ' Aceptar'
                   }).then(function () {
-                      window.location.href="views/principal-views.php";
+                      window.location.href="views/visualizar-pagos.php";
                   });
                 }else{
                     messageError();
@@ -167,7 +167,7 @@ function typeUser(){
         $("#recibo").hide();
         $("#conceptos").hide();
         $("#sucursales").hide();
-        $("#archivos").hide();
+       // $("#archivos").hide();
         $("#usuarios").hide();
         $("#report").hide();
         $("hr").hide();

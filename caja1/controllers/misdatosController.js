@@ -29,6 +29,46 @@ $(document).ready(function () {
 
                 var json = JSON.parse(response); 
                 console.log(json); 
+                
+
+                //Aspirante
+                if(json.arreglo_datos.consecutive != undefined){
+
+                    nombre.val(json.arreglo_datos.name_cadidate);
+                    ape_paterno.val(json.arreglo_datos.father);
+                    ape_materno.val(json.arreglo_datos.mother);
+                    carrera.val(json.arreglo_datos.career);
+                    name.val(json.arreglo_datos.name_cadidate + " "+ json.arreglo_datos.father + " "+ json.arreglo_datos.mother);
+                    cve_persona.val(json.arreglo_datos.consecutive);
+                    tipo_persona.val(json.arreglo_datos.key_type);
+                    matricula_alumno.val("000000" + json.arreglo_datos.consecutive);
+                    num_control.val("000000" + json.arreglo_datos.consecutive);
+                    
+                }
+
+                //Alumnos
+                else if(json.arreglo_datos.name != undefined){
+
+                    nombre.val(json.arreglo_datos.name);
+                    ape_paterno.val(json.arreglo_datos.apellido_pa);
+                    ape_materno.val(json.arreglo_datos.apellido_ma);
+                 //   calle.val(json.arreglo.calle);
+                    colonia.val(json.arreglo_datos.col);
+                    matricula.val(json.arreglo_datos.matricula);
+                  //  number.val(json.arreglo.number);
+                    cve_persona.val(json.arreglo_datos.cve_persona);
+                    tipo_persona.val(json.arreglo_datos.tipo_persona);
+                    matricula_alumno.val(json.arreglo_datos.matricula);
+                    name.val(json.arreglo_datos.name + " "+ json.arreglo_datos.apellido_pa + " "+ json.arreglo_datos.apellido_ma);
+                    num_control.val(json.arreglo_datos.matricula);
+                    carrera.val(json.arreglo_datos.carrer);
+                }
+
+                //Administrador
+                else if(json.arreglo_datos.nombre != undefined){
+
+                    console.log("admin");
+                }
 
                /* if(json.arreglo.name  === undefined  ){
 
@@ -43,20 +83,8 @@ $(document).ready(function () {
                     
                 }
                 else{*/
-                    //Alumnos
-                    nombre.val(json.arreglo_alumnos.name);
-                    ape_paterno.val(json.arreglo_alumnos.apellido_pa);
-                    ape_materno.val(json.arreglo_alumnos.apellido_ma);
-                 //   calle.val(json.arreglo.calle);
-                    colonia.val(json.arreglo_alumnos.col);
-                    matricula.val(json.arreglo_alumnos.matricula);
-                  //  number.val(json.arreglo.number);
-                    cve_persona.val(json.arreglo_alumnos.cve_persona);
-                    tipo_persona.val(json.arreglo_alumnos.tipo_persona);
-                    matricula_alumno.val(json.arreglo_alumnos.matricula);
-                    name.val(json.arreglo_alumnos.name + " "+ json.arreglo_alumnos.apellido_pa + " "+ json.arreglo_alumnos.apellido_ma);
-                    num_control.val(json.arreglo_alumnos.matricula);
-                    carrera.val(json.arreglo_alumnos.carrer);
+                    
+               
 
                 /*    if(json.arreglo.tipo_persona == 2){
                        

@@ -5,7 +5,7 @@
     //Datos administrador
     if(isset($_SESSION['cuenta_codigo_admin'])){
 
-        $array_admin = array("arreglo_admin" => array(
+        $array_admin = array("arreglo_datos" => array(
             "nombre" =>  $_SESSION['name_admin'],
             "paterno" =>   $_SESSION['paterno'],
             "materno" =>   $_SESSION['materno'],
@@ -24,7 +24,7 @@
      //Datos alumnos   
     }else if(isset($_SESSION['clave_persona'])){
 
-        $array_alumno = array("arreglo_alumnos" => array(
+        $array_alumno = array("arreglo_datos" => array(
             "cve_persona" => $_SESSION['clave_persona'],
             "tipo_persona" => $_SESSION['tipo_persona'],
             "periodo" => $_SESSION['periodo'],
@@ -44,7 +44,7 @@
     //Datos aspirante
     else if(isset($_SESSION['type_people'])){
 
-        $array_aspirante = array("arreglo_aspirante" =>array(
+        $array_aspirante = array("arreglo_datos" =>array(
 
             "consecutive" =>  $_SESSION['key'],
             "name_cadidate" => $_SESSION['name_admin'] ,

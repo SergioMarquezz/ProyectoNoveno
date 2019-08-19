@@ -22,7 +22,11 @@
             <h1 class="text-titles"><i class="zmdi zmdi-account-circle zmdi-hc-fw"></i> <small> MIS DATOS</small></h1>
         </div>
         <hr class="">
-        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse voluptas reiciendis tempora voluptatum eius porro ipsa quae voluptates officiis sapiente sunt dolorem, velit quos a qui nobis sed, dignissimos possimus!</p>
+        <p class="lead">
+            <!--TODO:Modifiacar texto-->
+            En este apartado del sistema, la información que proporcionaste en tu registro inicial
+            podras actualizarla desde aqui cada vez que sea necesario o podras hacerlo tambien desde
+        </p>
     </div>
 
     <div class="container">
@@ -30,24 +34,7 @@
             <div class="card-header text-white" style="background: #0b1a53;">
                 <i class="zmdi zmdi-refresh"></i> &nbsp; MIS DATOS
             </div>
-            <?php
-            /*   $datos = explode("/", $_GET['views']);
-                
-                if($datos[1] == "admin"){
-
-                    if($_SESSION['tipo_admin'] != "Administrador"){
-                        
-                        echo "<script>
-                            window.location.href='login';
-                        </script>";
-                    }
-                }elseif($datos[1] == "alumno"){
-
-                }else{
-                    echo "<h4>Lo sentimos</h4>
-                    <p>No podemos mostrar la información solicitada</p>";
-                }*/
-            ?>
+           
             <div class="card-body">
                 <form action="">
                     <h5 class="mb-5"><i class="zmdi zmdi-account-box"></i> &nbsp; Información personal</h5 class="mb-5">
@@ -55,7 +42,7 @@
                     <div class="row">
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                             <div class="md-form">
-                                <input type="number" id="matricula" class="form-control text-dark">
+                                <input type="number" id="matricula" class="form-control text-dark" readonly>
                                 <label for="matricula"></label>
                             </div>
                         </div>
@@ -65,19 +52,19 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="form-group">
                                 <label for="name">Nombre(s)</label>
-                                <input type="text" id="name" class="form-control text-dark" disabled>
+                                <input type="text" id="name" class="form-control text-dark" readonly>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="form-group">
                                 <label for="paterno-user">Apellido Paterno</label>
-                                <input type="text" id="paterno-user" class="form-control text-dark" disabled>
+                                <input type="text" id="paterno-user" class="form-control text-dark" readonly>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="form-group">
                                 <label for="materno">Apellido Materno</label>
-                                <input type="text" id="materno" class="form-control text-dark" disabled>
+                                <input type="text" id="materno" class="form-control text-dark" readonly>
                             </div>
                         </div>
                     </div>
@@ -86,13 +73,13 @@
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="telefono">Telefono Personal</label>
-                                <input type="tel" id="telefono" class="form-control text-dark" disabled>
+                                <input type="tel" id="telefono" class="form-control text-dark" readonly>
                             </div> 
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="correo">Correo Electronico</label>
-                                <input type="tel" id="correo" class="form-control text-dark" disabled>
+                                <input type="tel" id="correo" class="form-control text-dark" readonly>
                             </div> 
                         </div>                                 
                     </div>
@@ -101,26 +88,26 @@
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="form-group">
                                 <label for="calle">Calle</label>
-                                <input type="text" id="calle" class="form-control text-dark" disabled>
+                                <input type="text" id="calle" class="form-control text-dark" readonly>
                             </div> 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="form-group">
                                 <label for="colonia">Colonia</label>
-                                <input type="text" id="colonia" class="form-control text-dark" disabled>
+                                <input type="text" id="colonia" class="form-control text-dark" readonly>
                             </div> 
                         </div>
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12">
                             <div class="form-group">
                                 <label for="numero">Numero</label>
-                                <input type="text" id="numero" class="form-control text-dark" disabled>
+                                <input type="text" id="numero" class="form-control text-dark" readonly>
                             </div> 
                         </div>
                     </div>
                     <div class="container mt-5">
                         <div class="row justify-content-center">
                             <div class="col-xl-6">
-                                <button id="actulaizar" type="button" class="btn btn-block btn-primary"><i class="zmdi zmdi-refresh"></i> Actualizar</button>
+                                <button id="update-data" type="button" class="btn btn-block "><i class="zmdi zmdi-refresh"></i> Actualizar</button>
                             </div>
                         </div>
                     </div>

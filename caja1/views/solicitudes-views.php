@@ -91,10 +91,16 @@
                                     </div>
                                </div>
                                <div class="row">
-                                    <div class="col-xl-12">
+                                    <div class="col-xl-6">
                                         <div class="form-group mt-3">
                                             <label for="num-control" class="label-solicitud">N. Control</label>
                                             <input name="num-control" type="text" id="numero-control" class="form-control text-dark" readonly>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                        <div class="form-group mt-3">
+                                            <label for="num-control" class="label-solicitud">Convenio CIE</label>
+                                            <input name="num-control" type="text" id="numero-control" class="form-control text-dark" value="001364332" readonly>
                                         </div>
                                     </div>
                                </div>

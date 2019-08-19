@@ -94,7 +94,7 @@
     font-size: 18px;
 }
 
-#guardarSolicitud, #actualizar, #guardar, #nuevo, #imprimir-referencia, #files #ver-datos{
+#guardarSolicitud, #update-data, #guardar, #nuevo, #imprimir-referencia, #files #ver-datos, #see-payments, #btn-mas-informe{
     background: #5cb85c;    
 }
 

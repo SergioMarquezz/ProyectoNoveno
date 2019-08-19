@@ -11,15 +11,18 @@ if(isset($_SESSION['tipo_admin']) == "Administrador"){
 		
 	$tipo_user = "admin";
 	
+	
 }
 
 elseif(isset($_SESSION['tipo_persona']) == 2){
 
 	$tipo_user = "alumno";
+	$consecutivo_cve_persona = $_SESSION['clave_persona'];
 }
 elseif(isset($_SESSION['type_people']) == 1){
 	
 	$tipo_user = "aspirante";
+	$consecutivo_cve_persona =  $_SESSION['key'];
 }
 else{
 
@@ -37,9 +40,9 @@ else{
 
       <span class="white-text name"><?php echo $_SESSION['name_admin']?></span>
 
-	  <span class="white-text email">jdandturk@gmail.com</span>
+	 <!-- <span class="white-text email">jdandturk@gmail.com</span>-->
 	  <input type="hidden" value="<?php echo $tipo_user?>" id="tipo-user">
-	  <input type="text" id="key_people" value="<?php echo $_SESSION['clave_persona'] ?>">
+	  <input type="hidden" id="key_people" value="<?php echo $consecutivo_cve_persona ?>">
 
       <a href="misdatos-views.php" title="Mis datos" class="text-white ml-5">
 

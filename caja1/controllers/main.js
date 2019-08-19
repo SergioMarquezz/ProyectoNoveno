@@ -120,9 +120,9 @@ function tramitesTotales(){
                 "opciones": "totales"
             },
             success: function (response) {
-               // var json = JSON.parse(response);
-                console.log(response);
-            /*    var filas = json.totales.length;
+               var json = JSON.parse(response);
+             
+                var filas = json.totales.length;
                 
                 var num = 0;
 
@@ -138,7 +138,7 @@ function tramitesTotales(){
                     $("#body-modal").append(tbody_table);
 
                     
-                }*/
+                }
             }
         });
 
