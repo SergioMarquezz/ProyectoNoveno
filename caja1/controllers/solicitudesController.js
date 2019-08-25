@@ -60,7 +60,7 @@ function selectConcepto(){
 
 function conceptoUnico(){
 
-  $("#solicitudes").change(function (e) { 
+  $("#solicitudes, #students-pagos").change(function (e) { 
       e.preventDefault();
 
   

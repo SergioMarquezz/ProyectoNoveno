@@ -58,8 +58,10 @@
             }
             else {
 
-                 
-             $sql_activo = executeQuery("EXEC caja.sitemas.updateConceptos '$clave', '$descrip', '$precio', $activo");
+                    
+                $description = utf8_decode($descrip);
+
+                $sql_activo = executeQuery("EXEC updateConceptos '$clave', '$description', '$precio', $activo");
             
                 if($sql_activo){
             

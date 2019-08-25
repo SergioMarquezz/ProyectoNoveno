@@ -96,7 +96,7 @@ function pendientes(){
         success: function(data){
             $.each(data.pendientes, function (){
                 
-                $("#lista-pendientes").append("<li class='list-group-item border-success'>"+this.descripcion+""+" pagar la cantidad de $ "+this.costo_unitario+"</li>")
+                $("#lista-pendientes").append("<li class='list-group-item border-success'>"+this.descripcion+""+" pagar la cantidad de $"+this.costo_unitario+"</li>")
 
                 
             })

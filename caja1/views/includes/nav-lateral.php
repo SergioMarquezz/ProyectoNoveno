@@ -44,13 +44,13 @@ else{
 	  <input type="hidden" value="<?php echo $tipo_user?>" id="tipo-user">
 	  <input type="hidden" id="key_people" value="<?php echo $consecutivo_cve_persona ?>">
 
-      <a href="misdatos-views.php" title="Mis datos" class="text-white ml-5">
+      <a id="mydata" href="misdatos-views.php" title="Mis datos" class="text-white ml-5">
 
 		<i class="zmdi zmdi-account-circle zmdi-hc-lg"></i>
 	  </a>
-      <a href="#" title="Mi cuenta" class="text-white ml-5">
+    <!--  <a href="#" title="Mi cuenta" class="text-white ml-5">
 	  	<i class="zmdi zmdi-settings zmdi-hc-lg"></i>
-	  </a>
+	  </a>-->
       <a href="<?php echo $_SESSION['name_admin'];?>" title="Salir del sistema" class="btn-exit-system text-white ml-5">
 				<i class="zmdi zmdi-power zmdi-hc-lg"></i>
 			</a>
@@ -58,7 +58,7 @@ else{
     			<!-- SideBar Menu -->
 	<ul class="">
 		<li>
-			<a href="principal-views.php" class="text-white">
+			<a href="principal-views.php" class="text-white" id="dasboard">
 				<i class="zmdi zmdi-view-dashboard zmdi-hc-lg text-white"></i> Inicio
 			</a>
 		</li>
@@ -68,13 +68,18 @@ else{
 			</a>
 		</li>
 		<li id="recibo">
-			<a href="recibopago-views.php" class="text-white">
+			<a href="recibopago-views.php" class="text-white" id="recibo_pay">
 				<i class="fa fa-file text-white" style="font-size:20px"></i>Recibo de pago
 			</a>
 		</li>
 		<li>
-			<a href="conceptospago-views.php" class="text-white" id="conceptos">
+			<a href="admin-conceptospago.php" class="text-white" id="conceptos">
 				<i class="zmdi zmdi-comment zmdi-hc-lg text-white" style="font-size:20px"></i>Conceptos de pago
+			</a>
+		</li>
+		<li>
+			<a href="admin-pagomanual-alumnos.php" class="text-white" id="payments-manual">
+				<i class="fa fa-dollar text-white" style="font-size:20px"></i>Pagos Alumnos
 			</a>
 		</li>
 		<li class="dropdown show" id="pago-title">
@@ -123,7 +128,7 @@ else{
 			</a>
 		</li>
 		<li>
-			<a href="visualizar-pagos.php" class="text-white" id="archivos">
+			<a href="admin-visualizar-pagos.php" class="text-white" id="archivos">
 				<i class="fa fa-eye text-white" style="font-size:20px"></i>Archivos de Pagos
 			</a>
 		</li>
@@ -134,15 +139,15 @@ else{
 			</a>
 			<ul class="dropdown-menu">
 				<li>
-					<a href="admin-views.php" class="text-white"><i class="zmdi zmdi-account zmdi-hc-fw text-white"></i> Administradores</a>
+					<a href="admin-registro.php" class="text-white"><i class="zmdi zmdi-account zmdi-hc-fw text-white"></i> Administradores</a>
 				</li>
-				<li>
+				<li id="students">
 					<a href="alumnos-views.php" class="text-white"><i class="zmdi zmdi-male-female zmdi-hc-fw text-white"></i> Alumnos</a>
 				</li>
 			</ul>
 		</li>
 		<hr class="border-bottom">
-		<li class="dropdown show">
+		<li class="dropdown show" id="reports">
 			<a class="dropdown-toggle text-white" href="#" role="button" id="report" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 				<i class="fa fa-pencil text-white"  style="font-size:20px"></i> Reportes
 			</a>

@@ -2,7 +2,7 @@ $(document).ready(function () {
     
     iniciarSessionAdmin();
     iniciarSessionAlumno();
-    loginCandidate();
+    //loginCandidate();
     typeUser();
 });
 
@@ -77,7 +77,7 @@ function iniciarSessionAdmin(){
                         confirmButtonColor: '#03A9F4',
                         confirmButtonText: ' Aceptar'
                   }).then(function () {
-                      window.location.href="views/visualizar-pagos.php";
+                      window.location.href="views/admin-visualizar-pagos.php";
                   });
                 }else{
                     messageError();
@@ -141,11 +141,19 @@ function typeUser(){
     
     if(tipo_user == "admin"){
 
+        //TODO:Solo se van a ocultar por un rato en lo que se programan
         $("#list-tramite").hide();
         $("#recibo").hide();
         $("#pago-title").hide();
         $("#colegiatura").hide();
         $("#nivelacion").hide();
+        $("#dasboard").hide();
+        $("#bank").hide();
+        $("#recibo_pay").hide();
+        $("#sucursales").hide();
+        $("#students").hide();
+        $("#reports").hide();
+        $("#mydata").hide();
     }
 
     else if(tipo_user == "alumno"){
@@ -157,7 +165,12 @@ function typeUser(){
         $("#usuarios").hide();
         $("#report").hide();
         $("hr").hide();
-        
+        $("#dasboard").hide();
+        $("recibo_pay").hide();
+        $("#pago-title").hide();
+        $("#recibo").hide();
+        $("#colegiatura").hide();
+        $("#payments-manual").hide();        
     }
     else{
         $("#pago-title").hide();

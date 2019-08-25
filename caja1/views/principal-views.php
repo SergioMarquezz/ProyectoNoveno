@@ -61,7 +61,7 @@
                         <p class="card-text">
                             Estimado alumno los pagos que ya hayas realizado apareceran cuando presiones el botón
                         </p>
-                        <a href="#" class="btn" id="see-payments">Ver mis pagos</a>
+                        <button type="button" class="btn" id="see-payments">Ver mis pagos</button>
                     </div>
                 </div>
             </div>
@@ -101,7 +101,33 @@
     </div> 
     </div>      
 </article>
+    <!--Modal tramites totales-->
    <div class="modal" id="modal-totales">
+        <div class="container-fluid">
+            <h5 class="text-center text-white">Mis tramites y servicios durante el cuatrimestre</h5>
+            <table class="mt-3 table-bordered">
+            <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fecha de solicitud</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                    </tr>
+            </thead>
+                <tbody id="body-modal">
+                
+                </tbody>
+            </table>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 mt-3">
+                    <button id="btn-modal" class="btn btn-info btn-block">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!--Modal pagos realizados-->
+    <div class="modal" id="modal-totales">
         <div class="container-fluid">
             <h5 class="text-center text-white">Mis tramites y servicios durante el cuatrimestre</h5>
             <table class="mt-3 table-bordered">

@@ -8,7 +8,7 @@ var concepto = $("#descripcion");
 
 $(document).ready(function () {
 
-    $("#concepto-pago").select2({
+    $("#concepto-pago, #students-pagos").select2({
         theme: "classic"    
     });
 
@@ -32,9 +32,9 @@ function unicoConcepto(){
         
 
         var cve_concepto = $(this).val();
-
-
-  
+        
+        clave_concepto.val(cve_concepto);
+        
         $.ajax({
             type: "POST",
             url: "../models/conceptopagoModel.php",
@@ -297,7 +297,7 @@ function selectConceptos(){
             console.log(response);
             $.each(response.pagoconcepto, function () { 
                  
-                $("#concepto-pago").append("<option value="+this.cve_concepto+">"+this.descripcion+"</option>");
+                $("#concepto-pago, #students-pagos").append("<option value="+this.cve_concepto+">"+this.descripcion+"</option>");
             });
           
         }

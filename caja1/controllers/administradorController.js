@@ -60,7 +60,7 @@ function iniciarSession(){
 function validarSoloNumbersLetters(){
 
     //Solo numeros
-    $("#address, #telefono,[placeholder=Matricula]").keypress(function (e) { 
+    $("#address, #telefono,[placeholder=Matricula], #myInputAlumnos").keypress(function (e) { 
         
         if(event.charCode >= 48 && event.charCode <= 57){
             return true;

@@ -19,13 +19,13 @@ $pago = $_POST['cantidad'];
 
 
 
-/*$html = "
+$html = "
 
 <style>
 
     .table-bordered{
         border: 2px solid #D3D3D3;
-        margin-top: 40px;
+        margin-top: 380px;
     }
 
     th,td{
@@ -76,7 +76,7 @@ $pago = $_POST['cantidad'];
             </tr>
         </tbody>
     </table>
-";*/
+";
 
 
 
@@ -85,8 +85,12 @@ $mpdf->SetTextColor(255, 87, 51);
 $mpdf->Cell(120,5,"Nombre:",0,0,'C');*/
 //$mpdf->SetTextColor(1,1,126);
 //$mpdf->WriteCell(50,5,$fecha,'LRBT',0,'C');
+
 $mpdf->WriteHTML("");
+
 $mpdf->Image('../views/img/REFERENCIA BANCARIA alumno.png', 0, 0, 210, 150, 'png', '', true, false);
+
+
 // Output a PDF file directly to the browser
 $mpdf->Output();
 
