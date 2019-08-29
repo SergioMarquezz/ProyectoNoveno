@@ -47,12 +47,13 @@
                             </div>
                             </div>
                         </div>
+                    
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                             <div class="form-group">
                                 <label for="costo-unitario" class="label-solicitud">Costo Unitario</label>
-                                <input name="precio" type="hidden" id="costo-unitario" class="form-control text-dark">
+                                <input name="precio" type="text" id="costo-unitario" class="form-control text-dark">
                                 <input name="precio" type="hidden" id="costo-letra" class="form-control text-dark">
-                                <input name="precio" type="text" id="unitario-costo" class="form-control text-dark" readonly>
+                                <input name="precio" type="hidden" id="unitario-costo" class="form-control text-dark" readonly>
                             </div>
                         </div>
                     </div>

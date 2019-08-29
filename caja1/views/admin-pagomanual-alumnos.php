@@ -29,14 +29,19 @@
             </div>
             <div class="card-body">
                <form action="" data-form="update" method="" class="FormularioConceptos" autocomplete="off" enctype="multipart/form-data">
-                    <div class="row">    
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                           <!-- <p style="font-size:18px;"><En este formulario podras realizar de manera manual algún pago que 
-                                                       cuando presiones el botón <strong>guardar o modificar</strong> los cambios seran realizados de manera exitosa.
-                            </p>-->
+                    <div class="row">
+                            <p style="font-size:18px;">En este formulario podras realizar de manera manual algún pago que requiera el alumnado,
+                                                       cuando presiones el botón <strong>realizar pago</strong> los cambios surgieran efecto.
+                            </p>    
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mt-4">
                             <select class="browser-default custom-select" id="students-pagos">
                                 <option selected disabled>Elige un concepto</option>
                             </select>
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                            <div class="form-group">
+                                <input type="text" id="quantity" class="form-control text-dark" placeholder="Cantidad">
+                            </div>
                         </div>
                     </div>
                     <div class="card mt-5">
@@ -90,6 +95,11 @@
                                                                 <label for="descripcion" class="label-conceptos">Descripción</label>
                                                                 <input type="text" id="descripcion" class="form-control text-dark" readonly>
                                                             </div>
+                                                            <div class="form-group">
+                                                                <label for="monto-total" class="label-conceptos">Monto total</label>
+                                                                <input type="hidden" id="monto-total" class="form-control text-dark">
+                                                                <input type="text" id="total" class="form-control text-dark" readonly>
+                                                            </div>
                                                         </div>
                                                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                                                             <div class="form-group">
@@ -102,7 +112,7 @@
                                                     </div>
                                                     <div class="panel-heading clearfix" id="hide3">
                                                         <div class="pull-right">
-                                                            <button type="button" class="btn" id="btn-pagar">Guardar Datos</button>
+                                                            <button type="button" class="btn" id="btn-pagar">Realizar pago</button>
                                                         </div>
                                                     </div>
                                                 <input type="hidden" id="tipo-persona">

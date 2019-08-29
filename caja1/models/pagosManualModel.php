@@ -50,19 +50,28 @@
         $date_save = $fecha;
         $type_people = 2;
         $key_people = $_POST['key_people'];
-        $fertilizer = $_POST['fertilizer'];
+        $fertilizer = $_POST['fertilizer'];//Variable para genrar la referencia 70000
+        $fertilizer_bd = $_POST['fertilizer_bd'];//Variable para guardar en base de datos 700
+        $abono = $_POST['abonos']; //$fertilizer_bd * $quantity
         $key_period = periodoActivo();
-        $key_payment = $_POST['key_concept'];
+        $key_payment = $_POST['key_concept']; //85
         $payment = 1;
-        $reference = referencia($matricula,$key_payment,$fertilizer);
+        $reference = referenceToday($matricula,$key_payment,$fertilizer);
         $quantity = $_POST['quantity'];
+        $identificador_payment = "CAJA";
 
-        $insert_payment = "INSERT INTO saiiut.saiiut.pagos(fecha,cve_tipo_persona,cve_persona,abono,cve_periodo,
-        cve_concepto_pago,pago_realizado,referencia_completa,fecha_guardado,cantidad)
-        VALUES('$date_save','$type_people','$key_people','$fertilizer','$key_period','$key_payment','$payment',
-        '$reference','$date_save','$quantity')";
+        $insert_payment = "INSERT INTO saiiut.saiiut.pagos(cve_persona,cve_tipo_persona,cve_periodo,cve_concepto_pago,fecha,
+        referencia_completa,cantidad,costo_unitario,abono,pago_realizado,fecha_guardado,lugar_pago)
+        VALUES('$key_people','$type_people','$key_period','$key_payment','$date_save','$reference','$quantity',
+        '$fertilizer_bd','$abono','$payment','$date_save','$identificador_payment')";
 
         $result_save = executeQuery($insert_payment);
+
+        
+        if($result_save){
+
+            echo "save payment";
+        }
     }
 
 

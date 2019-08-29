@@ -3,18 +3,20 @@
     require_once "mainModel.php";
     require_once "../views/includes/fecha.php";
 
-   $save = $_POST['data'];
-
-   insertFile($save);
-   //insertFile("caja.txt");
-
    
-    function insertFile($path){
+
+    insertFile();
+
+    function insertFile(){
 
         global $fecha, $cve_persona, $type_people;
 
-        $files_csv = "../pagos/";
-        $csv_files = $files_csv.$path;
+        $tmp_file = $_FILES['save-file']['tmp_name'];
+        $name_file = $_FILES['save-file']['name'];
+        $type_file = $_FILES['save-file']['type'];
+        $size_file = $_FILES['save-file']['size'];
+
+        $csv_files = $tmp_file;
         $line = 0;
         $csv_file = fopen($csv_files, 'r');
         
@@ -40,20 +42,22 @@
                     $saldo = $data[$column+4];
                     $referencia_completa = substr($data[$column+1],2,20);
 
-                    //$tipo_persona = 2;
+                    
                     $periodo_activo = periodoActivo();
                     $realizado = 1;
                     $guardado = $fecha;
-                   // $cve_persona = "9459";
+                    $paid_pago = "BANCO";
 
                     $str_saldo = str_replace(",", "", $saldo);
                     $str_abono = str_replace(",","",$abono);
 
                         
-                    $sql_insert = executeQuery("INSERT INTO saiiut.saiiut.pagos(fecha,referencia,cve_tipo_persona,cve_persona,abono,cve_periodo,
-                                                                                cve_concepto_pago,matricula_clave,pago_realizado,saldo,referencia_completa,fecha_guardado)
-                                                VALUES('$date','$referencia','$type_people','$cve_persona',
-                                                '$str_abono','$periodo_activo','$pago','$matri_clave','$realizado','$str_saldo','$referencia_completa','$guardado')");
+                    $sql_insert = executeQuery("INSERT INTO saiiut.saiiut.pagos(cve_persona,cve_tipo_persona,cve_periodo,cve_concepto_pago,fecha,
+                                                                                referencia,referencia_completa,costo_unitario,abono,pago_realizado,fecha_guardado,lugar_pago)
+                                                VALUES('$cve_persona','$type_people','$periodo_activo','$pago',
+                                                '$date','$referencia','$referencia_completa','$str_abono','$str_abono','$realizado','$guardado','$paid_pago')");
+
+
 
                    
                 

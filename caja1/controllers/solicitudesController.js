@@ -69,6 +69,8 @@ function conceptoUnico(){
       var costo = $("#costo-unitario");
       var unitario = $("#unitario-costo");
       var costo_letra = $("#costo-letra");
+      $("#quantity").attr('readonly', false);
+      $("#quantity").val("");
 
       //Variables para la referencia bancaria
       var texto = $("#descripcion");

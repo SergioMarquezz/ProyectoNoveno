@@ -35,13 +35,45 @@
                                 <a id="reader_file" data-toggle="collapse" data-parent="#accordionEx" href="#collapseOne"
                                     aria-expanded="true" aria-controls="collapseOne">
                                     <h5 class="mt-1 mb-0">
-                                        <span>Leer Archivos</span>
+                                        <span>Subir Archivos</span>
                                         <i class="fa fa-angle-down rotate-icon"></i>
                                     </h5>
                                 </a>
                             </div>
                             <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
-                            <div class="card-body">
+                                <div class="card-body">
+                                    <form>
+                                        <div class="file-field input-field">
+                                            <div class="btn" id="btn-file">
+                                                <span>Selecciona Archivo</span>
+                                                <input type="file" id="subir-csv">
+                                            </div>
+                                            <div class="row">
+                                                <div class="file-path-wrapper col-lg-4">
+                                                    <input class="file-path" type="text" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-blue-grey" type="button" id="subir-archivo">Subir</button>         
+                                    </form>
+                                    <div id="myProgress">
+                                            <div id="myBar">0%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header" role="tab" id="headingTwo">
+                                <a id="folder-2" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo"
+                                    aria-expanded="true" aria-controls="collapseTwo">
+                                    <h5 class="mt-1 mb-0">
+                                        <span>Leer Archivos</span>
+                                        <i class="fa fa-angle-down rotate-icon"></i>
+                                    </h5>
+                                </a>
+                            </div>
+                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
+                                <div class="card-body">
                                 <form action="#">
                                     <div class="file-field input-field">
                                         <div class="btn">
@@ -99,38 +131,6 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
-                            </div>
-                        </div>
-                        <div class="card">
-                            <div class="card-header" role="tab" id="headingTwo">
-                                <a id="folder-2" data-toggle="collapse" data-parent="#accordionEx" href="#collapseTwo"
-                                    aria-expanded="true" aria-controls="collapseTwo">
-                                    <h5 class="mt-1 mb-0">
-                                        <span>Subir Archivos</span>
-                                        <i class="fa fa-angle-down rotate-icon"></i>
-                                    </h5>
-                                </a>
-                            </div>
-                            <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
-                                <div class="card-body">
-                                   <form>
-                                        <div class="file-field input-field">
-                                            <div class="btn" id="btn-file">
-                                                <span>Selecciona Archivo</span>
-                                                <input type="file" id="subir-csv" name="archivo">
-                                            </div>
-                                            <div class="row">
-                                                <div class="file-path-wrapper col-lg-4">
-                                                    <input class="file-path" type="text" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button class="btn btn-blue-grey" type="button" id="subir-archivo">Subir</button>         
-                                   </form>
-                                   <div id="myProgress">
-                                        <div id="myBar">0%</div>
-                                   </div>
                                 </div>
                             </div>
                         </div>

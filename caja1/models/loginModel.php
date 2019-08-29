@@ -17,7 +17,7 @@
 
             $password = encryption($pass);
 
-            $sql = executeQuery("SELECT * FROM administradores WHERE nombre_user = '$usr' 
+            $sql = executeQuery("SELECT * FROM administradores WHERE email = '$usr' 
                                 AND contrasenia = '$password' AND activo = 1");
         
         
@@ -62,7 +62,7 @@
             }
         }else if($opcion == "Alumno"){
             
-            $query = "SELECT saiiut.saiiut.personas.cve_persona, cve_tipo_persona, cve_periodo_actual, saiiut.saiiut.personas.nombre, 
+            $query = "SELECT saiiut.saiiut.personas.cve_persona,cve_tipo_persona, cve_periodo_actual, saiiut.saiiut.personas.nombre, 
             saiiut.saiiut.personas.apellido_pat, saiiut.saiiut.personas.apellido_mat, matricula, saiiut.saiiut.carreras_cgut.nombre AS carrera
             FROM saiiut.saiiut.alumnos
             INNER JOIN saiiut.saiiut.personas ON saiiut.saiiut.alumnos.cve_alumno = saiiut.saiiut.personas.cve_persona

@@ -4,7 +4,6 @@ include "navbar.php";
 if(!session_id()){
 	session_start();
 	//include "models/mainModel.php";
-
 }
 
 if(isset($_SESSION['tipo_admin']) == "Administrador"){
@@ -38,10 +37,10 @@ else{
       </div>
       <img class="circle" src="img/logoHalcon.jpg"><img>
 
-      <span class="white-text name"><?php echo $_SESSION['name_admin']?></span>
+      <span class="white-text name"><?php echo  $_SESSION['carrera']?></span>
 
 	 <!-- <span class="white-text email">jdandturk@gmail.com</span>-->
-	  <input type="hidden" value="<?php echo $tipo_user?>" id="tipo-user">
+	  <input type="text" value="<?php echo $tipo_user?>" id="tipo-user">
 	  <input type="hidden" id="key_people" value="<?php echo $consecutivo_cve_persona ?>">
 
       <a id="mydata" href="misdatos-views.php" title="Mis datos" class="text-white ml-5">

@@ -20,6 +20,8 @@ function uploadFile(){
         var file2 = $('#subir-csv');  
         var archivo = file2[0].files; 
 
+        
+
         $.each(archivo, function () { 
              
             file_cvs = this.name;
@@ -33,6 +35,8 @@ function uploadFile(){
 
             var inputFileCsv = document.getElementById("subir-csv");
             var file = inputFileCsv.files[0];
+
+            console.log(file);
 
             if(file.type == "text/plain"){
 
@@ -123,9 +127,12 @@ function uploadFile(){
 
 function saveData(){
 
+
     $("#save-datos").click(function (e) { 
         e.preventDefault();
 
+
+        $(this).attr('disabled', true);
         swal({
             title: "¿Estás seguro?",   
             text: "Los datos que se muestran en la tabla seran guardados",   
@@ -137,12 +144,19 @@ function saveData(){
         }).then(function (){
             console.log(file_cvs);
 
+            var inputFileCsv = document.getElementById("cvs");
+            var file = inputFileCsv.files[0];
+
+            var forms = new FormData();
+            forms.append('save-file', file);
+
            $.ajax({
                 type: "POST",
                 url: "../models/insertModelPagos.php",
-                data: {
-                    "data": file_cvs
-                },
+                data: forms,
+                contentType: false,
+                processData: false,
+                cache: false, 
                 success: function (response) {
                     console.log(response);
 
@@ -170,15 +184,17 @@ function saveData(){
 
 function seeData(){
 
-    $("#leer-archivo").click(function (e) { 
+    $("#leer-archivo").click(function(e){ 
         e.preventDefault();
-        
+         
         var file2 = $('#cvs');  
         var archivo = file2[0].files; 
+        
         
         $.each(archivo, function () { 
              
             file_cvs = this.name;
+           
         });
 
         console.log(file_cvs);
@@ -195,32 +211,38 @@ function seeData(){
                 allowOutsideClick: false
               })
         }else{
+                var inputFileCsv = document.getElementById("cvs");
+                var file = inputFileCsv.files[0];
+
+                var form = new FormData();
+                form.append('files-read', file);
+                form.append('option', "read");
 
             $.ajax({
        
                 type: "POST",
-                data: {
-                    "csv": file_cvs,
-                    "option" : "read"
-                },
+                data: form,
                 url: "../views/includes/pagosVariable.php",
-                dataType: "json",
+                contentType: false,
+                processData: false,
+                cache: false, 
                 success: function (response) {
-                    console.log(response);
-        
-                    var filas = response.csv.length;
+                    var json = JSON.parse(response);
+                   
+                   var filas = json.csv.length;
+                   
         
                     for( i= 0; i < filas; i++){
         
-                        var tbody = "<tr><td for='id'>"+response.csv[i].id+"</td>"+
-                                        "<td for='id'>"+response.csv[i].date+"</td>"+
-                                        "<td for='id'>"+response.csv[i].refe+"</td>"+
-                                        "<td for='id'>"+response.csv[i].cve_concepto_pago+"</td>"+
-                                        "<td for='id'>"+response.csv[i].clave_matricula+"</td>"+
-                                        "<td for='id'>"+response.csv[i].cargo+"</td>"+
-                                        "<td for='id'>"+response.csv[i].abono+"</td>"+
-                                        "<td for='id'>"+response.csv[i].saldo+"</td>"+
-                                        "<td for='id'>"+response.csv[i].referencia+"</td>"+
+                        var tbody = "<tr><td for='id'>"+json.csv[i].id+"</td>"+
+                                        "<td for='id'>"+json.csv[i].date+"</td>"+
+                                        "<td for='id'>"+json.csv[i].refe+"</td>"+
+                                        "<td for='id'>"+json.csv[i].cve_concepto_pago+"</td>"+
+                                        "<td for='id'>"+json.csv[i].clave_matricula+"</td>"+
+                                        "<td for='id'>"+json.csv[i].cargo+"</td>"+
+                                        "<td for='id'>"+json.csv[i].abono+"</td>"+
+                                        "<td for='id'>"+json.csv[i].saldo+"</td>"+
+                                        "<td for='id'>"+json.csv[i].referencia+"</td>"+
                                     "</tr>"
                         $("#tbody").append(tbody);
                     }

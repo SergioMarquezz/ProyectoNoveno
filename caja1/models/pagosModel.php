@@ -1,9 +1,14 @@
+
 <?php
   
-function fileCsv($path){
+function fileCsv(){
 
-        $files_csv = "../../pagos/";
-        $csv_files = $files_csv.$path;
+        $tmp_file = $_FILES['files-read']['tmp_name'];
+        $name_file = $_FILES['files-read']['name'];
+        $type_file = $_FILES['files-read']['type'];
+        $size_file = $_FILES['files-read']['size'];
+
+        $csv_files = $tmp_file;
         $line = 0;
         $csv_file = fopen($csv_files, 'r');
         

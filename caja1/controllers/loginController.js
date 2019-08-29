@@ -154,6 +154,8 @@ function typeUser(){
         $("#students").hide();
         $("#reports").hide();
         $("#mydata").hide();
+        $("#usuarios").hide();
+        $("hr").hide();
     }
 
     else if(tipo_user == "alumno"){
@@ -165,7 +167,6 @@ function typeUser(){
         $("#usuarios").hide();
         $("#report").hide();
         $("hr").hide();
-        $("#dasboard").hide();
         $("recibo_pay").hide();
         $("#pago-title").hide();
         $("#recibo").hide();

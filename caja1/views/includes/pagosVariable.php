@@ -7,8 +7,7 @@
 
     if($option == 'read'){
 
-        $file_scv = $_POST['csv'];
-        fileCsv($file_scv);
+        fileCsv();
     }
 
     elseif ($option == 'upload') {
