@@ -83,7 +83,7 @@
                                     <div class="tab-pane fade show active" id="login-alumnos" role="tabpanel" aria-labelledby="pills-home-tab">
                                         <form method="post">
                                             <div class="form-group">
-                                                <input type="text" name="usuario-login" id="usuario" class="form-control" placeholder="Matricula" value="" required=""/>
+                                                <input type="text" name="usuario-login" id="usuario" class="form-control" autocomplete="off" placeholder="Matricula" value="" required=""/>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="usuario-pass" id="contrasenia" class="form-control" placeholder="Contraseña" value="" required=""/>
@@ -96,7 +96,7 @@
                                     <div class="tab-pane fade" id="login-aspirantes" role="tabpanel" aria-labelledby="pills-profile-tab">
                                         <form method="post">
                                             <div class="form-group">
-                                                <input type="email" name="usuario-login" id="usuarios-asipirante" class="form-control" placeholder="Correo" value="" required=""/>
+                                                <input type="email" name="usuario-login" id="usuarios-asipirante" class="form-control" autocomplete="off" placeholder="Correo" value="" required=""/>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="usuario-pass" id="pass-asipirante" class="form-control" placeholder="Contraseña" value="" required=""/>
@@ -109,7 +109,7 @@
                                     <div class="tab-pane fade" id="login-admin" role="tabpanel" aria-labelledby="pills-contact-tab">
                                         <form method="post">
                                             <div class="form-group">
-                                                <input type="text" name="usuario-login" id="usuarios-admin" class="form-control" placeholder="Usuario" value="" required=""/>
+                                                <input type="text" name="usuario-login" id="usuarios-admin" class="form-control" autocomplete="off" placeholder="Usuario" value="" required=""/>
                                             </div>
                                             <div class="form-group">
                                                 <input type="password" name="usuario-pass" id="pass-admin" class="form-control" placeholder="Contraseña" value="" required=""/>

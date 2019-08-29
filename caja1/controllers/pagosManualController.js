@@ -12,11 +12,13 @@ $(document).ready(function () {
     searchStudentsData();
     savePaymentsManual();
     paymentTotal();
+    subjects();
 
     $("#hide").hide();
     $("#hide2").hide();
     $("#hide3").hide();
     $("#quantity").attr('readonly', true);
+    $("#materias").hide();
 });
 
 function studentsRegular(){
@@ -48,6 +50,31 @@ function studentsRegular(){
         }
     });
 }
+
+//Materias
+function subjects(){
+
+    $("#students-pagos").change(function (e) { 
+        e.preventDefault();
+        
+        var name_concept = $("#students-pagos option:selected").text();
+        
+        if(name_concept == "Examen extraordinario" || name_concept == "examen extraordinario" || name_concept == "Examen Extraordinario"){
+
+            $("#materias").show();
+        }
+        else{
+            $("#materias").hide();
+        }
+    });
+
+    $("#materias").click(function (e) { 
+        e.preventDefault();
+        
+        $("#modal-materias").modal().show();
+    });
+}
+
 
 function savePaymentsManual(){
 

@@ -1,6 +1,7 @@
 <?php
     include "../core/configGeneral.php";
     require_once "includes/fecha.php"; 
+    include_once "../models/listarArchivosModel.php"
 ?>
 
 <!DOCTYPE html>
@@ -19,13 +20,13 @@
 
     <div class="container title-container">
         <div class="page-header">
-            <h4 class="text-titles mt-4"><i class="fa fa-eye"></i>ARCHIVOS DE PAGOS</h4>
+            <h4 class="text-titles mt-4"><i class="zmdi zmdi-balance "></i> ARCHIVOS DEL BANCO</h4>
         </div>
     </div>
     <div class="container-fluid">
         <div class="card">
             <div class="card-header text-white" style="background: #024a86;">
-                <i class="zmdi zmdi-view-headline"></i> &nbsp; Pagos Realizados
+                <i class="zmdi zmdi-view-headline"></i> &nbsp; Archivos
             </div>
             <div class="card-body">
                 <section class="mb-5">
@@ -134,44 +135,24 @@
                                 </div>
                             </div>
                         </div>
-                       <!-- <div class="card">
-
+                        <div class="card">
                             <div class="card-header" role="tab" id="headingThree">
-
-                            <div class="dropdown float-left">
-                                <button class="btn btn-info btn-sm m-0 mr-3 p-2 dropdown-toggle" type="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-pencil-alt"></i>
-                                </button>
-                                <div class="dropdown-menu dropdown-info">
-                                <a class="dropdown-item" href="#">Add new</a>
-                                <a class="dropdown-item" href="#">Rename folder</a>
-                                <a class="dropdown-item" href="#">Delete folder</a>
-                                </div>
-                            </div>
-
-                            <a id="folder-3" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree"
-                                aria-expanded="true" aria-controls="collapseThree">
-                                <h5 class="mt-1 mb-0">
-                                <span>Folder 3</span>
-                                <i class="fas fa-angle-down rotate-icon"></i>
-                                </h5>
-                            </a>
+                                <a id="folder-3" data-toggle="collapse" data-parent="#accordionEx" href="#collapseThree"
+                                    aria-expanded="true" aria-controls="collapseThree">
+                                    <h5 class="mt-1 mb-0">
+                                        <span>Ver archivos</span>
+                                        <i class="fa fa-angle-down rotate-icon"></i>
+                                    </h5>
+                                </a>
                             </div>
                             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
-                            <div class="card-body">
-                                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                                squid. 3 wolf moon officia aute,
-                                non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch
-                                3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda
-                                shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt
-                                sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                                farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
-                                accusamus
-                                labore sustainable VHS.
+                                <div class="card-body">
+                                   <?php
+                                    echo $listar;
+                                   ?>
+                                </div>
                             </div>
-                            </div>
-                        </div>-->
+                        </div>
                     </div>
                 </section>
                

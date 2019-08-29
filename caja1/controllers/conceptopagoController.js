@@ -267,7 +267,7 @@ function actualizar(){
                                     type: "success",     
                                     confirmButtonText: "Aceptar",
                                 }).then(function (){
-                                    //$('.FormularioAdmin')[0].reset();
+                                    location.reload();
                                 });
     
     

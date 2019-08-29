@@ -30,8 +30,8 @@
                 <form action="" data-form="update" method="" class="FormularioConceptos" autocomplete="off" enctype="multipart/form-data">
                     <div class="row">    
                         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
-                            <p style="font-size:18px;">En este formulario podras activar, desactivar, actualizar, agregar los conceptos de pago correspondientes,
-                                                       cuando presiones el botón <strong>guardar o modificar</strong> los cambios seran realizados de manera exitosa.
+                            <p style="font-size:18px;">En este formulario podrás activar, desactivar, actualizar, agregar los conceptos de pago correspondientes,
+                                                       cuando presiones el botón <strong>guardar o modificar</strong> los cambios serán realizados de manera exitosa.
                             </p>
                             <select class="browser-default custom-select" id="concepto-pago">
                                 <option selected disabled>Elige un concepto</option>
@@ -70,7 +70,7 @@
                     </div>
                     <div class="container row">
                         <div class="col-lg-3 col-lg-4">
-                            <button id="nuevo-concepto" type="button" class="btn btn-block"><i class="fa fa-clipboard pr-2"></i>Nuevo</button>
+                            <button id="nuevo-concepto" type="button" class="btn btn-success btn-block"><i class="fa fa-clipboard pr-2"></i>Nuevo</button>
                         </div>
                         <div class="col-lg-3 col-lg-4">
                             <button disabled id="guardar" type="button" class="btn btn-block"><i class="fa fa-inbox pr-2"></i>Guardar</button>

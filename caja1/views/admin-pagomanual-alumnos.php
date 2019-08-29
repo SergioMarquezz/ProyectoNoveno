@@ -30,15 +30,20 @@
             <div class="card-body">
                <form action="" data-form="update" method="" class="FormularioConceptos" autocomplete="off" enctype="multipart/form-data">
                     <div class="row">
-                            <p style="font-size:18px;">En este formulario podras realizar de manera manual algún pago que requiera el alumnado,
+                            <p style="font-size:18px;" class="mb-5">En este formulario podras realizar de manera manual algún pago que requiera el alumnado,
                                                        cuando presiones el botón <strong>realizar pago</strong> los cambios surgieran efecto.
-                            </p>    
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mt-4">
+                            </p>
+                            
+                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
+                                <span class="control-label">Busqueda</span>
+                                <input type="text" maxlength="10" id="myInputAlumnos" placeholder="BUSCAR ALUMNO...">
+                        </div>    
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mt-5">
                             <select class="browser-default custom-select" id="students-pagos">
                                 <option selected disabled>Elige un concepto</option>
                             </select>
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 mt-4">
                             <div class="form-group">
                                 <input type="text" id="quantity" class="form-control text-dark" placeholder="Cantidad">
                             </div>
@@ -53,11 +58,11 @@
                                     <div class="col-xl-12">
                                         <div class="panel panel-default">
                                             <div class="panel-body">
-                                            <h5 class="mb-5">Alumnos de la sede de tulancingo</h5>
+                                            <h5 class="mb-2">Alumnos de la sede de tulancingo</h5>
                                             <div class="form-group label-floating row">
-                                                <div class="col-lg-6">
-                                                    <span class="control-label">Busqueda</span>
-                                                    <input type="text" maxlength="10" id="myInputAlumnos" placeholder="BUSCAR ALUMNO...">
+                                                
+                                                <div class="col-lg-6 mt-4">
+                                                    <button id="materias" type="button" class="btn btn-blue">Ver materias</button>
                                                 </div>
                                             </div>
                                                 <div class="scroll-y scrollbar">
@@ -69,7 +74,7 @@
                                                                 <th class="text-center" style="width: 10%;">Apellido Paterno</th>
                                                                 <th class="text-center" style="width: 10%;">Apellido Materno</th>
                                                                 <th class="text-center" style="width: 10%;">Carrera</th>
-                                                                <th class="text-center" style="width: 10%;">Grado Actual</th>   
+                                                                <th class="text-center" style="width: 10%;">Grado Actual</th>
                                                             </tr>
                                                         </thead>
                                                         <tbody id="tbodyAlumnos">
@@ -132,6 +137,29 @@
                     require_once "includes/fecha.php"; 
                     echo $date;
                 ?>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="modal-materias">
+        <div class="container-fluid">
+            <h5 class="text-center text-white">Mis tramites y servicios durante el cuatrimestre</h5>
+            <table class="mt-3 table-bordered">
+            <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Fecha de solicitud</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                    </tr>
+            </thead>
+                <tbody id="body-modal">
+                
+                </tbody>
+            </table>
+            <div class="row justify-content-center">
+                <div class="col-lg-3 mt-3">
+                    <button id="btn-modal" class="btn btn-info btn-block">Aceptar</button>
+                </div>
             </div>
         </div>
     </div>

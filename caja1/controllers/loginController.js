@@ -154,7 +154,6 @@ function typeUser(){
         $("#students").hide();
         $("#reports").hide();
         $("#mydata").hide();
-        $("#usuarios").hide();
         $("hr").hide();
     }
 

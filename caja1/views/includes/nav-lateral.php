@@ -35,12 +35,13 @@ else{
       <div class="background" style="background:  #4D9D29 ">
         
       </div>
-      <img class="circle" src="img/logoHalcon.jpg"><img>
+	  <img class="circle" src="img/logoHalcon.jpg"><img>
+	  <span class="text-center white-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTEC TULANCINGO</span>
 
-      <span class="white-text name"><?php echo  $_SESSION['carrera']?></span>
+      <span class="white-text name"><?php echo $_SESSION['name_admin']." ".$_SESSION['paterno']." ".$_SESSION['materno']?></span>
 
 	 <!-- <span class="white-text email">jdandturk@gmail.com</span>-->
-	  <input type="text" value="<?php echo $tipo_user?>" id="tipo-user">
+	  <input type="hidden" value="<?php echo $tipo_user?>" id="tipo-user">
 	  <input type="hidden" id="key_people" value="<?php echo $consecutivo_cve_persona ?>">
 
       <a id="mydata" href="misdatos-views.php" title="Mis datos" class="text-white ml-5">
@@ -128,7 +129,7 @@ else{
 		</li>
 		<li>
 			<a href="admin-visualizar-pagos.php" class="text-white" id="archivos">
-				<i class="fa fa-eye text-white" style="font-size:20px"></i>Archivos de Pagos
+				<i class="zmdi zmdi-balance zmdi-hc-lg text-white" style="font-size:20px"></i>Archivos del banco
 			</a>
 		</li>
 		<hr class="border-bottom">

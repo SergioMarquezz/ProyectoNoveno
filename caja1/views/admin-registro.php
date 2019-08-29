@@ -21,8 +21,8 @@
     <div class="page-header">
         <h1 class="text-titles"><i class="zmdi zmdi-account zmdi-hc-fw"></i> <small> Usuarios Administradores</small></h1>
     </div>
-    <p class="lead">Todas las personas que se registren en este formulario en automatico seran administradores, por lo cual tendrea que darles privilegios para manejar solo algunas
-         funciones o si lo decea que tenga control total del sistema, <strong>se recomienda unicamente dar de alta como adminstradores al personal autorizado.</strong>
+    <p class="lead">Todas las personas que se registren en este formulario en automático serán administradores, por lo cual tendrá que darles privilegios para manejar solo algunas
+         funciones o si lo desea que tenga control total del sistema, <strong>se recomienda únicamente dar de alta como adminstradores al personal autorizado.</strong>
      </p>
 </div>
 
@@ -33,16 +33,16 @@
                 <i class="zmdi zmdi-plus"></i> &nbsp; NUEVO ADMINISTRADOR
             </a>
         </div>
-            <div class="p-2">
+       <!-- <div class="p-2">
             <a href="listadmin-views.php" class="btn btn-success">
                 <i class="zmdi zmdi-format-list-bulleted"></i> &nbsp; LISTA DE ADMINISTRADORES
             </a>
-        </div>
-        <div class="p-2">
+        </div>-->
+        <!--<div class="p-2">
             <a href="adminsearch-views.php" class="btn btn-primary">
                 <i class="zmdi zmdi-search"></i> &nbsp; BUSCAR ADMINISTRADOR
             </a>
-        </div>
+        </div>-->
     </div>
 </div>
 <div class="container">
@@ -118,7 +118,7 @@
                     </div>
                 </div>
                 <h5><i class="zmdi zmdi-key"></i> &nbsp; Datos de la cuenta</h5>
-                <p> <b>Es importante que recuerdes tu nombre de usuario y contraseña que registraras, los utilizaras para poder acceder al sistema</b></p>
+                <p> <b>Es importante que recuerdes tu correo y contraseña que registraras, los utilizaras para poder acceder al sistema</b></p>
                 <div class="row">
                     <div class="col-xl-6">
                         <div class="md-form">
@@ -164,7 +164,7 @@
                                     <div class="label label-success bg-info pl-2 text-white">Nivel 2 de Administrador</div>
                                 </div>
                                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12">
-                                    <div class="label label-success">Control de registro y actualización</div>
+                                    <div class="label label-success">Control de registro</div>
                                 </div>
                             </div>
                             <div class="row">
@@ -172,7 +172,7 @@
                                     <div class="label label-success bg-default pl-2 text-white">Nivel 3 de Administrador</div>
                                 </div>
                                 <div class="col-xl-10 col-lg-10 col-md-10 col-sm-12">
-                                    <div class="label label-success">Control de registro</div>
+                                    <div class="label label-success">Control de actualización</div>
                                 </div>
                             </div>  
                         </div>
