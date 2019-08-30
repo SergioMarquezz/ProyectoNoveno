@@ -1,6 +1,7 @@
 
 <?php
   
+  subjects();
 function fileCsv(){
 
         $tmp_file = $_FILES['files-read']['tmp_name'];
@@ -18,7 +19,9 @@ function fileCsv(){
     
             $num = count($data);
             $line++;
-    
+
+            $line2 = $line - 1;
+
             for ($column=0; $column < $num; $column++){
     
                 $word = substr($data[$column+1], 0, 3);
@@ -35,7 +38,7 @@ function fileCsv(){
                     $saldo = $data[$column+4];
                     $referencia_completa = substr($data[$column+1],2,20);
 
-                    $registros['csv'][] = Array('id' => $line, 'date' => $date, 'refe' => $referencia,
+                    $registros['csv'][] = Array('id' => $line2, 'date' => $date, 'refe' => $referencia,
                         'cve_concepto_pago' => $pago, 'clave_matricula' => $matri_clave,
                         'cargo' => $cargo, 'abono' => $abono, 'saldo' => $saldo,
                         'referencia' => $referencia_completa
@@ -74,10 +77,10 @@ function fileCsv(){
         //Quitando el punto a los archivos
         $only_name =  explode(".",$name_file);
         //Extension de los archivos
-        $ext_file = end($only_name);
+      //  $ext_file = end($only_name);
 
         //Nombre de archivo
-        $name_files = $only_name[0]."--".$date.".".$ext_file;
+        $name_files = $only_name[0]."--".$date.".txt";
         
         //Ruta a guardar
         $path = $upload_folder.$name_files;
@@ -91,6 +94,9 @@ function fileCsv(){
 
 
     }
+
+
+
 
 
 

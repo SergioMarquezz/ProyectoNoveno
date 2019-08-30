@@ -38,7 +38,7 @@ else{
 	  <img class="circle" src="img/logoHalcon.jpg"><img>
 	  <span class="text-center white-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTEC TULANCINGO</span>
 
-      <span class="white-text name"><?php echo $_SESSION['name_admin']." ".$_SESSION['paterno']." ".$_SESSION['materno']?></span>
+      <span class="white-text name"><?php echo $_SESSION['name_admin']?></span>
 
 	 <!-- <span class="white-text email">jdandturk@gmail.com</span>-->
 	  <input type="hidden" value="<?php echo $tipo_user?>" id="tipo-user">

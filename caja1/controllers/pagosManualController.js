@@ -72,6 +72,21 @@ function subjects(){
         e.preventDefault();
         
         $("#modal-materias").modal().show();
+
+        var matri = matricula.val();
+
+        $.ajax({
+            type: "POST",
+            url: "../models/pagosManualModel.php",
+            data: {
+                "options": "subject",
+                "matricula": matri
+            },
+            success: function (response) {
+                var json = JSON.parse(response);
+                console.log(json);
+            }
+        });
     });
 }
 

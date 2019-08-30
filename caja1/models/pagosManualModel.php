@@ -73,6 +73,10 @@
             echo "save payment";
         }
     }
+    else if($option == 'subject'){
+
+        subjects();
+    }
 
 
     TODO://Verificar dos periodos activos y ver que sale de resultado
@@ -89,5 +93,36 @@
           return $periodo;
         }
       }
+
+    function subjects(){
+
+        
+        $matricula = $_POST['matricula'];
+
+        $query_subjects = "SELECT a.grado_actual, (CASE WHEN g.id_grupo = 'A' THEN 1 WHEN g.id_grupo = 'B' THEN 2 
+        WHEN g.id_grupo = 'C' THEN 3 WHEN g.id_grupo = 'D' THEN 4 WHEN g.id_grupo = 'E' THEN 5 WHEN g.id_grupo = 'F' THEN 6 END ) AS grupo, 
+        c1.cve_grupo,c1.cve_periodo,c1.cve_materia,UPPER(m.nombre) as materia,c2.cve_maestro,(UPPER(rtrim(p.nombre))+' '+UPPER(rtrim(p.apellido_pat))+' '+
+        UPPER(rtrim(p.apellido_mat))) as nombrecompleto,mf.cal_materia,mf.estado_cal
+        from saiiut.saiiut.calificaciones_alumno as c1
+        INNER JOIN saiiut.saiiut.grupo_materia c2 ON c2.cve_grupo = c1.cve_grupo and c2.cve_materia=c1.cve_materia
+        INNER JOIN saiiut.saiiut.alumnos a ON a.cve_alumno = c1.cve_alumno
+        INNER JOIN saiiut.saiiut.personas p ON p.cve_persona = c2.cve_maestro
+        INNER JOIN saiiut.saiiut.grupos g ON a.cve_grupo = g.cve_grupo
+        LEFT JOIN saiiut.saiiut.materias m ON m.cve_materia = c1.cve_materia
+        LEFT JOIN sice.dbo.es_materia_final mf ON mf.matricula = a.matricula and mf.cve_periodo = c1.cve_periodo and mf.cve_materia = c1.cve_materia
+        where c1.cve_periodo = a.cve_periodo_actual and c1.valida = 1 and a.matricula = '$matricula'";
+
+        $result_query = executeQuery($query_subjects);
+        
+
+        while($data = odbc_fetch_array($result_query)){
+
+            $array_subject["subjects"][] = array_map("utf8_encode", $data);  
+    
+            $json_subject = json_encode($array_subject);
+        }
+
+        echo $json_subject;
+    }
 
 ?>

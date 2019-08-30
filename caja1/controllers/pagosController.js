@@ -38,7 +38,7 @@ function uploadFile(){
 
             console.log(file);
 
-            if(file.type == "text/plain"){
+            if(file.type == ""){
 
                 var id = setInterval(frame, 100);
                 $("#subir-archivo").attr('disabled', true);
@@ -48,7 +48,7 @@ function uploadFile(){
                 
                 swal({
                     title: 'Ocurrio un error',
-                    text: "El archivo debe ser de texto con extensión .txt",
+                    text: "El archivo tiene extensión, verifique que sea el correcto",
                     type: 'error',
                     confirmButtonColor: '#ff0000',
                     confirmButtonText: "Aceptar",
@@ -225,10 +225,10 @@ function seeData(){
                 url: "../views/includes/pagosVariable.php",
                 contentType: false,
                 processData: false,
-                cache: false, 
+                cache: false,
                 success: function (response) {
                     var json = JSON.parse(response);
-                   
+                  
                    var filas = json.csv.length;
                    
         

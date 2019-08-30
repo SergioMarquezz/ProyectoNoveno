@@ -30,7 +30,7 @@
             <div class="card-body">
                <form action="" data-form="update" method="" class="FormularioConceptos" autocomplete="off" enctype="multipart/form-data">
                     <div class="row">
-                            <p style="font-size:18px;" class="mb-5">En este formulario podras realizar de manera manual algún pago que requiera el alumnado,
+                            <p style="font-size:18px;" class="mb-5">En este formulario podrás realizar de manera manual algún pago que requiera el alumnado,
                                                        cuando presiones el botón <strong>realizar pago</strong> los cambios surgieran efecto.
                             </p>
                             
@@ -142,23 +142,24 @@
     </div>
     <div class="modal" id="modal-materias">
         <div class="container-fluid">
-            <h5 class="text-center text-white">Mis tramites y servicios durante el cuatrimestre</h5>
+            <h5 class="text-center text-white">Materias del cuatrimestre</h5>
             <table class="mt-3 table-bordered">
             <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Fecha de solicitud</th>
-                        <th>Descripcion</th>
-                        <th>Precio</th>
+                        <th>Grado</th>
+                        <th>Grupo</th>
+                        <th>Materia</th>
+                        <th>Profesor</th>
+                        <th>Calificación Final</th>
                     </tr>
             </thead>
-                <tbody id="body-modal">
+                <tbody id="body-modal-materias">
                 
                 </tbody>
             </table>
             <div class="row justify-content-center">
                 <div class="col-lg-3 mt-3">
-                    <button id="btn-modal" class="btn btn-info btn-block">Aceptar</button>
+                    <button id="btn-modal-materias" class="btn btn-info btn-block">Aceptar</button>
                 </div>
             </div>
         </div>
