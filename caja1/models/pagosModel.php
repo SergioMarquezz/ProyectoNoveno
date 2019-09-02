@@ -1,7 +1,7 @@
 
 <?php
-  
-  subjects();
+
+
 function fileCsv(){
 
         $tmp_file = $_FILES['files-read']['tmp_name'];
@@ -11,8 +11,10 @@ function fileCsv(){
 
         $csv_files = $tmp_file;
         $line = 0;
-        $csv_file = fopen($csv_files, 'r');
+
         
+        $csv_file = fopen($csv_files, 'r');
+
     
         //Para archivos csv =  fgetcsv($csv_file, ",")
         while ((($data = fgetcsv($csv_file, 1000, "\t")) !== FALSE)){
@@ -63,7 +65,8 @@ function fileCsv(){
 
 
     function uploadFiles(){
-
+ 
+          
         $date = date("d")."-".date("m")."-".date("Y");
 
 
@@ -75,20 +78,26 @@ function fileCsv(){
         $tmp_file = $_FILES['archivo']['tmp_name'];
 
         //Quitando el punto a los archivos
-        $only_name =  explode(".",$name_file);
+        //$only_name =  explode(".",$name_file);
         //Extension de los archivos
       //  $ext_file = end($only_name);
 
         //Nombre de archivo
-        $name_files = $only_name[0]."--".$date.".txt";
+        $name_files = $name_file;//$only_name[0];//."--".$date.".txt";
         
         //Ruta a guardar
         $path = $upload_folder.$name_files;
+               
+        if (file_exists($path)) {
+            
+            $return['upload'] = "El archivo existe";
 
-        if (!move_uploaded_file($tmp_file, $path)) {
-            $return['upload'] = false;
-        }
-      
+        } else {
+            
+            if (!move_uploaded_file($tmp_file, $path)) {
+                $return['upload'] = false;
+            }
+        }      
 
         echo json_encode($return);
 

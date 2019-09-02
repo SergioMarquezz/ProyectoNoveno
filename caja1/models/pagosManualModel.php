@@ -6,6 +6,7 @@
 
     $option = $_POST['options'];
 
+
     if($option == 'students'){
 
         $sql = "SELECT a.matricula, p.nombre, p.apellido_pat, p.apellido_mat, c.nombre AS carrera, a.grado_actual, p.cve_persona
@@ -67,6 +68,7 @@
 
         $result_save = executeQuery($insert_payment);
 
+       // verificarReferencia($reference);
         
         if($result_save){
 
@@ -78,6 +80,30 @@
         subjects();
     }
 
+    function verificarReferencia($referencia){
+
+
+        $sql = executeQuery("SELECT cve_tipo_persona,cve_persona,referencia FROM solicitud_documento");
+
+        while($row = odbc_fetch_array($sql)){
+
+           $row_update = $row['referencia'];
+
+           $array_reference = array($row_update);
+
+            if(in_array($referencia,$array_reference)){
+
+                $cve_persona = odbc_result($sql,"cve_persona");
+                $type_people = odbc_result($sql,"cve_tipo_persona");
+                
+                $update = executeQuery("UPDATE solicitud_documento SET pago_realizado = 1 
+                WHERE referencia = '$row_update'" );
+
+            }
+
+            
+        }
+    }
 
     TODO://Verificar dos periodos activos y ver que sale de resultado
     function periodoActivo(){

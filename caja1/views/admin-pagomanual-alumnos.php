@@ -35,8 +35,8 @@
                             </p>
                             
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                                <span class="control-label">Busqueda</span>
-                                <input type="text" maxlength="10" id="myInputAlumnos" placeholder="BUSCAR ALUMNO...">
+                                <span class="control-label">Busqueda de alumno</span>
+                                <input type="text" maxlength="10" id="myInputAlumnos" placeholder="Escribe la matricula">
                         </div>    
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mt-5">
                             <select class="browser-default custom-select" id="students-pagos">

@@ -97,7 +97,6 @@
             if(in_array($row['referencia'],$array)){
 
                 $cve_persona = odbc_result($sql,"cve_persona");
-                $periodo = periodoActivo();
                 $type_people = odbc_result($sql,"cve_tipo_persona");
                 
                 $update = executeQuery("UPDATE solicitud_documento SET pago_realizado = 1 
