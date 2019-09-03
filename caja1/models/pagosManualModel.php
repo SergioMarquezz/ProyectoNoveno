@@ -4,9 +4,8 @@
     require_once "../views/includes/fecha.php";
     require_once "../views/includes/referencia.php";
 
-    $option = "no";//$_POST['options'];
-    subjects();
-
+    $option = $_POST['options'];
+  
     if($option == 'students'){
 
         $sql = "SELECT a.matricula, p.nombre, p.apellido_pat, p.apellido_mat, c.nombre AS carrera, a.grado_actual, p.cve_persona
@@ -85,6 +84,11 @@
         gradeAndStudents();
     }
 
+    else if($option == "subjects default"){
+
+        defaultedSubjects();
+    }
+
     function verificarReferencia($referencia){
 
 
@@ -128,7 +132,7 @@
     function subjects(){
 
         
-        $matricula = '1717110193'; //'1717110193';//'1718110095';//'1717110095';//$_POST['matricula'];
+        $matricula = $_POST['matricula'];
 
         $query_subjects = "SELECT a.grado_actual, (CASE WHEN g.id_grupo = 'A' THEN 1 WHEN g.id_grupo = 'B' THEN 2 
         WHEN g.id_grupo = 'C' THEN 3 WHEN g.id_grupo = 'D' THEN 4 WHEN g.id_grupo = 'E' THEN 5 WHEN g.id_grupo = 'F' THEN 6 END ) AS grupo, 
@@ -146,29 +150,102 @@
         $result_query = executeQuery($query_subjects);
         
 
-       /* while($data = odbc_fetch_array($result_query)){
+        while($data = odbc_fetch_array($result_query)){
 
             $array_subject["subjects"][] = array_map("utf8_encode", $data);  
     
             $json_subject = json_encode($array_subject);
         }
 
-        echo $json_subject;*/
-
-       $total_subjects = odbc_num_rows($result_query);
-
-       $percent50 = $total_subjects / 2;
-
-       $mas1materia = $percent50 + 1;
-
-       //intval toma solo el entero de una cantidad decimal
-       $allowed_subjects = $total_subjects - intval($mas1materia);
-
-       
-      // echo $allowed_subjects;//intval($mas1materia);
+        echo $json_subject;
+    }
 
 
+    function defaultedSubjects(){
 
+                
+        $matricula_student = '1716110095'; //'1717110193';//'1718110095';//'1717110095';//$_POST['matricula'];
+
+        //Consulta para el total de materias
+        $default_subjects = "SELECT a.grado_actual, (CASE WHEN g.id_grupo = 'A' THEN 1 WHEN g.id_grupo = 'B' THEN 2 
+        WHEN g.id_grupo = 'C' THEN 3 WHEN g.id_grupo = 'D' THEN 4 WHEN g.id_grupo = 'E' THEN 5 WHEN g.id_grupo = 'F' THEN 6 END ) AS grupo, 
+        c1.cve_grupo,c1.cve_periodo,c1.cve_materia,UPPER(m.nombre) as materia,c2.cve_maestro,(UPPER(rtrim(p.nombre))+' '+UPPER(rtrim(p.apellido_pat))+' '+
+        UPPER(rtrim(p.apellido_mat))) as nombrecompleto,mf.cal_materia,mf.estado_cal
+        from saiiut.saiiut.calificaciones_alumno as c1
+        INNER JOIN saiiut.saiiut.grupo_materia c2 ON c2.cve_grupo = c1.cve_grupo and c2.cve_materia=c1.cve_materia
+        INNER JOIN saiiut.saiiut.alumnos a ON a.cve_alumno = c1.cve_alumno
+        INNER JOIN saiiut.saiiut.personas p ON p.cve_persona = c2.cve_maestro
+        INNER JOIN saiiut.saiiut.grupos g ON a.cve_grupo = g.cve_grupo
+        LEFT JOIN saiiut.saiiut.materias m ON m.cve_materia = c1.cve_materia
+        LEFT JOIN sice.dbo.es_materia_final mf ON mf.matricula = a.matricula and mf.cve_periodo = c1.cve_periodo and mf.cve_materia = c1.cve_materia
+        where c1.cve_periodo = a.cve_periodo_actual and c1.valida = 1 and a.matricula = '$matricula_student'";
+
+        $result_query = executeQuery($default_subjects);
+
+        //Se cuenta las materias
+        $total_subjects = odbc_num_rows($result_query);
+
+        //Total de materias entre el 50%
+        $percent50 = $total_subjects / 2;
+        //El resultado del total de materias entre el 50% + 1
+        $mas1materia = $percent50 + 1;
+
+        //Total de materias menos el resultado anterior de las materias
+        //Materias permitidas a reprobar
+        //intval toma solo el entero de una cantidad decimal
+        $allowed_subjects = $total_subjects - intval($mas1materia);
+
+        //echo $allowed_subjects;//intval($mas1materia);
+
+        //Consulta de las materias reprobadas
+        $query_default = "SELECT a.grado_actual, (CASE WHEN g.id_grupo = 'A' THEN 1 WHEN g.id_grupo = 'B' THEN 2 
+        WHEN g.id_grupo = 'C' THEN 3 WHEN g.id_grupo = 'D' THEN 4 WHEN g.id_grupo = 'E' THEN 5 WHEN g.id_grupo = 'F' THEN 6 END ) AS grupo, 
+        c1.cve_grupo,c1.cve_periodo,c1.cve_materia,UPPER(m.nombre) as materia,c2.cve_maestro,(UPPER(rtrim(p.nombre))+' '+UPPER(rtrim(p.apellido_pat))+' '+
+        UPPER(rtrim(p.apellido_mat))) as nombrecompleto,mf.cal_materia,mf.estado_cal
+        from saiiut.saiiut.calificaciones_alumno as c1
+        INNER JOIN saiiut.saiiut.grupo_materia c2 ON c2.cve_grupo = c1.cve_grupo and c2.cve_materia=c1.cve_materia
+        INNER JOIN saiiut.saiiut.alumnos a ON a.cve_alumno = c1.cve_alumno
+        INNER JOIN saiiut.saiiut.personas p ON p.cve_persona = c2.cve_maestro
+        INNER JOIN saiiut.saiiut.grupos g ON a.cve_grupo = g.cve_grupo
+        LEFT JOIN saiiut.saiiut.materias m ON m.cve_materia = c1.cve_materia
+        LEFT JOIN sice.dbo.es_materia_final mf ON mf.matricula = a.matricula and mf.cve_periodo = c1.cve_periodo and mf.cve_materia =c1.cve_materia
+        where c1.cve_periodo = a.cve_periodo_actual and c1.valida = 1 and a.matricula = '$matricula_student' and cal_final < (select valor from saiiut.saiiut.parametros p WHERE p.cve_periodo = c1.cve_periodo and p.cve_parametro = 11)";
+
+        $result_query_default = executeQuery($query_default);
+
+        //Materias que tiene reprobadas
+        $result_count = odbc_num_rows($result_query_default);
+
+        if($result_count <= $allowed_subjects){
+            
+            $permit['permit'] = "puede pagar";
+            print json_encode($permit);
+        }
+
+        else{
+            /*$permit['permit'] = "no puede pagar";
+            print json_encode($permit);*/
+
+            while($rows = odbc_fetch_array($result_query_default)){
+                
+                $subject = utf8_encode($rows['materia']);
+
+                //print_r(utf8_encode($rows['nombrecompleto']). "<br>");
+              
+
+                $array = array("subjects_default" => array(
+                    "subject" => $subject
+                ));
+
+                print json_encode($array);
+            }
+
+           
+            
+        }
+        //echo $result_count;
+
+        
     }
 
 

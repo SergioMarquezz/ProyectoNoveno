@@ -100,15 +100,28 @@ function subjects(){
 
                     $("#body-modal-materias").append(subjects);
                       
-                        $("#body-modal-materias td").each(function(){
+                    $("#body-modal-materias td").each(function(){
 
-                            //Se parsea el texto para poder evaluar numericamente
-                            if(parseFloat($(this).text()) < 8){
+                        //Se parsea el texto para poder evaluar numericamente
+                        if(parseFloat($(this).text()) < 8){
 
-                                $(this).css("background-color", "red");
-                            }
+                            $(this).css("background-color", "red");
 
-                        });
+                            $.ajax({
+                                type: "POST",
+                                url: "../models/pagosManualModel.php",
+                                data: {
+                                    "options": "subjects default"
+                                },
+                                success: function (response) {
+                                    var json = JSON.parse(response); 
+                                    
+                                    console.log(json);
+                                }
+                            });
+                        }
+
+                    });
                     
                 }
             }
