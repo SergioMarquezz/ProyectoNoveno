@@ -156,6 +156,11 @@ th, tr:hover {
    
 }
 
+.label-grado, .label-grupo, .label-carrera{
+    font-size: 18px;
+    color: #ffffff;
+}
+
 .jumbotron{
 
     background-image: url("../img/logo-trasparencia.png");

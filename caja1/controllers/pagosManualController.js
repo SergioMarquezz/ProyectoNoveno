@@ -19,6 +19,7 @@ $(document).ready(function () {
     $("#hide3").hide();
     $("#quantity").attr('readonly', true);
     $("#materias").hide();
+
 });
 
 function studentsRegular(){
@@ -43,7 +44,7 @@ function studentsRegular(){
                                         "<td>"+response.students[row].apellido_mat+"</td>"+
                                         "<td>"+response.students[row].carrera+"</td>"+
                                         "<td>"+response.students[row].grado_actual+"</td>"+
-                                    "</tr>"
+                                    "</tr>";
 
                 $("#tbodyAlumnos").append(tbody_students);
             }
@@ -85,8 +86,62 @@ function subjects(){
             success: function (response) {
                 var json = JSON.parse(response);
                 console.log(json);
+                var row = json.subjects.length;
+
+                for(rows = 0; rows < row; rows++){
+
+                    var costo_dos_decimal = (parseFloat(json.subjects[rows].cal_materia).toFixed(2));
+
+                    var subjects = "<tr><td class='text-white'>"+json.subjects[rows].materia+"</td>"+
+                                        "<td class='text-white'>"+json.subjects[rows].nombrecompleto+"</td>"+
+                                        "<td class='text-white'>"+costo_dos_decimal+"</td>"+
+                                    "</tr>";
+
+
+                    $("#body-modal-materias").append(subjects);
+                      
+                        $("#body-modal-materias td").each(function(){
+
+                            //Se parsea el texto para poder evaluar numericamente
+                            if(parseFloat($(this).text()) < 8){
+
+                                $(this).css("background-color", "red");
+                            }
+
+                        });
+                    
+                }
             }
         });
+
+        $.ajax({
+            type: "POST",
+            url: "../models/pagosManualModel.php",
+            data: {
+                "options": "grades",
+                "matri": matri
+            },
+            success: function (response){
+                
+                var grade = $("#grade-actual");
+                var group = $("#grupo-actual");
+                var carrer = $("#carrera-actual");
+
+                var json = JSON.parse(response);
+               
+                grade.val(json.grades[0].grado_actual);
+                group.val(json.grades[0].grupo);
+                carrer.val(json.grades[0].carrera);
+
+            }
+        });
+    });
+
+    
+    $("#btn-modal-materias").click(function (e) { 
+        e.preventDefault();
+        $("#modal-materias").modal().hide();
+        $("#body-modal-materias").empty();
     });
 }
 

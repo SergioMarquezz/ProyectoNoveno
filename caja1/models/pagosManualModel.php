@@ -4,8 +4,8 @@
     require_once "../views/includes/fecha.php";
     require_once "../views/includes/referencia.php";
 
-    $option = $_POST['options'];
-
+    $option = "no";//$_POST['options'];
+    subjects();
 
     if($option == 'students'){
 
@@ -80,6 +80,11 @@
         subjects();
     }
 
+    else if($option == "grades"){
+
+        gradeAndStudents();
+    }
+
     function verificarReferencia($referencia){
 
 
@@ -123,7 +128,7 @@
     function subjects(){
 
         
-        $matricula = $_POST['matricula'];
+        $matricula = '1717110193'; //'1717110193';//'1718110095';//'1717110095';//$_POST['matricula'];
 
         $query_subjects = "SELECT a.grado_actual, (CASE WHEN g.id_grupo = 'A' THEN 1 WHEN g.id_grupo = 'B' THEN 2 
         WHEN g.id_grupo = 'C' THEN 3 WHEN g.id_grupo = 'D' THEN 4 WHEN g.id_grupo = 'E' THEN 5 WHEN g.id_grupo = 'F' THEN 6 END ) AS grupo, 
@@ -141,14 +146,54 @@
         $result_query = executeQuery($query_subjects);
         
 
-        while($data = odbc_fetch_array($result_query)){
+       /* while($data = odbc_fetch_array($result_query)){
 
             $array_subject["subjects"][] = array_map("utf8_encode", $data);  
     
             $json_subject = json_encode($array_subject);
         }
 
-        echo $json_subject;
+        echo $json_subject;*/
+
+       $total_subjects = odbc_num_rows($result_query);
+
+       $percent50 = $total_subjects / 2;
+
+       $mas1materia = $percent50 + 1;
+
+       //intval toma solo el entero de una cantidad decimal
+       $allowed_subjects = $total_subjects - intval($mas1materia);
+
+       
+      // echo $allowed_subjects;//intval($mas1materia);
+
+
+
+    }
+
+
+    function gradeAndStudents(){
+
+        $matriculas = $_POST['matri'];
+
+        $grade_query = "SELECT a.matricula, p.nombre, p.apellido_pat, p.apellido_mat, c.nombre AS carrera, a.grado_actual, (CASE WHEN g.id_grupo = 'A' THEN 1 WHEN g.id_grupo = 'B' THEN 2 
+        WHEN g.id_grupo = 'C' THEN 3 WHEN g.id_grupo = 'D' THEN 4 WHEN g.id_grupo = 'E' THEN 5 WHEN g.id_grupo = 'F' THEN 6 END ) AS grupo
+        FROM saiiut.saiiut.alumnos a
+        INNER JOIN saiiut.saiiut.personas p ON p.cve_persona = a.cve_alumno
+        INNER JOIN saiiut.saiiut.carreras_cgut c ON c.cve_carrera = a.cve_carrera
+        INNER JOIN saiiut.saiiut.grupos g ON a.cve_grupo = g.cve_grupo
+        WHERE a.cve_periodo_actual = (SELECT TOP 1 cve_periodo FROM saiiut.saiiut.periodos WHERE activo = 1)AND a.cve_unidad_academica = 1 AND a.cve_status = 1 AND a.matricula = '$matriculas'";
+      
+        $result_grade = executeQuery($grade_query);
+
+        
+        while($datas = odbc_fetch_array($result_grade)){
+
+            $array_grades["grades"][] = array_map("utf8_encode", $datas);  
+    
+            $json_grades = json_encode($array_grades);
+        }
+        echo $json_grades;
     }
 
 ?>

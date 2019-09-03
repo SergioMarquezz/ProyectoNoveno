@@ -143,11 +143,29 @@
     <div class="modal" id="modal-materias">
         <div class="container-fluid">
             <h5 class="text-center text-white">Materias del cuatrimestre</h5>
+            <div class="row">
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label for="grade-actual" class="label-grado">Grado</label>
+                        <input type="text" id="grade-actual" class="form-control text-white" readonly>
+                    </div>
+                </div>
+                <div class="col-lg-1">
+                    <div class="form-group">
+                        <label for="grupo-actual" class="label-grupo">Grupo</label>
+                        <input type="text" id="grupo-actual" class="form-control text-white" readonly>
+                    </div>
+                </div>
+                <div class="col-lg-10">
+                    <div class="form-group">
+                        <label for="carrera-actual" class="label-carrera">Carrera</label>
+                        <input type="text" id="carrera-actual" class="form-control text-white" readonly>
+                    </div>
+                </div>
+            </div>
             <table class="mt-3 table-bordered">
             <thead>
                     <tr>
-                        <th>Grado</th>
-                        <th>Grupo</th>
                         <th>Materia</th>
                         <th>Profesor</th>
                         <th>Calificación Final</th>
