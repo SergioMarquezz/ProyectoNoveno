@@ -18,7 +18,7 @@
 <body background="<?php echo SERVER;?>/views/img/logo-trasparencia.png">
     <div class="container title-container">
         <div class="page-header">
-            <h4 class="text-titles mt-4"><i class="zmdi zmdi-comment"></i> CONCEPTOS DE PAGOS</h4>
+            <h4 class="text-titles mt-4"><i class=" fa fa-dollar"></i> PAGOS ALUMNOS</h4>
         </div>
     </div>
 
@@ -142,7 +142,7 @@
     </div>
     <div class="modal" id="modal-materias">
         <div class="container-fluid">
-            <h5 class="text-center text-white">Materias del cuatrimestre</h5>
+            <h5 class="text-center text-white">Materias del cuatrimestre actual</h5>
             <div class="row">
                 <div class="col-lg-1">
                     <div class="form-group">
@@ -166,17 +166,20 @@
             <table class="mt-3 table-bordered">
             <thead>
                     <tr>
-                        <th>Materia</th>
-                        <th>Profesor</th>
-                        <th>Calificación Final</th>
+                        <th>MATERIA</th>
+                        <th>PROFESOR</th>
+                        <th>CALIFICACIÓN FINAL</th>
                     </tr>
             </thead>
                 <tbody id="body-modal-materias">
                 
                 </tbody>
             </table>
-            <div class="row justify-content-center">
-                <div class="col-lg-3 mt-3">
+            <div class="row">
+                <div class="col-lg-6 mt-5">
+                    <div class="label label-success pl-2 text-white" id="materias-reprobadas">Materias reprobadas</div>
+                </div>
+                <div class="col-lg-6 mt-4">
                     <button id="btn-modal-materias" class="btn btn-info btn-block">Aceptar</button>
                 </div>
             </div>

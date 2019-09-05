@@ -5,6 +5,8 @@
     require_once "../views/includes/referencia.php";
 
     $option = $_POST['options'];
+
+   // defaultedSubjects();
   
     if($option == 'students'){
 
@@ -164,7 +166,7 @@
     function defaultedSubjects(){
 
                 
-        $matricula_student = '1716110095'; //'1717110193';//'1718110095';//'1717110095';//$_POST['matricula'];
+        $matricula_student = $_POST['mat']; //'1717110193';//'1718110095';//'1717110095';//$_POST['matricula'];
 
         //Consulta para el total de materias
         $default_subjects = "SELECT a.grado_actual, (CASE WHEN g.id_grupo = 'A' THEN 1 WHEN g.id_grupo = 'B' THEN 2 
@@ -201,7 +203,7 @@
         $query_default = "SELECT a.grado_actual, (CASE WHEN g.id_grupo = 'A' THEN 1 WHEN g.id_grupo = 'B' THEN 2 
         WHEN g.id_grupo = 'C' THEN 3 WHEN g.id_grupo = 'D' THEN 4 WHEN g.id_grupo = 'E' THEN 5 WHEN g.id_grupo = 'F' THEN 6 END ) AS grupo, 
         c1.cve_grupo,c1.cve_periodo,c1.cve_materia,UPPER(m.nombre) as materia,c2.cve_maestro,(UPPER(rtrim(p.nombre))+' '+UPPER(rtrim(p.apellido_pat))+' '+
-        UPPER(rtrim(p.apellido_mat))) as nombrecompleto,mf.cal_materia,mf.estado_cal
+        UPPER(rtrim(p.apellido_mat))) as nombrecompleto,mf.cal_final,mf.cal_materia,mf.estado_cal
         from saiiut.saiiut.calificaciones_alumno as c1
         INNER JOIN saiiut.saiiut.grupo_materia c2 ON c2.cve_grupo = c1.cve_grupo and c2.cve_materia=c1.cve_materia
         INNER JOIN saiiut.saiiut.alumnos a ON a.cve_alumno = c1.cve_alumno
@@ -209,7 +211,7 @@
         INNER JOIN saiiut.saiiut.grupos g ON a.cve_grupo = g.cve_grupo
         LEFT JOIN saiiut.saiiut.materias m ON m.cve_materia = c1.cve_materia
         LEFT JOIN sice.dbo.es_materia_final mf ON mf.matricula = a.matricula and mf.cve_periodo = c1.cve_periodo and mf.cve_materia =c1.cve_materia
-        where c1.cve_periodo = a.cve_periodo_actual and c1.valida = 1 and a.matricula = '$matricula_student' and cal_final < (select valor from saiiut.saiiut.parametros p WHERE p.cve_periodo = c1.cve_periodo and p.cve_parametro = 11)";
+        where c1.cve_periodo = a.cve_periodo_actual and c1.valida = 1 and a.matricula = '$matricula_student' and cal_materia < (select valor from saiiut.saiiut.parametros p WHERE p.cve_periodo = c1.cve_periodo and p.cve_parametro = 11)";
 
         $result_query_default = executeQuery($query_default);
 
@@ -223,27 +225,12 @@
         }
 
         else{
-            /*$permit['permit'] = "no puede pagar";
-            print json_encode($permit);*/
 
-            while($rows = odbc_fetch_array($result_query_default)){
-                
-                $subject = utf8_encode($rows['materia']);
+            $permit['permit'] = "no puede pagar";
+            print json_encode($permit);
 
-                //print_r(utf8_encode($rows['nombrecompleto']). "<br>");
-              
-
-                $array = array("subjects_default" => array(
-                    "subject" => $subject
-                ));
-
-                print json_encode($array);
+       
             }
-
-           
-            
-        }
-        //echo $result_count;
 
         
     }

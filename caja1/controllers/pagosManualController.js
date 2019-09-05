@@ -5,6 +5,8 @@ var fertilizer_bd = $("#costo-letra"); //Variable que se guarda en base de datos
 var concept = $("#clave_concepto");
 var total_amount = $("#monto-total");
 var cantidad = $("#quantity");
+var description = $("#descripcion");
+var cost = $("#unitario-costo");
 
 $(document).ready(function () {
     
@@ -57,12 +59,55 @@ function subjects(){
 
     $("#students-pagos").change(function (e) { 
         e.preventDefault();
-        
+        $("#btn-pagar").attr('disabled', false);
         var name_concept = $("#students-pagos option:selected").text();
         
         if(name_concept == "Examen extraordinario" || name_concept == "examen extraordinario" || name_concept == "Examen Extraordinario"){
 
             $("#materias").show();
+
+            var enrollment = matricula.val();
+
+              //Ajax para validad si puede pagar
+            $.ajax({
+                type: "POST",
+                url: "../models/pagosManualModel.php",
+                data: {
+                    "options": "subjects default",
+                    "mat": enrollment
+                },
+                dataType: "json",
+                success: function (response) {
+                
+                switch(response.permit){
+
+                        case "puede pagar":
+                                $("#btn-pagar").attr('disabled', false);
+                            break;
+
+                        case "no puede pagar":
+                                swal({
+                                    title: "Materias reprobadas",   
+                                    text: "El alumnno tiene mas materias reprobadas de las permitidas, por lo que no puede pagar",   
+                                    type: "warning",      
+                                    confirmButtonText: "Aceptar",
+                                    allowOutsideClick: false
+                                }).then(function (){  
+
+                                    $("#btn-pagar").attr('disabled', true);
+                                    document.getElementById("students-pagos").selectedIndex = "0";
+                                   // $("#students-pagos").select2("val", '0',false);
+                                
+                                   concept.val("");
+                                   description.val("");
+                                   cost.val("");
+                                   // matricula.val("");
+                                
+                                });
+                            break
+                    }
+                }
+            });
         }
         else{
             $("#materias").hide();
@@ -76,6 +121,7 @@ function subjects(){
 
         var matri = matricula.val();
 
+        //Ajax para las materias
         $.ajax({
             type: "POST",
             url: "../models/pagosManualModel.php",
@@ -90,11 +136,11 @@ function subjects(){
 
                 for(rows = 0; rows < row; rows++){
 
-                    var costo_dos_decimal = (parseFloat(json.subjects[rows].cal_materia).toFixed(2));
+                    var final_score = (parseFloat(json.subjects[rows].cal_materia).toFixed(2));
 
                     var subjects = "<tr><td class='text-white'>"+json.subjects[rows].materia+"</td>"+
                                         "<td class='text-white'>"+json.subjects[rows].nombrecompleto+"</td>"+
-                                        "<td class='text-white'>"+costo_dos_decimal+"</td>"+
+                                        "<td class='text-white'>"+final_score+"</td>"+
                                     "</tr>";
 
 
@@ -105,28 +151,18 @@ function subjects(){
                         //Se parsea el texto para poder evaluar numericamente
                         if(parseFloat($(this).text()) < 8){
 
-                            $(this).css("background-color", "red");
+                            $(this).css("background-color", "#c9383a");
 
-                            $.ajax({
-                                type: "POST",
-                                url: "../models/pagosManualModel.php",
-                                data: {
-                                    "options": "subjects default"
-                                },
-                                success: function (response) {
-                                    var json = JSON.parse(response); 
-                                    
-                                    console.log(json);
-                                }
-                            });
                         }
 
                     });
                     
                 }
+
             }
         });
 
+        //Ajax para grado, grupo y carrera
         $.ajax({
             type: "POST",
             url: "../models/pagosManualModel.php",
@@ -148,6 +184,8 @@ function subjects(){
 
             }
         });
+
+      
     });
 
     
@@ -155,6 +193,7 @@ function subjects(){
         e.preventDefault();
         $("#modal-materias").modal().hide();
         $("#body-modal-materias").empty();
+
     });
 }
 
@@ -200,6 +239,9 @@ function savePaymentsManual(){
             allowOutsideClick: false
         }).then(function(){
 
+            var name_concept = $("#students-pagos option:selected").text();
+            
+
             if(key_concept == ""){
 
                 swal({
@@ -210,6 +252,29 @@ function savePaymentsManual(){
                     allowOutsideClick: false
                 })
             }
+            else if(matricula.val() == ""){
+
+                swal({
+                    title: "Error al guardar",   
+                    text: "Escribe la matricula del alumno",   
+                    type: "error",      
+                    confirmButtonText: "Aceptar",
+                    allowOutsideClick: false
+                })
+            }
+
+            
+            else if(name_concept == "Elige un concepto"){
+
+                swal({
+                    title: "Error al guardar",   
+                    text: "No has indicado el concepto que se quiere pagar, por favor selecciona alguno",   
+                    type: "error",      
+                    confirmButtonText: "Aceptar",
+                    allowOutsideClick: false
+                })
+            }
+
             else if(quantity == ""){
                 swal({
                     title: "Error al guardar",   
@@ -219,6 +284,7 @@ function savePaymentsManual(){
                     allowOutsideClick: false
                 })
             }
+            
             else{
                    //Ajax para guardar el pago
                 $.ajax({
@@ -277,6 +343,7 @@ function searchStudentsData(){
                 $("#hide").show();
                 $("#hide2").show();
                 $("#hide3").show();
+                document.getElementById("students-pagos").selectedIndex = "0";
             }
             
         });

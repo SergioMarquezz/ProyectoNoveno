@@ -53,6 +53,7 @@
             $tipo_persona = clearString($_POST['cve_tipo_persona']);
             $cve_persona = clearString($_POST['cve_persona']);
             $monto = clearString($_POST['precio']);
+            $costo_unitario = clearString($_POST['costo']);
             $periodo = periodoActivo();
             $concepto = clearString($_POST['cve_concepto']);
             $matricula = clearString($_POST['matricula']);
@@ -89,7 +90,7 @@
 
                        
                        $sql_save_solicitud = executeQuery("INSERT INTO solicitud_documento(fecha_solicitud,cve_tipo_persona,cve_persona,monto,cve_periodo,cve_concepto_pago,pago_realizado,referencia) 
-                       VALUES ('$date',$tipo_persona,'$cve_persona','$monto','$periodo','$concepto','$pago','$referencia')");
+                       VALUES ('$date',$tipo_persona,'$cve_persona','$costo_unitario','$periodo','$concepto','$pago','$referencia')");
 
                         if($sql_save_solicitud == false){
                 

@@ -73,8 +73,8 @@
     font-size: 18px;
 }
 
-.container-404{
-    background-color: red;
+.container-404, #materias-reprobadas{
+    background-color: #c9383a;
     color: #ffffff;
    
 }
@@ -110,7 +110,7 @@
 }
 
 th, tr:hover {
-  background-color: #dbdbdb;
+  background-color: #939393;
 }
 
 /*Estilos progresbar*/

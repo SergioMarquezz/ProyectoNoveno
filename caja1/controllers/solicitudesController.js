@@ -161,7 +161,9 @@ function enviarSolicitud(){
             precio = $("#costo-unitario").val(),
             fecha = $("#fecha_solcitud").val(),
             concepto = $("#clave_concepto").val(),
-            matricula = $("#matricula-alumno").val();
+            matricula = $("#matricula-alumno").val(),
+            costo = $("#costo-letra").val();
+            
         
         $.ajax({
             type: "POST",
@@ -174,7 +176,9 @@ function enviarSolicitud(){
                 "cve_persona": cve_persona,
                 "precio": precio,
                 "cve_concepto": concepto,
-                "matricula": matricula            
+                "matricula": matricula,
+                "costo": costo
+                            
             },
             success: function (response) {
                 console.log(response);

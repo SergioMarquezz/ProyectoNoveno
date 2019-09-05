@@ -8,7 +8,7 @@ var concepto = $("#descripcion");
 
 $(document).ready(function () {
 
-    $("#concepto-pago, #students-pagos").select2({
+    $("#concepto-pago").select2({
         theme: "classic"    
     });
 
