@@ -265,6 +265,7 @@ $pdf->Cell(30,5,$grupo,0,0,'L');
 
 $pdf->SetXY(32,61);
 $pdf->Cell(100,5,$carrera,0,0,'L');
+
 $pdf->Ln(18);
 $pdf->SetTextColor(0,0,0);
 $pdf->SetFont('Times','',13);

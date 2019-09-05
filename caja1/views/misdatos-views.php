@@ -24,8 +24,8 @@
         <hr class="">
         <p class="lead">
             <!--TODO:Modifiacar texto-->
-            En este apartado del sistema, la información que proporcionaste en tu registro inicial
-            podras actualizarla desde aqui cada vez que sea necesario o podras hacerlo tambien desde
+            En este apartado del sistema, podras actualizar la información que proporcionaste
+            cada vez que sea necesario.
         </p>
     </div>
 

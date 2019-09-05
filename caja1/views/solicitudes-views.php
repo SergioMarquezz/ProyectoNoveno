@@ -94,14 +94,14 @@
                                <div class="row">
                                     <div class="col-xl-6">
                                         <div class="form-group mt-3">
-                                            <label for="num-control" class="label-solicitud">N. Control</label>
+                                            <label for="numero-control" class="label-solicitud">N. Control</label>
                                             <input name="num-control" type="text" id="numero-control" class="form-control text-dark" readonly>
                                         </div>
                                     </div>
                                     <div class="col-xl-6">
                                         <div class="form-group mt-3">
-                                            <label for="num-control" class="label-solicitud">Convenio CIE</label>
-                                            <input name="num-control" type="text" id="numero-control" class="form-control text-dark" value="001364332" readonly>
+                                            <label for="num-convenio" class="label-solicitud">Convenio CIE</label>
+                                            <input name="num-convenio" type="text" id="numero-convenio" class="form-control text-dark" value="001364332" readonly>
                                         </div>
                                     </div>
                                </div>
@@ -131,7 +131,7 @@
                                     <div class="col-xl-4">
                                         <div class="form-group mt-3">
                                             <label for="valida" class="label-solicitud">Válido hasta</label>
-                                            <input value="<?php echo fecha() ?>" name="valida" type="text" id="validez" class="form-control text-dark" readonly>
+                                            <input value="<?php echo fecha() ?>" type="text" id="validez" class="form-control text-dark" readonly>
                                         </div>
                                     </div>
                                     <div class="col-xl-4">
@@ -140,6 +140,8 @@
                                             <input name="cantidad" type="text" id="monto" class="form-control text-dark" readonly>
                                         </div>
                                     </div>
+                                    <input name="fecha-emision" type="hidden" value="<?php echo $fecha ?>">
+                                    <input value="<?php echo fechaDiagonal()?>" name="valida" type="hidden">
                                </div>
                                <div class="row">
                                     <div class="col-xl-12">
@@ -148,7 +150,9 @@
                                </div>
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <p class="text-danger">Nota: El pago correspondiente lo podras realizar en el banco BBVA Bancomer</p>
+                                        <p class="text-danger">Nota: El pago correspondiente lo podras realizar en el banco BBVA Bancomer,
+                                            tienes dos dias a partir de hoy para realizar tu pago
+                                        </p>
                                     </div>
                                 </div>
                             </form>

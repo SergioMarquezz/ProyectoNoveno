@@ -112,10 +112,10 @@ else{
 				</li>
 			</ul>
 		</li>
-		<li id="nivelacion">
+		<!--<li id="nivelacion">
 			<a href="#" class="text-white">
 				<i class="fa fa-book text-white" style="font-size:20px"></i>Examen de nivelación
-			</a>
+			</a>-->
 		</li>
 		<li>
 			<a href="#" class="text-white" id="sucursales">

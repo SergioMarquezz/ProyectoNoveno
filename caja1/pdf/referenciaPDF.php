@@ -1,97 +1,90 @@
 <?php
 
-require_once __DIR__ . '/vendor/autoload.php';
-include_once "../views/includes/fecha.php";
-require_once "../models/mainModel.php";
-
-//Create an instance of the class:
-$mpdf = new \Mpdf\Mpdf();
-
+require_once('fpdf.php');
+date_default_timezone_set('America/Mexico_City');
 
 $concepto = $_POST['concepto'];
+$date = $_POST['fecha-emision'];
+$validity = $_POST['valida'];
 $name = $_POST['name-completo'];
 $control = $_POST['num-control'];
 $carrera = $_POST['carrera'];
+$convenio = $_POST['num-convenio'];
 $referencia = $_POST['referencia'];
-$validez = $_POST['valida'];
 $pago = $_POST['cantidad'];
 
+class PDF extends FPDF
+{
+	// Cabecera de página
+	function Header()
+	{
+		// Logo
+		$this->Image('../views/img/REFERENCIA BANCARIA alumno.png',5,5,203);
+		//$this->Image('../img/logo-bbva.jpg',140,22,50);
+		// Arial bold 15
+		$this->SetFont('Arial','B',14);
+		// Movernos a la derecha
+		$this->Cell(70);
+		// Salto de línea
+		$this->Ln(30);
+	}
 
+	// Pie de página
+	function Footer()
+	{
+		// Posición: a 1,5 cm del final
+		$this->SetY(-15);
+		// Arial italic 8
+		$this->SetFont('Arial','I',8);
+		// Número de página
+		$this->Cell(0,10,utf8_decode('Página ').$this->PageNo().'/{nb}',0,0,'C');
+	}
+}
 
+$pdf = new PDF();
+$pdf->AddPage();
+$pdf->SetFont('Arial','',10);
+$pdf->SetXY(48,40.5);
+$pdf->Cell(70,5,$date,0,0,'L');
 
-$html = "
+$pdf->SetXY(153,41);
+$pdf->Cell(70,5,$validity,0,0,'L');
 
-<style>
+$pdf->SetTextColor(255,255,255);
+$pdf->SetFont('Arial','',10);
+$pdf->SetXY(55,50.2);
+$pdf->Cell(70,5,$name,0,0,'L');
 
-    .table-bordered{
-        border: 2px solid #D3D3D3;
-        margin-top: 380px;
-    }
+$pdf->SetTextColor(255,255,255);
+$pdf->SetFont('Arial','',10);
+$pdf->SetXY(170,50.2);
+$pdf->Cell(70,5,$control,0,0,'L');
 
-    th,td{
-        border: 2px solid #D3D3D3;
-        width: 3.5in;
-        text-align: center;
-    }
+$pdf->SetTextColor(255,255,255);
+$pdf->SetFont('Arial','',10);
+$pdf->SetXY(28,59.2);
+$pdf->Cell(70,5,utf8_decode($carrera),0,0,'L');
 
-    th{
-        text-align: left;
-    }
+$pdf->SetTextColor(255,255,255);
+$pdf->SetFont('Arial','',10);
+$pdf->SetXY(175,59.2);
+$pdf->Cell(70,5,$convenio,0,0,'L');
 
+$pdf->SetTextColor(255,255,255);
+$pdf->SetFont('Arial','',10);
+$pdf->SetXY(34,68.2);
+$pdf->Cell(70,5,$concepto,0,0,'L');
 
-</style>
+$pdf->SetTextColor(255,255,255);
+$pdf->SetFont('Arial','',10);
+$pdf->SetXY(148,68.2);
+$pdf->Cell(70,5,$referencia,0,0,'L');
 
-    <table class='table table-bordered'>
-        
-        <tbody>
-            <tr>
-                <th>Nombre</th>
-                <th>No. Control</th>
-            </tr>
-            <tr>
-                <td>".$name."</td>
-                <td>".$control."</td>
-            </tr>
-            <tr>
-                <th>Carrera</th>
-                <th>Concepto</th>
-            </tr>
-            <tr>
-                <td>".$carrera."</td>
-                <td>".$concepto."</td>
-            </tr>
-            <tr>
-                <th>Referencia</th>
-                <th>Válida hasta</th>
-            </tr>
-            <tr>
-                <td>".$referencia."</td>
-                <td>".$validez."</td>
-            </tr>
-            <tr >
-                <th colspan='2'>Cantidad a pagar</th>
-            </tr>
-            <tr>
-                <td colspan='2'>".$pago."</td>
-            </tr>
-        </tbody>
-    </table>
-";
+$pdf->SetTextColor(255,255,255);
+$pdf->SetFont('Arial','',10);
+$pdf->SetXY(46,77);
+$pdf->Cell(70,5,$pago,0,0,'L');
 
+$pdf->Output('','referencia de pago-'.$control	.'.pdf',true);
 
-
-/*$mpdf->Ln(48);
-$mpdf->SetTextColor(255, 87, 51);
-$mpdf->Cell(120,5,"Nombre:",0,0,'C');*/
-//$mpdf->SetTextColor(1,1,126);
-//$mpdf->WriteCell(50,5,$fecha,'LRBT',0,'C');
-
-$mpdf->WriteHTML("");
-
-$mpdf->Image('../views/img/REFERENCIA BANCARIA alumno.png', 0, 0, 210, 150, 'png', '', true, false);
-
-
-// Output a PDF file directly to the browser
-$mpdf->Output();
-
-
+?>

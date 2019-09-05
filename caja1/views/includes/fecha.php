@@ -23,6 +23,24 @@ function fecha (){
 	return $hoy;
 }
 
+function fechaDiagonal(){
+	//$dias = array("Lunes","Martes","Miercoles","Jueves","Viernes","Sábado","Domingo");
+	$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+
+	$fecha = date('d-m-Y');
+	$fecha = strtotime('+2 day',strtotime($fecha));
+	$fecha = date('d-m-Y',trim($fecha));
+	$fecha = trim($fecha);
+
+	$ano = substr($fecha, 6, 4);
+	$mes = substr($fecha, 3, 2);
+	$dia = substr($fecha, 0, 2);
+
+	$hoy = $ano." / ".date("m"). " / ".$dia;
+	return $hoy;
+}
+
+
 function meses(){
 
 	$meses = array("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
