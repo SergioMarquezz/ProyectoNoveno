@@ -9,7 +9,7 @@
 
     function insertFile(){
 
-        global $fecha, $cve_persona, $type_people;
+        global $fecha;//, $cve_persona, $type_people;
 
         $tmp_file = $_FILES['save-file']['tmp_name'];
         $name_file = $_FILES['save-file']['name'];
@@ -51,21 +51,25 @@
                     $str_saldo = str_replace(",", "", $saldo);
                     $str_abono = str_replace(",","",$abono);
 
+                //Consulta para sacar cve_alumno y cve_tipo_persona
+                  $sql_keys = "SELECT a.cve_alumno, p.cve_tipo_persona
+                  FROM saiiut.saiiut.alumnos a, saiiut.saiiut.personas p
+                  WHERE a.cve_alumno = p.cve_persona AND a.matricula = '$matri_clave'";
+                  
+          
+                  $result_key = executeQuery($sql_keys);
+                  $key_type_people = odbc_result($result_key,'cve_tipo_persona');
+                  $key_people = odbc_result($result_key,'cve_alumno');
+
                         
                     $sql_insert = executeQuery("INSERT INTO saiiut.saiiut.pagos(cve_persona,cve_tipo_persona,cve_periodo,cve_concepto_pago,fecha,
                                                                                 referencia,referencia_completa,costo_unitario,abono,pago_realizado,fecha_guardado,lugar_pago)
-                                                VALUES('$cve_persona','$type_people','$periodo_activo','$pago',
+                                                VALUES('$key_people','$key_type_people','$periodo_activo','$pago',
                                                 '$date','$referencia','$referencia_completa','$str_abono','$str_abono','$realizado','$guardado','$paid_pago')");
 
 
-
-                   
-                
-                  $referencias_exist = array($referencia_completa);
-
-                    verificarReferencia($referencias_exist);
-
-                    
+               
+                    verificarReferencia($referencia_completa,$guardado,$key_type_people,$key_people,$str_abono,$periodo_activo,$pago,$realizado);
                 }
               
                 $column=$column+5;
@@ -84,11 +88,31 @@
     }
 
 
-    function verificarReferencia($array){
+    function verificarReferencia($re,$guardados,$key_types_people,$key_peoples,$str_abonos,$periodo_activos,$pagos,$realizados){
 
+        $sql_reference = "SELECT referencia FROM solicitud_documento
+        WHERE referencia = '$re'";
+        $result_reference = executeQuery($sql_reference);
+        
         
 
-        $sql = executeQuery("SELECT cve_tipo_persona,cve_persona,referencia FROM solicitud_documento");
+        $row = odbc_fetch_array($result_reference);
+
+        if($row["referencia"] == ""){
+            
+            executeQuery("INSERT solicitud_documento
+            VALUES('$guardados','$key_types_people','$key_peoples','$str_abonos','$periodo_activos','$pagos','$realizados','$re',1,'$str_abonos')");
+            }
+
+            else{
+                executeQuery("UPDATE solicitud_documento SET pago_realizado = 1
+                WHERE referencia = '$re'");
+
+                executeQuery("UPDATE saiiut.saiiut.pagos SET cve_tipo_persona = '$key_types_people', cve_persona = '$key_peoples'
+                WHERE referencia_completa = '$re'");
+            }
+
+     /*   $sql = executeQuery("SELECT cve_tipo_persona,cve_persona,referencia FROM solicitud_documento");
 
         while($row = odbc_fetch_array($sql)){
 
@@ -105,9 +129,10 @@
                 $update_pay = executeQuery("UPDATE saiiut.saiiut.pagos SET cve_tipo_persona = '$type_people', cve_persona = '$cve_persona'
                 WHERE referencia_completa = '$row_update'");
             }
-
             
-        }
+
+        }*/
+
     }
 
     function periodoActivo(){

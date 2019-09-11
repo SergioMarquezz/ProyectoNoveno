@@ -1,7 +1,9 @@
 <?php
     include "../core/configGeneral.php";
     require_once "includes/fecha.php"; 
-    include_once "../models/listarArchivosModel.php"
+    include_once "../models/listarArchivosModel.php";
+    
+    include_once "../views/includes/inactividad.php";
 ?>
 
 <!DOCTYPE html>

@@ -377,6 +377,11 @@ function searchStudentsData(){
                 $("#total").val("$ "+total_cost + " ("+res+")");
             }
         });
-
+        //Variables para la referencia bancaria
+        var monto_total = $("#monto-total").val();
+        var total = $("#monto");
+        total.val("$ "+monto_total+".00");
+        var costo = $("#costo-unitario");
+        costo.val(monto_total+"00");
     });
   }

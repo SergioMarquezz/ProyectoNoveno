@@ -52,6 +52,7 @@
                 $_SESSION['privilegio_admin'] = $privilegio_user;
                 $_SESSION['cuenta_codigo_admin'] = $cuenta_codigo;
                 $_SESSION['name_user'] = $name_user;
+                $_SESSION['tiempo']  =time();
         
                 if($tipo_user == 'Administrador'){
         

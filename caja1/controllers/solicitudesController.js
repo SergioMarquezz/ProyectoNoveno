@@ -66,7 +66,6 @@ function conceptoUnico(){
   
       var cve_concepto = $(this).val();
       var clave_input = $("#clave_concepto");
-      var costo = $("#costo-unitario");
       var unitario = $("#unitario-costo");
       var costo_letra = $("#costo-letra");
       $("#quantity").attr('readonly', false);
@@ -74,7 +73,6 @@ function conceptoUnico(){
 
       //Variables para la referencia bancaria
       var texto = $("#descripcion");
-      var total = $("#monto");
       var key_concepto = $("#claveconcepto");
 
       key_concepto.val(cve_concepto);
@@ -95,11 +93,10 @@ function conceptoUnico(){
 
               var costo_sin_decimal = (parseFloat(response.concept.costo_unitario).toFixed());
 
-              costo.val(costo_sin_decimal + "00" );
+             
               costo_letra.val(costo_sin_decimal);
               clave_input.val(cve_concepto);
               texto.val(response.concept.descripcion);
-              total.val("$ "+response.concept.costo_unitario);
 
               if(response.concept.costo_unitario != ""){
 
@@ -162,7 +159,10 @@ function enviarSolicitud(){
             fecha = $("#fecha_solcitud").val(),
             concepto = $("#clave_concepto").val(),
             matricula = $("#matricula-alumno").val(),
-            costo = $("#costo-letra").val();
+            costo = $("#costo-letra").val(),
+            cantidad = $("#quantity").val(),
+            total = $("#monto-total").val();
+
             
         
         $.ajax({
@@ -177,7 +177,9 @@ function enviarSolicitud(){
                 "precio": precio,
                 "cve_concepto": concepto,
                 "matricula": matricula,
-                "costo": costo
+                "costo": costo,
+                "quantity": cantidad,
+                "total": total
                             
             },
             success: function (response) {
@@ -224,8 +226,8 @@ function enviarSolicitud(){
                               referencias();  
                             })
                         break;
-                    
-                    default:
+
+                    case "sin clave":
                             swal({
                                 title: "Concepto vacio",   
                                 text: "Tu solicitud no tiene ningun concepto seleccionado, elige uno",   
@@ -233,6 +235,16 @@ function enviarSolicitud(){
                                 confirmButtonText: "Aceptar",
                                 allowOutsideClick: false
                             });
+                        break;
+                    
+                    default:
+                            swal({
+                                title: "Cantidad vacia",   
+                                text: "Escribe la cantidad que quieres realizar con el concepto",   
+                                type: "warning",     
+                                confirmButtonText: "Aceptar",
+                                allowOutsideClick: false
+                            })
                 }
             }
         });

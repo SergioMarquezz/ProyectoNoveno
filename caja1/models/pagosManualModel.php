@@ -6,7 +6,6 @@
 
     $option = $_POST['options'];
 
-   // defaultedSubjects();
   
     if($option == 'students'){
 
@@ -58,7 +57,7 @@
         $key_period = periodoActivo();
         $key_payment = $_POST['key_concept']; //85
         $payment = 1;
-        $reference = referenceToday($matricula,$key_payment,$fertilizer);
+        $reference = referencia($matricula,$key_payment,$fertilizer);
         $quantity = $_POST['quantity'];
         $identificador_payment = "CAJA";
 
@@ -69,7 +68,7 @@
 
         $result_save = executeQuery($insert_payment);
 
-       // verificarReferencia($reference);
+        verificarReferencia($reference);
         
         if($result_save){
 

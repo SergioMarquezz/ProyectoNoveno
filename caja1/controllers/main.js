@@ -96,7 +96,7 @@ function pendientes(){
         success: function(data){
             $.each(data.pendientes, function (){
                 
-                $("#lista-pendientes").append("<li class='list-group-item border-success'>"+this.descripcion+""+" pagar la cantidad de $"+this.costo_unitario+"</li>")
+                $("#lista-pendientes").append("<li class='list-group-item border-success'>"+this.descripcion+""+" pagar la cantidad de $"+this.monto+"</li>")
 
                 
             })
@@ -121,18 +121,29 @@ function tramitesTotales(){
             },
             success: function (response) {
                var json = JSON.parse(response);
-             
+                
                 var filas = json.totales.length;
                 
                 var num = 0;
 
                 for( i= 0; i < filas; i++){
 
+                    if(json.totales[i].pago_realizado == 0){
+
+                        var stutus_pago = 'Pago Pendiente';
+                    }
+                    else{
+                        
+                        stutus_pago = 'Pagado';
+                    }
+
                     num++;
                     var tbody_table = "<tr><td class='text-white'>"+num+"</td>"+
                                         "<td class='text-white'>"+json.totales[i].fecha_solicitud+"</td>"+
                                         "<td class='text-white'>"+json.totales[i].descripcion+"</td>"+
+                                        "<td class='text-white'>"+json.totales[i].cantidad+"</td>"
                                         "<td class='text-white'>"+json.totales[i].costo_unitario+"</td>"+
+                                        "<td class='text-white'>"+stutus_pago+"</td>"
                                       "</tr>";
 
                     $("#body-modal").append(tbody_table);

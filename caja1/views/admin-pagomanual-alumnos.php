@@ -2,6 +2,7 @@
 
    include "../core/configGeneral.php";
    require_once "includes/fecha.php"; 
+   include_once "../views/includes/inactividad.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +10,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?php echo ACRONYM;?> | CONCEPTOS</title>
+    <title><?php echo ACRONYM;?> | PAGOS ALUMNOS</title>
     <?php include "includes/links.php"?> 
 </head>
 <header>

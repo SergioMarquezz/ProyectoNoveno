@@ -1,5 +1,6 @@
 <?php
    include "../core/configGeneral.php";
+   include_once "../views/includes/inactividad.php";
     
 ?>
 <!DOCTYPE html>
@@ -98,6 +99,22 @@
                 </div>
             </div>
         </div>
+        <h5>Tramites y servicios realizados durante tu carrera</h5>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Fecha</th>
+                    <th>Periodo</th>
+                    <th>Descripción</th>
+                    <th>Cantidad</th>
+                    <th>Precio</th>
+                    <th>Total</th>
+                    <th>Estado</th>
+                    <th></th>
+                </tr>
+            </thead>
+        </table>
     </div> 
     </div>      
 </article>
@@ -111,7 +128,10 @@
                         <th>#</th>
                         <th>Fecha de solicitud</th>
                         <th>Descripcion</th>
+                        <th>Cantidad</th>
                         <th>Precio</th>
+                        <th>Pago Total</th>
+                        <th>Estado</th>
                     </tr>
             </thead>
                 <tbody id="body-modal">
@@ -151,6 +171,7 @@
         </div>
     </div>  
 
+    <!--Div para la grafica-->
 <!--<div id="container" style="width:100%; height:400px;"></div>-->
 
 <?php require_once "includes/footer.php";?>

@@ -57,12 +57,19 @@
             $periodo = periodoActivo();
             $concepto = clearString($_POST['cve_concepto']);
             $matricula = clearString($_POST['matricula']);
+            $total = clearString($_POST['total']);
+            $cantidad = clearString($_POST['quantity']);
             $pago = 0;
 
 
             if($concepto == ""){
 
                 $result['result'] = "sin clave";
+                print json_encode($result);
+            }
+
+            else if($total == ""){
+                $result['result'] = "total vacio";
                 print json_encode($result);
             }
             else{
@@ -89,8 +96,8 @@
                     }else{
 
                        
-                       $sql_save_solicitud = executeQuery("INSERT INTO solicitud_documento(fecha_solicitud,cve_tipo_persona,cve_persona,monto,cve_periodo,cve_concepto_pago,pago_realizado,referencia) 
-                       VALUES ('$date',$tipo_persona,'$cve_persona','$costo_unitario','$periodo','$concepto','$pago','$referencia')");
+                       $sql_save_solicitud = executeQuery("INSERT INTO solicitud_documento(fecha_solicitud,cve_tipo_persona,cve_persona,monto,cve_periodo,cve_concepto_pago,pago_realizado,referencia,cantidad,costo_unitario) 
+                       VALUES ('$date',$tipo_persona,'$cve_persona','$total','$periodo','$concepto','$pago','$referencia','$cantidad','$costo_unitario')");
 
                         if($sql_save_solicitud == false){
                 

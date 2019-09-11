@@ -53,7 +53,7 @@ $pdf->Cell(70,5,$validity,0,0,'L');
 $pdf->SetTextColor(255,255,255);
 $pdf->SetFont('Arial','',10);
 $pdf->SetXY(55,50.2);
-$pdf->Cell(70,5,$name,0,0,'L');
+$pdf->Cell(70,5,utf8_decode($name),0,0,'L');
 
 $pdf->SetTextColor(255,255,255);
 $pdf->SetFont('Arial','',10);
@@ -73,7 +73,7 @@ $pdf->Cell(70,5,$convenio,0,0,'L');
 $pdf->SetTextColor(255,255,255);
 $pdf->SetFont('Arial','',10);
 $pdf->SetXY(34,68.2);
-$pdf->Cell(70,5,$concepto,0,0,'L');
+$pdf->Cell(70,5,utf8_decode($concepto),0,0,'L');
 
 $pdf->SetTextColor(255,255,255);
 $pdf->SetFont('Arial','',10);

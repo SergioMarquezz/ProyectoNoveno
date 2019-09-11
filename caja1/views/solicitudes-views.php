@@ -1,6 +1,7 @@
 <?php
    include "../core/configGeneral.php";
    require_once "includes/fecha.php"; 
+   include_once "../views/includes/inactividad.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,6 +55,21 @@
                                 <input name="precio" type="hidden" id="costo-unitario" class="form-control text-dark">
                                 <input name="precio" type="hidden" id="costo-letra" class="form-control text-dark">
                                 <input name="precio" type="text" id="unitario-costo" class="form-control text-dark" readonly>
+                                <input type="hidden" id="monto-total" class="form-control text-dark">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="quantity" class="label-solicitud">Cantidad</label>
+                                <input maxlength="1" type="text" id="quantity" class="form-control text-dark" placeholder="Escriba la cantidad">
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="form-group">
+                                <label for="quantity" class="label-solicitud">Pago total</label>
+                                <input type="text" id="total" class="form-control text-dark" readonly>
                             </div>
                         </div>
                     </div>

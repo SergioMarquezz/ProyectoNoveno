@@ -9,11 +9,12 @@
 
         $clave_persona = $_POST['cve_persona'];
         $opciones = $_POST['opciones'];
+        $periodo_activo = periodoActivo();
 
         if($opciones == "faltan"){
 
             $count_pagos_pendientes = executeQuery(" SELECT COUNT(cve_concepto_pago) AS faltantes FROM solicitud_documento
-            WHERE pago_realizado = 0 AND cve_persona = '$clave_persona'");
+            WHERE pago_realizado = 0 AND cve_persona = '$clave_persona' AND cve_periodo = '$periodo_activo'");
 
             if($count_pagos_pendientes){
 
@@ -32,9 +33,12 @@
 
         elseif($opciones == "pendientes"){
 
-            $pagos_pendientes = executeQuery("SELECT fecha_solicitud,descripcion,costo_unitario FROM saiiut.saiiut.conceptos_pago
+            $periodo_active = periodoActivo();
+
+            $pagos_pendientes = executeQuery("SELECT fecha_solicitud,descripcion,monto FROM saiiut.saiiut.conceptos_pago
             INNER JOIN solicitud_documento ON saiiut.saiiut.conceptos_pago.cve_concepto = solicitud_documento.cve_concepto_pago
-            WHERE solicitud_documento.cve_persona = '$clave_persona' AND solicitud_documento.pago_realizado = 0");
+            WHERE solicitud_documento.cve_persona = '$clave_persona' AND solicitud_documento.pago_realizado = 0
+            AND solicitud_documento.cve_periodo = '$periodo_active'");
 
               if($pagos_pendientes){
 
@@ -52,7 +56,7 @@
 
             $periodo_actual = periodoActivo();
 
-            $solicitud_total = executeQuery("SELECT fecha_solicitud,descripcion, costo_unitario
+            $solicitud_total = executeQuery("SELECT fecha_solicitud,descripcion,administracion.dbo.solicitud_documento.costo_unitario,cantidad,monto,pago_realizado
             FROM saiiut.saiiut.conceptos_pago
             INNER JOIN solicitud_documento ON saiiut.saiiut.conceptos_pago.cve_concepto = solicitud_documento.cve_concepto_pago
             WHERE solicitud_documento.cve_persona = '$clave_persona' AND solicitud_documento.cve_periodo = '$periodo_actual'");
