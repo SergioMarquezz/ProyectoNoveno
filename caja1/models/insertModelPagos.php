@@ -62,14 +62,15 @@
                   $key_people = odbc_result($result_key,'cve_alumno');
 
                         
-                    $sql_insert = executeQuery("INSERT INTO saiiut.saiiut.pagos(cve_persona,cve_tipo_persona,cve_periodo,cve_concepto_pago,fecha,
+                  /*  $sql_insert = executeQuery("INSERT INTO saiiut.saiiut.pagos(cve_persona,cve_tipo_persona,cve_periodo,cve_concepto_pago,fecha,
                                                                                 referencia,referencia_completa,costo_unitario,abono,pago_realizado,fecha_guardado,lugar_pago)
                                                 VALUES('$key_people','$key_type_people','$periodo_activo','$pago',
-                                                '$date','$referencia','$referencia_completa','$str_abono','$str_abono','$realizado','$guardado','$paid_pago')");
+                                                '$date','$referencia','$referencia_completa','$str_abono','$str_abono','$realizado','$guardado','$paid_pago')");*/
 
 
                
-                    verificarReferencia($referencia_completa,$guardado,$key_type_people,$key_people,$str_abono,$periodo_activo,$pago,$realizado);
+                   $sql_insert = verificarReferencia($referencia_completa,$guardado,$key_type_people,$key_people,$str_abono,$periodo_activo,
+                   $pago,$realizado,$date,$referencia,$paid_pago);
                 }
               
                 $column=$column+5;
@@ -88,7 +89,7 @@
     }
 
 
-    function verificarReferencia($re,$guardados,$key_types_people,$key_peoples,$str_abonos,$periodo_activos,$pagos,$realizados){
+    function verificarReferencia($re,$guardados,$key_types_people,$key_peoples,$str_abonos,$periodo_activos,$pagos,$realizados,$dates,$referencias,$paid_pagos){
 
         $sql_reference = "SELECT referencia FROM solicitud_documento
         WHERE referencia = '$re'";
@@ -102,6 +103,11 @@
             
             executeQuery("INSERT solicitud_documento
             VALUES('$guardados','$key_types_people','$key_peoples','$str_abonos','$periodo_activos','$pagos','$realizados','$re',1,'$str_abonos')");
+
+            executeQuery("INSERT INTO saiiut.saiiut.pagos(cve_persona,cve_tipo_persona,cve_periodo,cve_concepto_pago,fecha,
+            referencia,referencia_completa,costo_unitario,abono,pago_realizado,fecha_guardado,lugar_pago)
+            VALUES('$key_peoples','$key_types_people','$periodo_activos','$pagos',
+            '$dates','$referencias','$re','$str_abonos','$str_abonos','$realizados','$guardados','$paid_pagos')");
             }
 
             else{
@@ -132,7 +138,7 @@
             
 
         }*/
-
+        return true;
     }
 
     function periodoActivo(){

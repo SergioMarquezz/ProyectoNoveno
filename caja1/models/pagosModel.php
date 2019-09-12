@@ -88,16 +88,16 @@ function fileCsv(){
         //Ruta a guardar
         $path = $upload_folder.$name_files;
                
-        if (file_exists($path)) {
+        /*if (file_exists($path)) //{
             
             $return['upload'] = "El archivo existe";
 
-        } else {
+        } *//*else {*/
             
             if (!move_uploaded_file($tmp_file, $path)) {
                 $return['upload'] = false;
             }
-        }      
+       // }      
 
         echo json_encode($return);
 

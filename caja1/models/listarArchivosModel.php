@@ -10,7 +10,7 @@ while($elemento = readdir($directorio)){
 
         $url = "../pagos/$elemento";
   
-        $listar.= "&nbsp;&nbsp;&nbsp;&nbsp;<a class='text-dark' href=' $url' target='_blank'>$elemento</a>";
+        $listar.= "&nbsp;&nbsp;&nbsp;&nbsp;<a class='text-info' href=' $url' target='_blank'>$elemento</a>";
     }
 
 }

@@ -129,7 +129,7 @@ function saveData(){
                         });
                      
                     }
-                    else if(json.upload == "El archivo existe"){
+                    /*else if(json.upload == "El archivo existe"){
 
                         swal({
                             title: "Error en el archivo",
@@ -141,7 +141,7 @@ function saveData(){
             
                         location.reload();
                     })
-                    }
+                    }*/
                 }
             });
           
