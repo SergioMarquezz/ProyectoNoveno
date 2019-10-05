@@ -9,7 +9,7 @@ if(!session_id()){
 if(isset($_SESSION['tipo_admin']) == "Administrador"){
 		
 	$tipo_user = "admin";
-	
+	$carrer = "";
 	
 }
 
@@ -17,11 +17,13 @@ elseif(isset($_SESSION['tipo_persona']) == 2){
 
 	$tipo_user = "alumno";
 	$consecutivo_cve_persona = $_SESSION['clave_persona'];
+	$carrer = $_SESSION['carrera'];
 }
 elseif(isset($_SESSION['type_people']) == 1){
 	
 	$tipo_user = "aspirante";
-	$consecutivo_cve_persona =  $_SESSION['key'];
+	$consecutivo_cve_persona = $_SESSION['key'];
+	$carrer = "";
 }
 else{
 
@@ -39,6 +41,7 @@ else{
 	  <span class="text-center white-text">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UTEC TULANCINGO</span>
 
       <span class="white-text name"><?php echo $_SESSION['name_admin']?></span>
+	  <span class="white-text name"><?php echo $carrer?></span>
 
 	 <!-- <span class="white-text email">jdandturk@gmail.com</span>-->
 	  <input type="hidden" value="<?php echo $tipo_user?>" id="tipo-user">

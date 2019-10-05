@@ -3,7 +3,7 @@
 $date =  date("d") . " / " . date("m") . " / " . date("Y");
 $year = date("Y");
 
-$fecha = date("Y"). " / ". date("m"). " / ". date("d");
+$fecha = date("d"). " / ". date("m"). " / ". date("Y");
 
 
 function fecha (){

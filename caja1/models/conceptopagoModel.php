@@ -5,7 +5,8 @@
    $clave = clearString($_POST['clave-concepto']);
    $opcion = clearString($_POST['opcion']);
     
-    conceptos();
+   conceptos();
+
 
     function conceptos(){
 
@@ -61,7 +62,15 @@
                     
                 $description = utf8_decode($descrip);
 
-                $sql_activo = executeQuery("EXEC updateConceptos '$clave', '$description', '$precio', $activo");
+                $descuento = selectPaymentDescuento($clave);
+
+                if($descuento == 0){
+
+                    $sql_activo = executeQuery("EXEC updateConceptos '$clave', '$description', '$precio', $activo,0");
+                }else{
+
+                    $sql_activo = executeQuery("EXEC updateConceptos '$clave', '$description', '$precio', $activo,'$precio'");
+                }
             
                 if($sql_activo){
             
@@ -89,7 +98,6 @@
         }
         else if($opcion == 'save'){
 
-            $activo = clearString($_POST['activar']);
             $precio = clearString($_POST['monto']);
             $descrip = clearString($_POST['texto']);
 
@@ -109,8 +117,10 @@
             }
             else{
 
+                $description = utf8_decode($descrip);
+
                 $save_concepto = executeQuery("INSERT INTO saiiut.saiiut.conceptos_pago(cve_concepto,cve_universidad,descripcion,costo_unitario,activo)
-                values('$clave',17,'$descrip','$precio','$activo')");
+                values('$clave',17,'$description','$precio',0)");
     
                 if($save_concepto){
     
@@ -121,7 +131,33 @@
             }
             
         }
+        else if($opcion == "delete"){
 
+            $sql_delete = "DELETE FROM saiiut.saiiut.conceptos_pago WHERE cve_concepto = '$clave'";
+            
+            $delete = executeQuery($sql_delete);
+
+            if($delete){
+
+                $response['respuesta'] = "borrado";
+    
+                print json_encode($response);
+            }
+        }
+
+    }
+
+
+    function selectPaymentDescuento($key_concepto){
+
+        $query_key = "SELECT descripcion, pago_descuento FROM saiiut.saiiut.conceptos_pago
+        WHERE cve_concepto = '$key_concepto';";
+
+        $result_key = executeQuery($query_key);
+
+        $paymet_descuento = odbc_result($result_key,'pago_descuento');
+
+        return $paymet_descuento;
     }
 
 

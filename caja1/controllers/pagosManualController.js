@@ -10,7 +10,6 @@ var cost = $("#unitario-costo");
 
 $(document).ready(function () {
     
-    studentsRegular();
     searchStudentsData();
     savePaymentsManual();
     paymentTotal();
@@ -26,16 +25,19 @@ $(document).ready(function () {
 
 function studentsRegular(){
 
+    var matricula = $("#myInputAlumnos").val();
+
     $.ajax({
         type: "POST",
         url: "../models/pagosManualModel.php",
         data: {
-            "options": "students"
+            "options": "students",
+            "matricula": matricula
         },
         dataType: "json",
         success: function (response) {
         
-
+            console.log(response);
             var rows = response.students.length;
           
             for(row = 0; row < rows; row++){
@@ -329,7 +331,22 @@ function searchStudentsData(){
 
     $("#myInputAlumnos").keyup(function(){
 
-        _this = this;
+        if($("#myInputAlumnos").val().length == 10){
+
+            studentsRegular();
+            $("#hide").show();
+            $("#hide2").show();
+            $("#hide3").show();
+            document.getElementById("students-pagos").selectedIndex = "0";
+        }
+        else{
+            $("#tbodyAlumnos").empty();
+            $("#hide").hide();
+            $("#hide2").hide();
+            $("#hide3").hide();
+        }
+
+       /* _this = this;
 
         $.each($("#myTableAlumnos tbody tr"), function() {
             
@@ -346,7 +363,7 @@ function searchStudentsData(){
                 document.getElementById("students-pagos").selectedIndex = "0";
             }
             
-        });
+        });*/
     });
   }
 

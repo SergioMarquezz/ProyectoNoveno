@@ -1,10 +1,14 @@
 <?php
 
     //Constantes para conexion local
-   const USER = "sa";
-   const PASS = "UtecAreaSistemas";
-   const SERVER = "localhost";
-   const DATABASE = "administracion";
+    $user = "sergio";
+    $pass = "ingsergiomarquez";
+    $server = "localhost";
+    $database = "administracion";
+  /* const USER = "sa";
+   const PASS = "Pachuc@2019";
+   const SERVER = "200.10.10.3";
+   const DATABASE = "administracion";*/
 
     //Constantes para conexion al servidor remoto del saiiut
     /*const SERVER_SAIIUT = '200.10.10.3';
@@ -13,13 +17,13 @@
     const PASS_SAIIUT = "UtecAreaSistemas";*/
 
     //Linea de codigo para conectar con SQL Server 2017
-    //const SGBD = "Driver={SQL Server Native Client 10.0};Server=".SERVER.";Database=".DATABASE.";";
+    $conne = "Driver={SQL Server Native Client 10.0};Server=$server;Database=$database;";
 
     
     //Constante para almacenar la informacion de la base de datos
-    const SGBD = "Driver={SQL Server}; Server=".SERVER.";Database=".DATABASE.";Integrated Security=SSPI;Persist Security Info=False;";
-
-   $connection = odbc_connect(SGBD, USER, PASS);
+    //const SGBD = "Driver={SQL Server}; Server=".SERVER.";Database=".DATABASE.";Integrated Security=SSPI;Persist Security Info=False;";
+    //$conne = "Driver={SQL Server}; Server=$server; Database=$database; Integrated Security=SSPI;Persist Security Info=False;";
+   $connection = odbc_connect($conne, $user, $pass);
 
   
     //Para ir cambiando la incriptacion despues de insertar un registro no se debe cambiar

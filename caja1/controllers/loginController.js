@@ -155,6 +155,7 @@ function typeUser(){
         $("#reports").hide();
         $("#mydata").hide();
         $("hr").hide();
+        $("#usuarios").hide();
     }
 
     else if(tipo_user == "alumno"){

@@ -6,26 +6,29 @@
 
     $option = $_POST['options'];
 
-  
     if($option == 'students'){
 
-        $sql = "SELECT a.matricula, p.nombre, p.apellido_pat, p.apellido_mat, c.nombre AS carrera, a.grado_actual, p.cve_persona
-        FROM saiiut.saiiut.alumnos a
-        INNER JOIN saiiut.saiiut.personas p ON p.cve_persona = a.cve_alumno
-        INNER JOIN saiiut.saiiut.carreras_cgut c ON c.cve_carrera = a.cve_carrera
-        WHERE a.cve_periodo_actual = (SELECT TOP 1 cve_periodo FROM saiiut.saiiut.periodos WHERE activo = 1 ORDER BY cve_periodo DESC )AND a.cve_unidad_academica = 1 AND a.cve_status = 1
-        ORDER BY c.nombre";
-    
-        $query_students = executeQuery($sql);
-    
-        while($row = odbc_fetch_array($query_students)){
-    
-            $array_students["students"][] = array_map("utf8_encode", $row);  
+        $matriculas = $_POST['matricula'];
+
+        if($matriculas != ""){
+
+            $sql = "SELECT a.matricula, p.nombre, p.apellido_pat, p.apellido_mat, c.nombre AS carrera, a.grado_actual, p.cve_persona, a.cve_unidad_academica, a.cve_periodo_actual
+            FROM saiiut.saiiut.alumnos a, saiiut.saiiut.personas p, saiiut.saiiut.carreras_cgut c
+            WHERE p.cve_persona = a.cve_alumno AND c.cve_carrera = a.cve_carrera AND a.cve_status = 1 
+            AND c.activo = 1 AND a.matricula = '$matriculas'";
         
-            $json_students = json_encode($array_students);
+            $query_students = executeQuery($sql);
+        
+            while($row = odbc_fetch_array($query_students)){
+        
+                $array_students["students"][] = array_map("utf8_encode", $row);  
+            
+                $json_students = json_encode($array_students);
+            }
+        
+            echo $json_students;
+            
         }
-    
-        echo $json_students;
     }
 
     else if($option == 'enrollments'){
@@ -62,9 +65,9 @@
         $identificador_payment = "CAJA";
 
         $insert_payment = "INSERT INTO saiiut.saiiut.pagos(cve_persona,cve_tipo_persona,cve_periodo,cve_concepto_pago,fecha,
-        referencia_completa,cantidad,costo_unitario,abono,pago_realizado,fecha_guardado,lugar_pago)
+        referencia_completa,cantidad,costo_unitario,abono,pago_realizado,fecha_guardado,lugar_pago,activo)
         VALUES('$key_people','$type_people','$key_period','$key_payment','$date_save','$reference','$quantity',
-        '$fertilizer_bd','$abono','$payment','$date_save','$identificador_payment')";
+        '$fertilizer_bd','$abono','$payment','$date_save','$identificador_payment',1)";
 
         $result_save = executeQuery($insert_payment);
 
@@ -257,6 +260,24 @@
             $json_grades = json_encode($array_grades);
         }
         echo $json_grades;
+    }
+
+    function paymentHistory(){
+
+        $sql_payment_history = "SELECT sd.fecha_solicitud, cp.descripcion, sd.cantidad, sd.costo_unitario, sd.monto
+        FROM administracion.dbo.solicitud_documento sd, saiiut.saiiut.conceptos_pago cp, saiiut.saiiut.alumnos a
+        WHERE sd.cve_persona = a.cve_alumno AND sd.cve_concepto_pago = cp.cve_concepto AND a.matricula = 1716110095";
+
+        $result_history = executeQuery($sql_payment_history);
+
+        while($data = odbc_fetch_array($result_history)){
+
+            $array_history['history_payment'][] = array_map("utf8_encode", $data);  
+
+            $json_history = json_encode($array_history);
+        }
+
+        echo $json_history;
     }
 
 ?>

@@ -1,9 +1,9 @@
 <?php
-/*
+
     session_start();
 
-    //Dos minutos
-    $inactivo = 120;
+    //Una hora
+    $inactivo = 3600;
 
     if(isset($_SESSION['tiempo']) ) {
         
@@ -20,5 +20,5 @@
 
     $_SESSION['tiempo'] = time();
 
-*/
+
 ?>

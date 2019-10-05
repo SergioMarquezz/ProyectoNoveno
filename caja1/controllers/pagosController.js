@@ -111,7 +111,7 @@ function saveData(){
                                 console.log(response);
             
                                 if(response == "Guardado"){
-            
+
                                     swal({
                                         title: "Proceso Satisfactorio",   
                                         text: "Los datos se han guardado correctamente",   
@@ -127,7 +127,14 @@ function saveData(){
                             
                             }
                         });
-                     
+                        swal({
+                            title: 'Guardando Datos....',
+                            imageUrl: '../views/img/espera.gif',
+                            imageWidth: 400,
+                            imageHeight: 250,
+                            showConfirmButton: false,
+                            allowOutsideClick: false
+                          })
                     }
                     /*else if(json.upload == "El archivo existe"){
 

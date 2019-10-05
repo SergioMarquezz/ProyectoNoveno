@@ -119,7 +119,7 @@
             $clave_persona = clearString($_POST['cve-persona']);
 
             $query_referencia = executeQuery("SELECT referencia FROM solicitud_documento WHERE cve_persona = '$clave_persona' AND cve_concepto_pago = '$cve_concepto'
-                                              AND pago_realizado = 0;	");
+                                              AND pago_realizado = 0;");
 
             $count_referencias = odbc_num_rows($query_referencia);
 
