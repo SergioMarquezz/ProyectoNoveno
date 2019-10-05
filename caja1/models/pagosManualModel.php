@@ -9,6 +9,8 @@
     if($option == 'students'){
 
         $matriculas = $_POST['matricula'];
+        $names = $_POST['name'];
+        $apellido = $_POST['apellido'];
 
         if($matriculas != ""){
 
@@ -28,6 +30,23 @@
         
             echo $json_students;
             
+        }
+        else if($names != "" && $apellido != ""){
+
+            $search_for_name = "SELECT a.matricula, p.nombre, p.apellido_pat, p.apellido_mat, c.nombre AS carrera, a.grado_actual, p.cve_persona, a.cve_unidad_academica, a.cve_periodo_actual
+            FROM saiiut.saiiut.alumnos a, saiiut.saiiut.personas p, saiiut.saiiut.carreras_cgut c
+            WHERE p.cve_persona = a.cve_alumno AND c.cve_carrera = a.cve_carrera AND a.cve_status = 1 
+            AND c.activo = 1 AND p.nombre = '$names' AND p.apellido_pat = '$apellido'";
+
+            $query_names_search = executeQuery($search_for_name);
+
+            while($rows = odbc_fetch_array($query_names_search)){
+
+                $array_names["students"][] = array_map("utf8_encode", $rows);
+                
+                $json_names = json_encode($array_names);
+            }
+            echo $json_names;
         }
     }
 

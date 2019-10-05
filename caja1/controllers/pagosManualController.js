@@ -26,34 +26,60 @@ $(document).ready(function () {
 function studentsRegular(){
 
     var matricula = $("#myInputAlumnos").val();
+    var name = $("#myInputSearchName").val();
+    var apellido = $("#myInputSearchApellido").val();
+
+    $("#tbodyAlumnos").empty();
+    $.ajax({
+        type: "POST",
+        url: "../models/pagosManualModel.php",
+        data: {
+            "options": "students",
+            "matricula": matricula,
+            "name": "",
+            "apellido": ""
+        },
+        dataType: "json",
+        success: function (response) {
+        
+            table(response);
+        }
+    });
 
     $.ajax({
         type: "POST",
         url: "../models/pagosManualModel.php",
         data: {
             "options": "students",
-            "matricula": matricula
+            "matricula": "",
+            "name": name,
+            "apellido": apellido
         },
         dataType: "json",
         success: function (response) {
-        
             console.log(response);
-            var rows = response.students.length;
-          
-            for(row = 0; row < rows; row++){
-
-              var tbody_students = "<tr><td>"+response.students[row].matricula+"</td>"+
-                                        "<td>"+response.students[row].nombre+"</td>"+
-                                        "<td>"+response.students[row].apellido_pat+"</td>"+
-                                        "<td>"+response.students[row].apellido_mat+"</td>"+
-                                        "<td>"+response.students[row].carrera+"</td>"+
-                                        "<td>"+response.students[row].grado_actual+"</td>"+
-                                    "</tr>";
-
-                $("#tbodyAlumnos").append(tbody_students);
-            }
+            table(response);
+            $("#myInputAlumnos").val(response.students[0].matricula);
         }
     });
+}
+
+function table(data){
+
+     var rows = data.students.length;
+        
+        for(row = 0; row < rows; row++){
+
+            var tbody_students = "<tr><td>"+data.students[row].matricula+"</td>"+
+                                    "<td>"+data.students[row].nombre+"</td>"+
+                                    "<td>"+data.students[row].apellido_pat+"</td>"+
+                                    "<td>"+data.students[row].apellido_mat+"</td>"+
+                                    "<td>"+data.students[row].carrera+"</td>"+
+                                    "<td>"+data.students[row].grado_actual+"</td>"+
+                                "</tr>";
+
+            $("#tbodyAlumnos").append(tbody_students);
+        }
 }
 
 //Materias
@@ -346,24 +372,32 @@ function searchStudentsData(){
             $("#hide3").hide();
         }
 
-       /* _this = this;
+    });
 
-        $.each($("#myTableAlumnos tbody tr"), function() {
-            
-            if($(this).text().toLowerCase().indexOf($(_this).val().toLowerCase()) === -1){
-                
-                $(this).hide();
-            }
-            else{
-                $(this).show();
+    $("#myInputSearchApellido").keyup(function (e) { 
 
-                $("#hide").show();
-                $("#hide2").show();
-                $("#hide3").show();
-                document.getElementById("students-pagos").selectedIndex = "0";
-            }
-            
-        });*/
+        if($("#myInputSearchApellido").val().length >=3){
+
+            studentsRegular();
+            $("#hide").show();
+            $("#hide2").show();
+            $("#hide3").show();
+            document.getElementById("students-pagos").selectedIndex = "0";
+        }
+        else{
+            $("#tbodyAlumnos").empty();
+            $("#hide").hide();
+            $("#hide2").hide();
+            $("#hide3").hide();
+        }
+         
+       
+    });
+
+    $("#myInputSearchName").keyup(function (e) { 
+        $("#tbodyAlumnos").empty();
+        $("#myInputAlumnos").val("");
+     
     });
   }
 

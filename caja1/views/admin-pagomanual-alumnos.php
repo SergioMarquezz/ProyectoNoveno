@@ -34,17 +34,30 @@
                             <p style="font-size:18px;" class="mb-5">En este formulario podrás realizar de manera manual algún pago que requiera el alumnado,
                                                        cuando presiones el botón <strong>realizar pago</strong> los cambios surgieran efecto.
                             </p>
-                            
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4">
-                                <span class="control-label">Busqueda de alumno</span>
-                                <input type="text" maxlength="10" id="myInputAlumnos" placeholder="Escribe la matricula">
-                        </div>    
+                           
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                            <span class="control-label">Busqueda de alumno por matricula</span>
+                            <input type="text" maxlength="10" id="myInputAlumnos" placeholder="Escribe la matricula">
+                        </div>
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6">
+                            <span class="control-label">Busqueda de alumno por nombre</span>
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <input type="text" id="myInputSearchName" placeholder="Nombre">
+                                </div>
+                                <div class="col-xl-6">
+                                    <input type="text" id="myInputSearchApellido" placeholder="Apellido Paterno">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mt-5">
                             <select class="browser-default custom-select" id="students-pagos">
                                 <option selected disabled>Elige un concepto</option>
                             </select>
                         </div>
-                        <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2 mt-4">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 mt-4">
                             <div class="form-group">
                                 <input type="text" id="quantity" class="form-control text-dark" placeholder="Cantidad">
                             </div>
