@@ -63,7 +63,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card mt-5">
+                    <div class="card mt-5" id="card-pago">
                         <div class="card-header text-white" style="background: #024a86;">
                             <i class="zmdi zmdi-male-female zmdi-hc-fw text-white"></i> &nbsp; ALUMNOS
                         </div>
@@ -78,10 +78,10 @@
                                                     <button id="materias" type="button" class="btn btn-blue">Ver materias</button>
                                                 </div>
                                                 <div class="col-xl-4 mt-4">
-                                                    <button type="button" class="btn" id="btn-adeudo">Historial de pagos</button>
+                                                    <button type="button" class="btn" id="btn-history">Historial de pagos</button>
                                                 </div>
                                                 <div class="col-xl-4 mt-4">
-                                                    <button type="button" class="btn" id="btn-pagar">Realizar pago</button>
+                                                    <button type="button" class="btn" id="btn-pagar">Pagar Concepto</button>
                                                 </div>
                                             </div>
                                                 <div class="scroll-y scrollbar">
@@ -146,6 +146,31 @@
                         </div>
                     </div>
                </form>
+               <div class="card" id="card-historial">
+                    <div class="card-header text-white" style="background: #024a86;">
+                        <i class="fa fa-dollar text-white "></i> &nbsp; HISTORIAL DE PAGOS DEL ALUMNO
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-xl-12">
+                                <button class="btn btn-dark-green" type="button" id="btn-table">Ver Tabla de datos</button>
+                                <table class="table-bordered table-responsive" id="myTableHistory">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center" style="width: 10%;">Fecha de solicitud</th>
+                                            <th class="text-center" style="width: 10%;">Concepto</th>
+                                            <th class="text-center" style="width: 10%;">Cantidad</th>
+                                            <th class="text-center" style="width: 10%;">Costo</th>
+                                            <th class="text-center" style="width: 10%;">Pago total</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyHistory">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+               </div>
             </div>
             <div class="card-footer text-muted text-center mt-5">
                 <?php 
@@ -154,6 +179,8 @@
                 ?>
             </div>
         </div>
+
+        <!--Card historial de pagos-->
     </div>
     <!--Modal materias-->
     <div class="modal" id="modal-materias">
@@ -201,52 +228,7 @@
             </div>
         </div>
     </div>
-    <!--Modal pagos-->
-    <div class="modal" id="modal-pagos">
-        <div class="container-fluid">
-            <h5 class="text-center text-white">Materias del cuatrimestre actual</h5>
-            <div class="row">
-                <div class="col-lg-1">
-                    <div class="form-group">
-                        <label for="grade-actual" class="label-grado">Grado</label>
-                        <input type="text" id="grade-actual" class="form-control text-white" readonly>
-                    </div>
-                </div>
-                <div class="col-lg-1">
-                    <div class="form-group">
-                        <label for="grupo-actual" class="label-grupo">Grupo</label>
-                        <input type="text" id="grupo-actual" class="form-control text-white" readonly>
-                    </div>
-                </div>
-                <div class="col-lg-10">
-                    <div class="form-group">
-                        <label for="carrera-actual" class="label-carrera">Carrera</label>
-                        <input type="text" id="carrera-actual" class="form-control text-white" readonly>
-                    </div>
-                </div>
-            </div>
-            <table class="mt-3 table-bordered">
-            <thead>
-                    <tr>
-                        <th>MATERIA</th>
-                        <th>PROFESOR</th>
-                        <th>CALIFICACIÓN FINAL</th>
-                    </tr>
-            </thead>
-                <tbody id="body-modal-materias">
-                
-                </tbody>
-            </table>
-            <div class="row">
-                <div class="col-lg-6 mt-5">
-                    <div class="label label-success pl-2 text-white" id="materias-reprobadas">Materias reprobadas</div>
-                </div>
-                <div class="col-lg-6 mt-4">
-                    <button id="btn-modal-materias" class="btn btn-info btn-block">Aceptar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+   
     <?php require_once "includes/footer.php";?>
     <?php  require_once "includes/script.php";?>
 </body>

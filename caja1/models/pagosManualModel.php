@@ -112,6 +112,12 @@
         defaultedSubjects();
     }
 
+    else if($option == "payment history"){
+
+        $mat = $_POST['mat'];
+        paymentHistory($mat);
+    }
+
     function verificarReferencia($referencia){
 
 
@@ -281,11 +287,12 @@
         echo $json_grades;
     }
 
-    function paymentHistory(){
+    function paymentHistory($matricula){
 
         $sql_payment_history = "SELECT sd.fecha_solicitud, cp.descripcion, sd.cantidad, sd.costo_unitario, sd.monto
         FROM administracion.dbo.solicitud_documento sd, saiiut.saiiut.conceptos_pago cp, saiiut.saiiut.alumnos a
-        WHERE sd.cve_persona = a.cve_alumno AND sd.cve_concepto_pago = cp.cve_concepto AND a.matricula = 1716110095";
+        WHERE sd.cve_persona = a.cve_alumno AND sd.cve_concepto_pago = cp.cve_concepto
+        AND sd.pago_realizado = 0 AND a.matricula = '$matricula'";
 
         $result_history = executeQuery($sql_payment_history);
 
@@ -295,8 +302,19 @@
 
             $json_history = json_encode($array_history);
         }
+        
+        $description = odbc_result($result_history,"descripcion");
 
-        echo $json_history;
+        if($description == ""){
+            
+            $msj_empty['history_payment'] = "sin adeudo";
+            print json_encode($msj_empty);
+        }
+        else{
+            echo $json_history;
+        }
+
+        
     }
 
 ?>

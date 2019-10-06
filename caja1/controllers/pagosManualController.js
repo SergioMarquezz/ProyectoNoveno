@@ -14,6 +14,7 @@ $(document).ready(function () {
     savePaymentsManual();
     paymentTotal();
     subjects();
+    paymentHistory();
 
     $("#hide").hide();
     $("#hide2").hide();
@@ -21,6 +22,7 @@ $(document).ready(function () {
     $("#quantity").attr('readonly', true);
     $("#materias").hide();
 
+    $("#card-historial").slideUp();
 });
 
 function studentsRegular(){
@@ -82,6 +84,61 @@ function table(data){
         }
 }
 
+function paymentHistory(){
+
+    $("#btn-history").click(function (e) { 
+        e.preventDefault();
+
+        $("#card-historial").slideDown();
+        $("#card-pago").slideUp();
+        
+        var enrollments = matricula.val();
+
+        $.ajax({
+            type: "POST",
+            url: "../models/pagosManualModel.php",
+            data: {
+                "options": "payment history",
+                "mat": enrollments
+            },
+            success: function (response) {
+                var json = JSON.parse(response);
+
+                if(json.history_payment == "sin adeudo"){
+
+                    console.log("no debe");
+                }
+                else{
+
+                    var rows = json.history_payment.length;
+                    for(row = 0; row < rows; row++){
+
+                        var tbody_history = "<tr><td>"+json.history_payment[row].fecha_solicitud+"</td>"+
+                                                "<td>"+json.history_payment[row].descripcion+"</td>"+
+                                                "<td>"+json.history_payment[row].cantidad+"</td>"+
+                                                "<td>"+json.history_payment[row].costo_unitario+"</td>"+
+                                                "<td>"+json.history_payment[row].monto+"</td>"
+                                            "</tr>";
+
+                        $("#tbodyHistory").append(tbody_history);
+                    }
+
+                }
+
+
+                /*var rows = json.history_payment.length;
+                console.log(rows);*/
+            }
+        });
+    });
+
+    $("#btn-table").click(function (e) { 
+        e.preventDefault();
+        $("#card-historial").slideUp();
+        $("#card-pago").slideDown();
+        $("#tbodyHistory").empty();
+    });
+}
 //Materias
 function subjects(){
 
@@ -356,6 +413,9 @@ function savePaymentsManual(){
 function searchStudentsData(){
 
     $("#myInputAlumnos").keyup(function(){
+
+        $("#myInputSearchApellido").val("");
+        $("#myInputSearchName").val("");
 
         if($("#myInputAlumnos").val().length == 10){
 
