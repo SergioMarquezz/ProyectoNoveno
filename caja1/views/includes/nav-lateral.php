@@ -150,18 +150,10 @@ else{
 			</ul>
 		</li>
 		<hr class="border-bottom">
-		<li class="dropdown show" id="reports">
-			<a class="dropdown-toggle text-white" href="#" role="button" id="report" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		<li id="reports">
+			<a class="text-white" href="admin-reports.php" role="button" id="report">
 				<i class="fa fa-pencil text-white"  style="font-size:20px"></i> Reportes
 			</a>
-			<ul class="dropdown-menu">
-				<li>
-					<a href="<?php echo SERVER?>admin" class="text-white"><i class="zmdi zmdi-account zmdi-hc-fw text-white"></i> </a>
-				</li>
-				<li>
-					<a href="<?php echo SERVER?>alumnos" class="text-white"><i class="zmdi zmdi-male-fe	male zmdi-hc-fw text-white"></i> </a>
-				</li>
-			</ul>
 		</li>
 	</ul>
     

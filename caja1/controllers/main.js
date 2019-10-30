@@ -72,7 +72,7 @@ function pendientes(){
         },
         success: function (response) {
             var json = JSON.parse(response); 
-            console.log(json);
+            (json);
             if(json.pagos.pendiente != 0){
 
                 $("#texto-pendientes").text(" En este momento tienes "+json.pagos.pendiente+" tramites que has solicitado pero que aun no has pagado, te recomedamos realizar el pago correspodiente");
@@ -225,7 +225,7 @@ function tramitesTotales(){
                     return xhr;
                 },
                 success: function (data) {
-                   console.log(data);
+                   (data);
                 },
                 error: function() {
                    // respuesta.html(msjError);

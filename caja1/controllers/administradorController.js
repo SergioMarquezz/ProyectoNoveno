@@ -30,7 +30,7 @@ function iniciarSession(){
             },
             success: function (response) {
               
-                console.log(response);
+                (response);
                 if(response == "Administrador"){
                     swal({
                         title: "Acceso correcto",
@@ -134,7 +134,7 @@ function enviarForms(){
                 },
                 success: function (data) {
                     var json = JSON.parse(data); 
-                    console.log(json);
+                    (json);
 
                     switch(json.result){
 

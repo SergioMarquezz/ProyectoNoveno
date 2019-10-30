@@ -4,7 +4,7 @@ $date =  date("d") . " / " . date("m") . " / " . date("Y");
 $year = date("Y");
 
 $fecha = date("d"). " / ". date("m"). " / ". date("Y");
-
+$fecha_for_year = date("Y"). "-". date("m"). "-". date("d");
 
 function fecha (){
 	//$dias = array("Lunes","Martes","Miercoles","Jueves","Viernes","Sábado","Domingo");

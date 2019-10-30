@@ -59,7 +59,7 @@ function studentsRegular(){
         },
         dataType: "json",
         success: function (response) {
-            console.log(response);
+            (response);
             table(response);
             $("#myInputAlumnos").val(response.students[0].matricula);
         }
@@ -106,7 +106,7 @@ function paymentHistory(){
 
                 if(json.history_payment == "sin adeudo"){
 
-                    console.log("no debe");
+                    ("no debe");
                 }
                 else{
 
@@ -127,7 +127,7 @@ function paymentHistory(){
 
 
                 /*var rows = json.history_payment.length;
-                console.log(rows);*/
+                (rows);*/
             }
         });
     });
@@ -216,7 +216,7 @@ function subjects(){
             },
             success: function (response) {
                 var json = JSON.parse(response);
-                console.log(json);
+                (json);
                 var row = json.subjects.length;
 
                 for(rows = 0; rows < row; rows++){
@@ -308,7 +308,7 @@ function savePaymentsManual(){
             },
             
             success: function (response) {
-                console.log(response);
+                (response);
                 var json = JSON.parse(response);
                 key_people = json.key_student; 
             }
@@ -387,7 +387,7 @@ function savePaymentsManual(){
 
                     },
                     success: function (response) {
-                        console.log(response);
+                        (response);
                         if(response == "save payment"){
                         
                             swal({
@@ -481,7 +481,7 @@ function searchStudentsData(){
                 "numero": total_cost
             },
             success: function (data) {
-                console.log(data);
+                (data);
                 
                 var str = data + " Pesos 00/100 M.N.";
                 var res = str.toUpperCase();

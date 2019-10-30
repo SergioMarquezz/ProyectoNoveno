@@ -23,7 +23,7 @@ function iniciarSessionAlumno(){
                 "opcion": "Alumno"
             },
             success: function (response) {
-                console.log(response);
+                (response);
 
                 if(response == "alumno"){
                     
@@ -66,7 +66,7 @@ function iniciarSessionAdmin(){
                 "opcion": "Admin"
             },
             success: function (response) {
-                console.log(response);
+                (response);
 
                 if(response == "Administrador"){
                      
@@ -152,10 +152,10 @@ function typeUser(){
         $("#recibo_pay").hide();
         $("#sucursales").hide();
         $("#students").hide();
-        $("#reports").hide();
         $("#mydata").hide();
         $("hr").hide();
         $("#usuarios").hide();
+        $("#report").hide();
     }
 
     else if(tipo_user == "alumno"){

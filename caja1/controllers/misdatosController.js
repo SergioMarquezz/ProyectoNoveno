@@ -28,7 +28,7 @@ $(document).ready(function () {
             success: function (response) {
 
                 var json = JSON.parse(response); 
-                console.log(json); 
+                (json); 
                 
 
                 //Aspirante
@@ -67,7 +67,7 @@ $(document).ready(function () {
                 //Administrador
                 else if(json.arreglo_datos.nombre != undefined){
 
-                    console.log("admin");
+                    ("admin");
                 }
 
                /* if(json.arreglo.name  === undefined  ){

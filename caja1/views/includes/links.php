@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="<?php echo SERVER;?>views/css/material-design-iconic-font.css"> <!--Estilos para alertas-->
 <link rel="stylesheet" href="<?php echo SERVER;?>views/css/styles.css"> <!--Estilos programador-->
 <link rel="stylesheet" href="<?php echo SERVER;?>views/css/select2.css"> <!--Estilos programador-->
+<link rel="stylesheet" href="<?php echo SERVER;?>views/css/bootstrap-datepicker.css"> 
 
 
 

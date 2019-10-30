@@ -114,7 +114,7 @@
            /* executeQuery("INSERT solicitud_documento
             VALUES('$guardados','$key_types_people','$key_peoples','$str_abonos','$periodo_activos','$pagos','$realizados','$re',1,'$str_abonos')");*/
 
-            executeQuery("INSERT INTO saiiut.saiiut.pagos_copy(cve_persona,cve_tipo_persona,cve_periodo,cve_concepto_pago,fecha,
+            executeQuery("INSERT INTO saiiut.saiiut.pagos(cve_persona,cve_tipo_persona,cve_periodo,cve_concepto_pago,fecha,
             referencia,referencia_completa,costo_unitario,abono,pago_realizado,fecha_guardado,lugar_pago,activo)
             VALUES('$key_peoples','$key_types_people','$periodo_activos','$pagos',
             '$dates','$referencias','$re','$str_abonos','$str_abonos','$realizados','$guardados','$paid_pagos',1)");
@@ -126,7 +126,7 @@
                 executeQuery("UPDATE solicitud_documento SET pago_realizado = 1
                 WHERE referencia = '$re'");
 
-                executeQuery("UPDATE saiiut.saiiut.pagos_copy SET cve_tipo_persona = '$key_types_people', cve_persona = '$key_peoples'
+                executeQuery("UPDATE saiiut.saiiut.pagos SET cve_tipo_persona = '$key_types_people', cve_persona = '$key_peoples'
                 WHERE referencia_completa = '$re'");
             }
         

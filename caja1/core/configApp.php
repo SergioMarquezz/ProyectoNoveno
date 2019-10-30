@@ -21,7 +21,6 @@
 
     
     //Constante para almacenar la informacion de la base de datos
-    //const SGBD = "Driver={SQL Server}; Server=".SERVER.";Database=".DATABASE.";Integrated Security=SSPI;Persist Security Info=False;";
     //$conne = "Driver={SQL Server}; Server=$server; Database=$database; Integrated Security=SSPI;Persist Security Info=False;";
    $connection = odbc_connect($conne, $user, $pass);
 

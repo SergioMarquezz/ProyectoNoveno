@@ -43,7 +43,7 @@ function selectConcepto(){
         dataType: "json",
         
         success: function (response) {
-            console.log(response);
+            (response);
 
           
             $.each(response.concepto, function (){ 
@@ -86,7 +86,7 @@ function conceptoUnico(){
         },
           dataType: "json",
           success: function (response) {
-              console.log(response);
+              (response);
              
          
 
@@ -109,7 +109,7 @@ function conceptoUnico(){
                         "numero": num
                     },
                     success: function (data) {
-                        console.log(data);
+                        (data);
                         
                         var str = data + " Pesos 00/100 M.N.";
                         var res = str.toUpperCase();
@@ -183,9 +183,9 @@ function enviarSolicitud(){
                             
             },
             success: function (response) {
-                console.log(response);
+                (response);
                  var json = JSON.parse(response); 
-                     console.log(json);
+                     (json);
 
                 switch(json.result){
 
@@ -275,7 +275,7 @@ function referencias(){
         dataType: "json",
         success: function (response) {
             
-            console.log(response);
+            (response);
 
             referencia.val(response.referencia.referencia);
         }

@@ -19,7 +19,7 @@ function selectBancos(){
         dataType: "json",
         
         success: function (response) {
-            console.log(response);
+            (response);
             $.each(response.bancos, function () { 
                  
                 $("#bancos").append("<option value="+this.cve_banco+">"+this.nombre_banco+"</option>");
@@ -52,7 +52,7 @@ function bankUnique(){
             dataType: "json",
             success: function (response) {
 
-                console.log(response);
+                (response);
                 abreviatura_banco.val(response.bank[0].abreviatura);
                 name_banco.val(response.bank[0].nombre_banco);
                 

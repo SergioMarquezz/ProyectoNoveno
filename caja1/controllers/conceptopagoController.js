@@ -46,7 +46,7 @@ function unicoConcepto(){
           },
             dataType: "json",
             success: function (response) {
-                console.log(response);
+                (response);
                 
                 costo.val(response.unicoconcepto[0].costo_unitario);
                 concepto.val(response.unicoconcepto[0].descripcion);
@@ -159,7 +159,7 @@ function saveConcepto(){
                 dataType: "json",
                 success: function (response){
 
-                    console.log(response);
+                    (response);
                     
                     switch(response.respuesta){
 
@@ -249,7 +249,7 @@ function actualizar(){
                     "texto": descripcion
                 },
                 success: function (response) {
-                    console.log(response);
+                    (response);
                     var json = JSON.parse(response);
                     
                     
@@ -360,10 +360,10 @@ function selectConceptos(){
         dataType: "json",
         
         success: function (response) {
-            console.log(response);
+            (response);
             $.each(response.pagoconcepto, function () { 
                  
-                $("#concepto-pago, #students-pagos").append("<option value="+this.cve_concepto+">"+this.descripcion+"</option>");
+                $("#concepto-pago, #students-pagos, #conceptos-report").append("<option value="+this.cve_concepto+">"+this.descripcion+"</option>");
             });
           
         }

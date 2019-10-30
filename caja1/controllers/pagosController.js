@@ -92,7 +92,7 @@ function saveData(){
                 processData: false,
                 cache: false, 
                 success: function (response) {
-                    console.log(response);
+                    (response);
                     var json = JSON.parse(response); 
                     
                     if(json.upload == true){
@@ -108,7 +108,7 @@ function saveData(){
                             processData: false,
                             cache: false, 
                             success: function (response) {
-                                console.log(response);
+                                (response);
             
                                 if(response == "Guardado"){
 
@@ -221,7 +221,7 @@ function seeData(){
            
         });
 
-        console.log(file_cvs);
+        (file_cvs);
         if(file_cvs == undefined){
 
             swal({
